@@ -1,6 +1,157 @@
+#bakgrunn {
+    background-color: #e5e5e5;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+#brukerId {
+    position: absolute;
+    width: fit-content;
+    height: 21px;
+    top: 18px;
+    right: 18px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+#menyvalg {
+    background-color: #393939;
+    position: absolute;
+    width: 186px;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+}
+
+#tittelValg {
+    position: relative;
+    width: fit-content;
+    top: 20px;
+    left: 20px;
+    color: #FFFFFF;
+    font-family: Verdana;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+#restaurantValg {
+    position: relative;
+    width: fit-content;
+    top: 20px;
+    left: 20px;
+    color: #FFFFFF;
+    font-family: Verdana;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+#menyValg {
+    position: relative;
+    width: fit-content;
+    top: 20px;
+    left: 20px;
+    color: #FFFFFF;
+    font-family: Verdana;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+#salgValg {
+    position: relative;
+    width: fit-content;
+    top: 20px;
+    left: 20px;
+    color: #FFFFFF;
+    font-family: Verdana;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
 #header {
     background-color: #90b045;
+    position: absolute;
     height: 128px;
-    width: 100vw;
-    border-radius: 0px;
+    width: auto;
+    top: 60px;
+    left: 186px;
+    right: 0px;
+}
+#restauranter {
+    position: relative;
+    color: #FFFFFF;
+    width: fit-content;
+    height: 30px;
+    top: 10px;
+    left: 21px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: 500;
+    margin: 0px;
+}
+
+#box {
+    background-color: #FFFFFF;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 119px;
+    left: 207px;
+    right: 21px;
+    bottom: 21px;
+    border-radius: 6px;
+}
+
+#resbilde1 {
+    background-color: #C4C4C4;
+    position: relative;
+    top: 25px;
+    left: 60px;
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
+}
+
+#resbilde2 {
+    background-color: #C4C4C4;
+    position: relative;
+    top: 50px;
+    left: 60px;
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
+}
+
+#resbilde3 {
+    background-color: #C4C4C4;
+    position: relative;
+    top: 75px;
+    left: 60px;
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
+}
+
+#resbilde4 {
+    background-color: #C4C4C4;
+    position: relative;
+    top: 100px;
+    left: 60px;
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
 }
