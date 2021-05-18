@@ -5,10 +5,10 @@ const Users = (function(){
         {name: "", email: "", phone: "", location: "", picture: "", workplace: ""},
         {name: "", email: "", phone: "", location: "", picture: "", workplace: ""},
         {name: "", email: "", phone: "", location: "", picture: "", workplace: ""},
-        {name: "", email: "", phone: "", location: "", picture: "", workplace: ""},
+        {name: "", email: "", phone: "", location: "", picture: "", workplace: ""}
     ];
 
-    const getAll = () => warriorTypeArray;
+    const getAll = () => usersArray;
 
     const getByName = ( name ) => {
         return usersArray.filter( userObject => userObject.name === name);
@@ -24,4 +24,4 @@ const Users = (function(){
     }
     return {getAll, getByName, getByEmail, getByPhone, getByWorkplace};
  }());
- export default WarriorTypeModule;
+ export default Users;
