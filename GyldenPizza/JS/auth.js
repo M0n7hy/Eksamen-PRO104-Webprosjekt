@@ -16,7 +16,7 @@ let runCheck = () => {
                 localStorage.setItem("workplace", userObject.workplace);
             });
         }
-		location.replace("main.html");
+		location.href = "main.html";
     });
 };
 click.onclick = runCheck;
