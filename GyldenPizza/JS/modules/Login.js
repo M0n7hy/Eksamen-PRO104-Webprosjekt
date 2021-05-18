@@ -1,11 +1,10 @@
 const UsersLogin = (function(){
     const usersLoginArray = [
         {position: "admin", email: "admin", password: "admin"},
-        {position: "", email: "", password: ""},
-        {position: "", email: "", password: ""},
-        {position: "", email: "", password: ""}
+        {position: "manager", email: "manager1", password: "manager"},
+        {position: "manager", email: "manager2", password: "manager"},
+        {position: "manager", email: "manager3", password: "manager"}
     ];
-
     const getAll = () => usersLoginArray;
 
     const getByPosition = ( position ) => {
@@ -17,7 +16,6 @@ const UsersLogin = (function(){
     const getByPassword = (password) => {
         return usersLoginArray.filter(userLoginObject => userLoginObject.password === password);
     }
-
     return {getAll, getByPosition, getByEmail, getByPassword};
- }());
- export default Login;
+}());
+ export default UsersLogin;
