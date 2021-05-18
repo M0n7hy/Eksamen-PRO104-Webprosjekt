@@ -12,6 +12,7 @@ let runCheck = () => {
             localStorage.setItem("level", loginObject.position);
             console.log(localStorage);
             Users.getByEmail(usernameDiv).forEach(userObject => {
+        
                 localStorage.setItem("name", userObject.name);
                 localStorage.setItem("workplace", userObject.workplace);
             });

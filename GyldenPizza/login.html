@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="CSS/stylesLogin.css">
+    <script type="module" src="/GyldenPizza/JS/auth.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -13,27 +14,25 @@
             <div class="title">
                 Login til Gylden Pizza
             </div>
-            <form method="post" action="main.html" onsubmit="return validation();">
+            <div method="post">
                 <div class="input_wrap">
                     <label for="input_text">Brukernavn</label>
                     <div class="input_field">
-                        <input type="text" class="input" id="input_text">
+                        <input type="text" class="input" id="input-username">
                     </div>
                 </div>
                 <div class="input_wrap">
                     <label for="input_password">Passord</label>
                     <div class="input_field">
-                        <input type="password" class="input" id="input_password">
+                        <input type="password" class="input" id="input-password">
                     </div>
                 </div>
                 <div class="input_wrap">
                     <span class="error_msg">Feil brukernavn eller passord. Prøv igjen.</span>
-                    <input type="submit" id="login_btn" class="btn disabled" value="Login" disabled="true">
+                    <input type="submit" class="btn disabled" value="Login" id="click">
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-    
-    <script src="JS/auth.js"></script>
 </body>
 </html>
