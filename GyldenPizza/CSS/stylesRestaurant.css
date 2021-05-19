@@ -42,6 +42,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
+    text-decoration: none;
 }
 
 #restaurantValg {
@@ -55,6 +56,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
+    text-decoration: none;
 }
 
 #menyValg {
@@ -68,6 +70,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
+    text-decoration: none;
 }
 
 #salgValg {
@@ -81,6 +84,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
+    text-decoration: none;
 }
 
 #header {
@@ -105,7 +109,7 @@
     margin: 0px;
 }
 
-#box {
+#infobox {
     background-color: #FFFFFF;
     position: absolute;
     width: auto;
@@ -127,6 +131,25 @@
     border-radius: 30px;
 }
 
+#frogner {
+    font-family: Verdana;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+#txtBox1 {
+    position: absolute;
+    top: 5px;
+    left: 391px;
+    height: 58px;
+    width: auto;
+    font-family: Verdana;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+}
+
 #resbilde2 {
     background-color: #C4C4C4;
     position: relative;
@@ -135,6 +158,25 @@
     width: 180px;
     height: 180px;
     border-radius: 30px;
+}
+
+#grünerløkka {
+    font-family: Verdana;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+#txtBox2 {
+    position: absolute;
+    top: 215px;
+    left: 391px;
+    height: 58px;
+    width: auto;
+    font-family: Verdana;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 #resbilde3 {
@@ -147,6 +189,25 @@
     border-radius: 30px;
 }
 
+#bygdøy {
+    font-family: Verdana;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+#txtBox3 {
+    position: absolute;
+    top: 420px;
+    left: 391px;
+    height: 58px;
+    width: auto;
+    font-family: Verdana;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+}
+
 #resbilde4 {
     background-color: #C4C4C4;
     position: relative;
@@ -155,4 +216,23 @@
     width: 180px;
     height: 180px;
     border-radius: 30px;
+}
+
+#akerBrygge {
+    font-family: Verdana;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+#txtBox4 {
+    position: absolute;
+    top: 625px;
+    left: 391px;
+    height: 58px;
+    width: auto;
+    font-family: Verdana;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
 }
