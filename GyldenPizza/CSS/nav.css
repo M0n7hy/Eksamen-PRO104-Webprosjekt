@@ -26,7 +26,7 @@ html, body {
 .item{
     width: 30%;
     height: 3%;
-    margin-top: 40%;
+    margin-top: 60%;
     background-color: rgba(61, 172, 56, 1);
     transition: 0.3s;
 }
