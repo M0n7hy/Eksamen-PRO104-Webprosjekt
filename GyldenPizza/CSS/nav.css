@@ -27,9 +27,7 @@ html, body {
     width: 30%;
     height: 3%;
     margin-top: 60%;
-    background-color: #90B045;
     transition: 0.3s;   
-    border-radius: 100%;
 }
 .logout{
     margin-top: 40%;
