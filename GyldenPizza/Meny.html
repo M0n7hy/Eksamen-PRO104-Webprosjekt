@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="JS/Meny.js"></script>
+    <script src="JS/loginVerify.js"></script>
     <link rel="stylesheet" href="CSS/nav.css">
     <title>Meny</title>
 <style>
 h1{
     border-bottom: 3px solid black;
     border-collapse: separate;
-    border-spacing: 10099995px;
+    width: 25%;
     text-align: center;
-    font-size:250%;
+    font-size:350%;
+    padding-bottom: 1%;
 }
 #pic-pizza {
     width: 100%;
@@ -42,20 +44,39 @@ h1{
     margin-left: auto;
     margin-right: auto;
 }
+.header-container{
+    display: flex;
+    justify-content:center;
+    width: 100%;
+}
 </style>
 </head>
 <body>
     <div class="container">
         <div class="menu-container">
-            <img alt="logout" id="logout-div" src="/GyldenPizza/resources/images-nav/power-24.png" width="30%" height="3%" class="logout item" onclick="logout()">
-            <img alt="home" href="Main.html" src="/GyldenPizza/resources/images-nav/home-4-32.png" width="30%" height="3%" class="home item">
-            <img alt="sale" href="" src="/GyldenPizza/resources/images-nav/document-2-32.png" width="30%" height="3%" class="sale item">
-            <img alt="resturants" href="Restaurant.html" src="/GyldenPizza/resources/images-nav/bookmark-6-32.png" width="30%" height="3%" class="resturants item">
-            <img alt="menu" href="Meny.html" src="/GyldenPizza/resources/images-nav/pizza-24.png" width="30%" height="3%" class="menu item">
-            <img alt="settings" href=""  src="" width="30%" height="3%" class="settings item">
+            <a class="img-wrap logout">
+                <img alt="logout" id="logout-div" src="/GyldenPizza/resources/images-nav/power-24.png" width="30%" height="3%" class="item" onclick="logout()">
+            </a>
+            <a href="Main.html" class="img-wrap">
+                <img alt="home"  src="/GyldenPizza/resources/images-nav/home-4-32.png" width="30%" height="3%" class="home item">
+            </a>
+            <a href="" class="img-wrap">
+                <img alt="sale" src="/GyldenPizza/resources/images-nav/document-2-32.png" width="30%" height="3%" class="sale item">
+            </a>
+            <a href="Restaurant.html" class="img-wrap">
+                <img alt="resturants"  src="/GyldenPizza/resources/images-nav/bookmark-6-32.png" width="30%" height="3%" class="resturants item">
+            </a>
+            <a href="Meny.html" class="img-wrap">
+                <img alt="menu"  src="/GyldenPizza/resources/images-nav/pizza-24.png" width="30%" height="3%" class="menu item">
+            </a>
+            <a href="" class="img-wrap">
+                <img alt="settings" src="" width="30%" height="3%" class="settings item">
+            </a>
         </div>
         <div class="box">
-            <h1>Meny</h1>
+            <div class="header-container">
+                <h1>Meny</h1>
+            </div>
             <div id="print-menu">
                 <div id="print-menu-pizza" class="flexContainer"></div>
                 <div id="print-menu-drinks"></div>
