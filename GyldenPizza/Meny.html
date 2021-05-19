@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="JS/Meny.js"></script>
+    <link rel="stylesheet" href="CSS/nav.css">
     <title>Meny</title>
 <style>
 h1{
     text-align: center;
+}
+
+#print-menu{
+    
 }
 #pic-pizza {
     width: 100%;
@@ -40,10 +45,25 @@ h1{
 </style>
 </head>
 <body>
-    <h1>Meny</h1>
-    <div id="print-menu">
-        <div id="print-menu-pizza" class="flexContainer"></div>
-        <div id="print-menu-drinks"></div>
+    <div class="container">
+        <div class="menu-container">
+            <a id="logout-div" class="logout item" onclick="logout()"></a>
+            <a href="Main.html" class="home item"></a>
+            <a href="" class="sale item"></a>
+            <a href="Restaurant.html" class="resturants item"></a>
+            <a href="Meny.html" class="menu item"></a>
+            <a href="" class="settings item"></a>
+        </div>
+        <div class="box">
+            <h1>Meny</h1>
+            <div id="print-menu">
+                <div id="print-menu-pizza" class="flexContainer"></div>
+                <div id="print-menu-drinks"></div>
+            </div>
+        </div>
     </div>
+    <script src="JS/logout.js"></script>
+
+
 </body>
 </html>

@@ -1,5 +1,9 @@
 html, body {
     height: 100%; width: 100%; margin: 0; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
 }
 .container{
     display: flex;
@@ -8,9 +12,12 @@ html, body {
     height: 100%;
     background-color: rgba(11, 0, 65, 1);
     align-items: center;
+    overflow-y: hidden;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 .menu-container{
-    width: 7%;
+    width: 5%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -18,7 +25,7 @@ html, body {
 }
 .item{
     width: 30%;
-    height: 3.5%;
+    height: 3%;
     margin-top: 40%;
     background-color: rgba(61, 172, 56, 1);
     transition: 0.3s;
@@ -28,12 +35,16 @@ html, body {
     margin-bottom: 100%;
 }
 .box{
-    width: 94.6%;
-    height: 99%;
+    width: 95%;
+    height: 99.5%;
     background-color: aliceblue;
-    border-radius: 1%;
-
+    border-radius: 2% 0% 0% 0%;
+    overflow-y:auto;
+ 
 }
+.box::-webkit-scrollbar {
+    display:none;
+  }
 .item:hover{
     transform: scale(1.1);
 }
