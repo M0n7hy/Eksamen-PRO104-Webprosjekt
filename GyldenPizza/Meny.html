@@ -6,9 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="JS/Meny.js"></script>
     <title>Meny</title>
+<style>
+h1{
+    text-align: center;
+}
+#pic-pizza {
+    width: 100%;
+    background-color: darkblue;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#element {
+    margin: auto;
+    width: 33%;
+    text-align: center;
+}
+.flexContainer {
+    justify-content: center;
+    display: flex;
+    flex-flow: row wrap;    
+}
+#print-menu-drinks {
+    display: flex;
+    flex-flow: row;
+}
+#pic-soda {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
 </head>
 <body>
+    <h1>Meny</h1>
     <div id="print-menu">
+        <div id="print-menu-pizza" class="flexContainer"></div>
+        <div id="print-menu-drinks"></div>
     </div>
 </body>
 </html>
