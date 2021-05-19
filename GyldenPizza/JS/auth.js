@@ -1,7 +1,6 @@
 import UsersLogin from './modules/Login.js';
 import Users from './modules/Users.js';
 let click = document.getElementById("click");
-let out = document.getElementById("output");
 
 console.log(localStorage);
 let runCheck = () => {
@@ -14,9 +13,9 @@ let runCheck = () => {
             Users.getByEmail(usernameDiv).forEach(userObject => {
                 localStorage.setItem("name", userObject.name);
                 localStorage.setItem("workplace", userObject.workplace);
+				location.href = "main.html";
             });
         }
-		location.href = "main.html";
     });
 };
 click.onclick = runCheck;
