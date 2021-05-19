@@ -18,4 +18,4 @@ const UsersLogin = (function(){
     }
     return {getAll, getByPosition, getByEmail, getByPassword};
 }());
- export default UsersLogin;
+export default UsersLogin;
