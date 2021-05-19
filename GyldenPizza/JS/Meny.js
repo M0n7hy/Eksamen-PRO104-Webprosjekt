@@ -22,9 +22,11 @@ let printMenuPizza = () => {
 let printMenuDrinks = () => {
     pizzaMenu.getAllDrinks().forEach(drinkObject => {
         menuPrintDrinkDiv.innerHTML +=
-            `<h2>${drinkObject.name}</h2>
-            <h3>${drinkObject.price}kr</h3>
-            <img id="pic-soda" src="resources/images-soda/${drinkObject.img}">`;
+            `<div id="element">
+                <h2>${drinkObject.name}</h2>
+                <h3>${drinkObject.price}kr</h3>
+                <img id="pic-soda" src="resources/images-soda/${drinkObject.img}">
+            </div>`;
     })
 }
 
