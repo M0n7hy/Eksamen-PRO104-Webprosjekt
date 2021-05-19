@@ -4,7 +4,7 @@ const pizzaMenu = (function() {
     const pizzaArray = [
         { id: 0, name:"Classic Margarita", price: 120, profit:60, img:"Margarita.jpg", allergies: "Gulten, Milk"},
         { id: 1, name:"Pepperoni Pizza", price: 140, profit:70, img:"Pepperoni.jpg", allergies:"Gluten, Milk"},
-        { id: 2, name:"Kebaba Pizza", price: 150, profit:75, img:"Kebab.jpg", allergies:"Gluten, Milk"},
+        { id: 2, name:"Kebab Pizza", price: 150, profit:75, img:"Kebab.jpg", allergies:"Gluten, Milk"},
         { id: 3, name:"Taco Pizza", price:150, profit:70, img:"Tacopizza.jpg", allergies:"Gluten, Milk"},
         { id: 4, name:"Pizza Parma", price:135, profit:80, img:"Parma.jpg", allergies:"Gluten, Milk"},
         { id: 5, name:"Pizza Pollo", price:145, profit:70, img:"Pollo.jpg", allergies:"Gluten, Milk"},

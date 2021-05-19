@@ -15,6 +15,9 @@ let printMenuPizza = () => {
                 <h2>${pizzaObject.name}</h2>
                 <h3>${pizzaObject.price}kr</h3>
                 <img id="pic-pizza" src="resources/images-pizza/${pizzaObject.img}">
+                <h3>Size</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="test">Allergies: ${pizzaObject.allergies}</p>
             </div>`;
     });
 }
