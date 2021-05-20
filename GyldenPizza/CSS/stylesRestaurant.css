@@ -13,45 +13,7 @@
 justify-content: flex-start;
 }
 
-#brukerId {
-    position: absolute;
-    width: fit-content;
-    height: 21px;
-    top: 18px;
-    right: 18px;
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    margin: 0px;
-}
-
-#header {
-    background-color: #90b045;
-    position: absolute;
-    height: 128px;
-    width: auto;
-    top: 60px;
-    left: 186px;
-    right: 0px;
-}
-
-#restauranter {
-    position: relative;
-    color: #FFFFFF;
-    width: fit-content;
-    height: 30px;
-    top: 10px;
-    left: 21px;
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: 500;
-    margin: 0px;
-}
-
 #infobox {
-    background-color: #FFFFFF;
-    background: linear-gradient(180deg, #F6FAFD 0%, rgba(246, 250, 253, 0.0833333) 0.01%, rgba(255, 255, 255, 0) 100%), #F6FAFD;
     position: absolute;
     width: auto;
     height: auto;
