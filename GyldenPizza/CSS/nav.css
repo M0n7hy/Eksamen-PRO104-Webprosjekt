@@ -29,8 +29,7 @@ html, body {
     transition: 0.3s;   
 }
 .logout{
-    margin-top: 40%;
-    margin-bottom: 100%;
+    margin-top: 800%;
 }
 .box{
     width: 95%;
@@ -48,6 +47,6 @@ html, body {
 }
 .img-wrap{
     width: 30%;
-    height: 3%;
+    height: 2%;
     margin-top: 60%;
 }

@@ -19,3 +19,9 @@ let runCheck = () => {
     });
 };
 click.onclick = runCheck;
+document.getElementById("input-password").addEventListener('keypress', (event) => {
+	var name = event.key;
+	if (name == "Enter") {
+		runCheck();
+	}
+  });
