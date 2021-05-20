@@ -24,4 +24,4 @@ document.getElementById("input-password").addEventListener('keypress', (event) =
 	if (name == "Enter") {
 		runCheck();
 	}
-  });
+});

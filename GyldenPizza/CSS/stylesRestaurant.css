@@ -9,6 +9,10 @@
     bottom: 0px;
 }
 
+.container {
+justify-content: flex-start;
+}
+
 #brukerId {
     position: absolute;
     width: fit-content;
@@ -22,71 +26,6 @@
     margin: 0px;
 }
 
-#menyvalg {
-    background-color: #393939;
-    position: absolute;
-    width: 186px;
-    height: 100vh;
-    left: 0px;
-    top: 0px;
-}
-
-#tittelValg {
-    position: relative;
-    width: fit-content;
-    top: 20px;
-    left: 20px;
-    color: #FFFFFF;
-    font-family: Verdana;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    text-decoration: none;
-}
-
-#restaurantValg {
-    position: relative;
-    width: fit-content;
-    top: 20px;
-    left: 20px;
-    color: #FFFFFF;
-    font-family: Verdana;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    text-decoration: none;
-}
-
-#menyValg {
-    position: relative;
-    width: fit-content;
-    top: 20px;
-    left: 20px;
-    color: #FFFFFF;
-    font-family: Verdana;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    text-decoration: none;
-}
-
-#salgValg {
-    position: relative;
-    width: fit-content;
-    top: 20px;
-    left: 20px;
-    color: #FFFFFF;
-    font-family: Verdana;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    text-decoration: none;
-}
-
 #header {
     background-color: #90b045;
     position: absolute;
@@ -96,6 +35,7 @@
     left: 186px;
     right: 0px;
 }
+
 #restauranter {
     position: relative;
     color: #FFFFFF;
@@ -111,17 +51,18 @@
 
 #infobox {
     background-color: #FFFFFF;
+    background: linear-gradient(180deg, #F6FAFD 0%, rgba(246, 250, 253, 0.0833333) 0.01%, rgba(255, 255, 255, 0) 100%), #F6FAFD;
     position: absolute;
     width: auto;
     height: auto;
-    top: 119px;
-    left: 207px;
-    right: 21px;
-    bottom: 21px;
+    top: 10px;
+    left: 84px;
+    right: 10px;
+    bottom: 10px;
     border-radius: 6px;
 }
 
-#resbilde1 {
+#resbilde0 {
     background-color: #C4C4C4;
     position: relative;
     top: 25px;
@@ -138,7 +79,7 @@
     line-height: 23px;
 }
 
-#txtBox1 {
+#txtBox0 {
     position: absolute;
     top: 5px;
     left: 391px;
@@ -150,7 +91,7 @@
     line-height: 16px;
 }
 
-#resbilde2 {
+#resbilde1 {
     background-color: #C4C4C4;
     position: relative;
     top: 50px;
@@ -167,7 +108,7 @@
     line-height: 23px;
 }
 
-#txtBox2 {
+#txtBox1 {
     position: absolute;
     top: 215px;
     left: 391px;
@@ -179,7 +120,7 @@
     line-height: 16px;
 }
 
-#resbilde3 {
+#resbilde2 {
     background-color: #C4C4C4;
     position: relative;
     top: 75px;
@@ -196,7 +137,7 @@
     line-height: 23px;
 }
 
-#txtBox3 {
+#txtBox2 {
     position: absolute;
     top: 420px;
     left: 391px;
@@ -208,7 +149,7 @@
     line-height: 16px;
 }
 
-#resbilde4 {
+#resbilde3 {
     background-color: #C4C4C4;
     position: relative;
     top: 100px;
@@ -225,7 +166,7 @@
     line-height: 23px;
 }
 
-#txtBox4 {
+#txtBox3 {
     position: absolute;
     top: 625px;
     left: 391px;

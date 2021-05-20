@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="CSS/nav.css">
-    <link rel="stylesheet" href="CSS/stylesRestaurant.css">
-    <script type="module", src="JS/restaurantUtskrift.js"></script>
-    <title>Restauranter</title>
+    <link rel="stylesheet" href="CSS/logout.css">
+
 </head>
 <body>
     <div class="container">
         <div class="menu-container">
-            <a class="img-wrap logout">
-                <img alt="logout" id="logout-div" src="/GyldenPizza/resources/images-nav/power-24.png" width="30%" height="3%" class="item" onclick="logout()">
-            </a>
+
             <a href="Main.html" class="img-wrap">
                 <img alt="home"  src="/GyldenPizza/resources/images-nav/home-4-32.png" width="30%" height="3%" class="home item">
             </a>
@@ -27,11 +25,23 @@
             <a href="Meny.html" class="img-wrap">
                 <img alt="menu"  src="/GyldenPizza/resources/images-nav/pizza-24.png" width="30%" height="3%" class="menu item">
             </a>
-            <a href="" class="img-wrap">
-                <img alt="settings" src="" width="30%" height="3%" class="settings item">
+            <a class="logout img-wrap" href="logout.html">
+                <img alt="logout" id="logout-div" src="/GyldenPizza/resources/images-nav/power-24.png" width="30%" height="3%" class="item">
             </a>
         </div>
-        <div id="infobox"></div>
+        <div class="box">
+            <div class="site-container">
+                <div id="name-div" class="name"></div>
+                <div class="warning">Er du sikker på at du vil logge ut?</div>
+                <div class="options">
+                    <a class="no option" onclick="cancel()">no</a>
+                    <a class="yes option" href="login.html"  onclick="logout()">yes</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="JS/logout.js"></script>
+
 </body>
 </html>
