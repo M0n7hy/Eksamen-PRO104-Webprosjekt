@@ -2,7 +2,7 @@ const Users = (function(){
     const usersArray = [
         {name: "sigve", email: "admin", phone: "97890994", location: "norge", picture: "", workplace: "all"},
         {name: "sanosh", email: "manager1", phone: "2344354", location: "norge", picture: "", workplace: "drammen"},
-        {name: "", email: "", phone: "", location: "", picture: "", workplace: ""},
+        {name: "sondre", email: "manager2", phone: "97546848", location: "norge", picture: "", workplace: "alesund"},
         {name: "", email: "", phone: "", location: "", picture: "", workplace: ""},
         {name: "", email: "", phone: "", location: "", picture: "", workplace: ""},
         {name: "", email: "", phone: "", location: "", picture: "", workplace: ""}
