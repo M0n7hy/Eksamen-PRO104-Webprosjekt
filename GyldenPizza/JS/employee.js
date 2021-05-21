@@ -8,7 +8,7 @@ let printEmployees = () => {
     Users.getAll().forEach(user => {
         usersOutput.innerHTML +=
             `
-            <div class="users-div span-1-of-3">
+            <div class="users-div span-1-of-4">
                 <div class="name">${user.name}</div>
                 <img style="width: 100%" src="${user.picture}" alt="">
                 <div class="email info">Email: ${user.email}</div>
@@ -27,7 +27,7 @@ search.addEventListener('input', (event) =>{
     
     filtered.forEach(user => {
         usersOutput.innerHTML += `
-            <div class="users-div">
+            <div class="users-div span-1-of-4">
                 <div class="test">
                     <div class="name">${user.name}</div>
                     <img style="width: 100%" src="${user.picture}" alt="">
