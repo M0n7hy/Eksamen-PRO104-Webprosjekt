@@ -3,16 +3,14 @@ let userCount = document.getElementById("number-of-users");
 let search = document.getElementById("search");
 let usersOutput = document.getElementById("users-output");
 //count.innerHTML = Users.getAll.length + 1;
-function test(){
-    alert("hei");
-}
+
 let printEmployees = () => {
     let count = 0;
   
     Users.getAll().forEach(user => {
         usersOutput.innerHTML +=
             `
-            <div class="users-div span-1-of-4" onclick="test()">
+            <div id="${user.id}" class="users-div span-1-of-4">
                 <div class="name">${user.name}</div>
                 <img style="width: 100%" src="${user.picture}" alt="">
                 <div class="email info">Email: ${user.email}</div>
@@ -21,6 +19,14 @@ let printEmployees = () => {
                 <div class="workplace info">Arbeidsplass: ${user.workplace}</div>
             </div>`;
             count++;
+    });
+
+    Users.getAll().forEach(user =>{
+        document.getElementById(`${user.id}`).addEventListener("click", printTest);
+
+        function printTest() {
+            alert(`Hei, ${user.name}. Ditt telefonnr er ${user.phone} og Sigve suger!`);
+        }
     });
     userCount.innerHTML = `${count} ansatte`;
 }
