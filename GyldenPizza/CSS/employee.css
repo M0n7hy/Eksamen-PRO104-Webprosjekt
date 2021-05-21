@@ -66,3 +66,6 @@ img{
     font-size: 120%;
     font-weight: 550;
 }
+.popup{
+    position: absolute;
+}
