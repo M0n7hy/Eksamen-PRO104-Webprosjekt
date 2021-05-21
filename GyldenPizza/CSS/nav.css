@@ -43,8 +43,7 @@ html, body {
     background-color: aliceblue;
     border-radius: 1% 0% 0% 0%;
     overflow-y:auto;
-    object-fit: cover;   
-    
+    object-fit: cover;
 }
 .box::-webkit-scrollbar {
     display:none;
