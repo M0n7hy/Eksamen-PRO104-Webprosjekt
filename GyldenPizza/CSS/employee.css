@@ -1,10 +1,9 @@
 .user-site-cointainer{
     display: flex;
     justify-content: center;
-    
 }
 .users-output{
-    display: flex; 
+    display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
@@ -17,8 +16,7 @@
     border-radius: 2%;
     transition: 0.2s;
     border: 2px solid rgba(24, 30, 69, 1);
-    max-width: 25%;
-    width: 25%;
+    width: 20%;
     height: auto;
   }
 .name{
