@@ -28,12 +28,14 @@ search.addEventListener('input', (event) =>{
     filtered.forEach(user => {
         usersOutput.innerHTML += `
             <div class="users-div">
-            <div class="name">${user.name}</div>
-            <img style="width: 100%" src="${user.picture}" alt="">
-            <div class="email info">Email: ${user.email}</div>
-            <div class="phone info">Tlf: ${user.phone}</div>
-            <div class="location info">Hjem: ${user.location}</div>
-            <div class="workplace info">Arbeidsplass: ${user.workplace}</div>
+                <div class="test">
+                    <div class="name">${user.name}</div>
+                    <img style="width: 100%" src="${user.picture}" alt="">
+                    <div class="email info">Email: ${user.email}</div>
+                    <div class="phone info">Tlf: ${user.phone}</div>
+                    <div class="location info">Hjem: ${user.location}</div>
+                    <div class="workplace info">Arbeidsplass: ${user.workplace}</div>
+                </div>
             </div>
         `;
         
