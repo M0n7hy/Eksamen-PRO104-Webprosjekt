@@ -15,8 +15,15 @@ let printMenuPizza = () => {
                 <h2>${pizzaObject.name}</h2>
                 <h3>${pizzaObject.price}kr</h3>
                 <img id="pic-pizza" src="resources/images-pizza/${pizzaObject.img}">
-                <p class="sizeEl">Size</p>
-                <div class="arrow"></div>
+                <div class="sizeContainer">
+                    <div class="size-dropdown">
+                        <p class="sizeEl">Size</p>
+                        <div class="arrow"></div>
+                        <div class="alternatives">
+                            <a></a>
+                        </div>
+                    </div>
+                </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p class="test">Allergies: ${pizzaObject.allergies}</p>
             </div>`;
