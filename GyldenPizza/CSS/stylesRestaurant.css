@@ -13,11 +13,29 @@
 justify-content: flex-start;
 }
 
+#tittel {
+    position: relative;
+    top: -10px;
+    left: 60px;
+    font-family: verdana;
+    width: fit-content;
+    height: fit-content;
+}
+
+#tittel2 {
+    position: relative;
+    top: -70px;
+    left: 390px;
+    font-family: verdana;
+    width: fit-content;
+    height: fit-content;
+}
+
 #infobox {
     position: absolute;
     width: auto;
     height: auto;
-    top: 10px;
+    top: 50px;
     left: 84px;
     right: 10px;
     bottom: 10px;
@@ -27,7 +45,7 @@ justify-content: flex-start;
 #resbilde0 {
     background-color: #C4C4C4;
     position: relative;
-    top: 25px;
+    top: -25px;
     left: 60px;
     width: 180px;
     height: 180px;
@@ -43,7 +61,7 @@ justify-content: flex-start;
 
 #txtBox0 {
     position: absolute;
-    top: 5px;
+    top: 90px;
     left: 391px;
     height: 58px;
     width: auto;
@@ -51,12 +69,13 @@ justify-content: flex-start;
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
+    min-width: 710px;
 }
 
 #resbilde1 {
     background-color: #C4C4C4;
     position: relative;
-    top: 50px;
+    top: 0px;
     left: 60px;
     width: 180px;
     height: 180px;
@@ -72,7 +91,7 @@ justify-content: flex-start;
 
 #txtBox1 {
     position: absolute;
-    top: 215px;
+    top: 295px;
     left: 391px;
     height: 58px;
     width: auto;
@@ -80,12 +99,13 @@ justify-content: flex-start;
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
+    min-width: 710px;
 }
 
 #resbilde2 {
     background-color: #C4C4C4;
     position: relative;
-    top: 75px;
+    top: 25px;
     left: 60px;
     width: 180px;
     height: 180px;
@@ -101,7 +121,7 @@ justify-content: flex-start;
 
 #txtBox2 {
     position: absolute;
-    top: 420px;
+    top: 500px;
     left: 391px;
     height: 58px;
     width: auto;
@@ -109,12 +129,13 @@ justify-content: flex-start;
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
+    min-width: 710px;
 }
 
 #resbilde3 {
     background-color: #C4C4C4;
     position: relative;
-    top: 100px;
+    top: 50px;
     left: 60px;
     width: 180px;
     height: 180px;
@@ -130,7 +151,7 @@ justify-content: flex-start;
 
 #txtBox3 {
     position: absolute;
-    top: 625px;
+    top: 705px;
     left: 391px;
     height: 58px;
     width: auto;
@@ -138,4 +159,5 @@ justify-content: flex-start;
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
+    min-width: 710px;
 }
