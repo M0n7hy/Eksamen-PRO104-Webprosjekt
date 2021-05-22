@@ -3,6 +3,7 @@ let userCount = document.getElementById("number-of-users");
 let search = document.getElementById("search");
 let usersOutput = document.getElementById("users-output");
 let pickedUser = document.getElementById("picked-user");
+let backgroundPicked = document.getElementById("background-picked");
 let imageDiv = document.getElementById("image");
 
 
@@ -12,7 +13,7 @@ let printEmployees = () => {
     Users.getAll().forEach(user => {
         usersOutput.innerHTML +=
             `
-            <div id="${user.id}" class="users-div span-1-of-4" onclick="test(${user.id})">
+            <div id="${user.id}" class="users-div span-1-of-4" onclick="getPerson(${user.id})">
                 <div class="name">${user.name}</div>
                 <img style="width: 100%" src="${user.picture}" alt="">
                 <div class="email info">Email: ${user.email}</div>
@@ -32,7 +33,7 @@ search.addEventListener('input', (event) =>{
     filtered.forEach(user => {
         
         usersOutput.innerHTML +=`
-            <div id="${user.id}" class="users-div span-1-of-4" onclick="test(${user.id})">
+            <div id="${user.id}" class="users-div span-1-of-4" onclick="getPerson(${user.id})">
                 <div class="name">${user.name}</div>
                 <img style="width: 100%" src="${user.picture}" alt="">
                 <div class="email info">Email: ${user.email}</div>
@@ -43,14 +44,13 @@ search.addEventListener('input', (event) =>{
    
     });
 })
-window.test = (id)=> {
+window.getPerson = (id)=> {
     let objectId = id.id;
     console.log(objectId);
     console.log(Users.getById(objectId));
     localStorage.setItem("id", objectId);
     Users.getById(objectId).forEach(user => {
-        pickedUser.innerHTML =
-        `
+        pickedUser.innerHTML =`
             <div id="image" onclick="closeWindow()">
                 <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
             </div>
@@ -62,10 +62,12 @@ window.test = (id)=> {
             <div class="info-popup popup-item">${user.info}</div>
         `;
         pickedUser.style.display = "block";
-
+        backgroundPicked.style.display = "block"
     });
 };
 printEmployees();
 window.closeWindow = ()=>{
     pickedUser.style.display = "none";
+    backgroundPicked.style.display = "none"
+
 };
