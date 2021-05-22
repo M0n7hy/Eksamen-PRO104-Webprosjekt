@@ -66,6 +66,33 @@ img{
     font-size: 120%;
     font-weight: 550;
 }
-.popup{
+#picked-user{
     position: absolute;
+    width: 30%;
+    height: auto;
+    background-color: #90B045;
+    top: 35%;
+    left: 35%;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+}
+.popup-item{
+    margin-top: 4%;
+    font-size: 120%;
+    font-weight: bold;
+    color: rgba(24, 30, 69, 0.8);
+}
+.name-popup{
+    font-size: 200%;
+}
+.phone-popup{
+    font-size: 130%;
+}
+#image{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    width: 4%;
+    height: auto;
 }
