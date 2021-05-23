@@ -4,7 +4,6 @@ let search = document.getElementById("search");
 let usersOutput = document.getElementById("users-output");
 let pickedUser = document.getElementById("picked-user");
 let backgroundPicked = document.getElementById("background-picked");
-let imageDiv = document.getElementById("image");
 
 
 let printEmployees = () => {
@@ -69,5 +68,4 @@ printEmployees();
 window.closeWindow = ()=>{
     pickedUser.style.display = "none";
     backgroundPicked.style.display = "none"
-
 };
