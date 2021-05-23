@@ -111,4 +111,15 @@ img{
     display: none;
     top: 0%;
 }
+#add-user-popup{
+    position: absolute;
+    width: 30%;
+    height: auto;
+    background-color: #90B045;
+    top: 25%;
+    left: 35%;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+}
 

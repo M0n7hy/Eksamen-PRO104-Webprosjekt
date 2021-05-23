@@ -4,7 +4,14 @@ let search = document.getElementById("search");
 let usersOutput = document.getElementById("users-output");
 let pickedUser = document.getElementById("picked-user");
 let backgroundPicked = document.getElementById("background-picked");
+let editDiv = document.getElementById("edit-users");
+let addDiv = document.getElementById("add-users");
+let removeDiv = document.getElementById("remove-users");
+let addUserPopup = document.getElementById("add-user-popup");
 
+let edit = false;
+let add = false;
+let remove = false;
 
 let printEmployees = () => {
     let count = 0;
@@ -65,7 +72,53 @@ window.getPerson = (id)=> {
     });
 };
 printEmployees();
+
 window.closeWindow = ()=>{
     pickedUser.style.display = "none";
     backgroundPicked.style.display = "none"
-};
+}
+editDiv.onclick = interact;
+addDiv.onclick = interact;
+removeDiv.onclick = interact;
+function interact() {
+    switch(this.id){
+        case "edit-users":
+            if(!edit){
+                edit = true;
+                editDiv.innerHTML = "stop editing";
+            }
+
+            else 
+            {
+                edit = false;
+                editDiv.innerHTML = "edit";
+            }
+            console.log(edit);
+            break;
+
+        case "add-users":
+            add = true;
+            console.log(add);
+            addUser();
+            break;
+
+
+        case "remove-users":
+            if(!remove){
+                remove = true;
+                removeDiv.innerHTML = "stop editing";
+            }
+            else 
+            {
+                remove = false;
+                removeDiv.innerHTML = "edit";
+            }
+            console.log(remove);
+            break;
+    }
+}
+
+let addUser = ()=>{
+    addUserPopup.style.display = "block";
+    backgroundPicked.style.display = "block";
+}
