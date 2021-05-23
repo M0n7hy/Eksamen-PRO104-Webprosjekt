@@ -1,0 +1,17 @@
+#tittel {
+    position: relative;
+    top: 40px;
+    left: 60px;
+    font-family: verdana;
+    width: fit-content;
+    height: fit-content;
+}
+
+#tittel2 {
+    position: relative;
+    top: 70px;
+    left: 60px;
+    font-family: verdana;
+    width: fit-content;
+    height: fit-content;
+}
