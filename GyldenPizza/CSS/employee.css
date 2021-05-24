@@ -179,3 +179,39 @@ img{
     right: 15%;
     top: 5%;
 }
+#warning{
+    position: absolute;
+    width: 30%;
+    height: auto;
+    background-color: #90B045;
+    top: 40%;
+    left: 35%;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+}
+.option-container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-weight: bold;
+}
+#yes{
+    cursor: pointer;
+}
+#no{
+    cursor: pointer;
+}
+#mode{
+    top: 0%;
+    text-align: center;
+    position:sticky;
+    background-color: #90B045;
+    width: 30%;
+    height: 5%;
+    border-radius: 5%;
+    left: 35%;
+    border: 0.2vh solid black;
+}

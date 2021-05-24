@@ -21,6 +21,10 @@ let editWorkplace = document.getElementById("edit-workplace");
 let editInfo = document.getElementById("edit-info");
 let submitEdit = document.getElementById("submit-edit");
 let xEdit = document.getElementById("edit-x");
+let noRemove = document.getElementById("no");
+let yesRemove = document.getElementById("yes");
+let warning = document.getElementById("warning");
+let mode = document.getElementById("mode");
 let edit = false;
 let add = false;
 let remove = false;
@@ -60,17 +64,17 @@ search.addEventListener('input', (event) =>{
                 <div class="location info">Hjem: ${user.location}</div>
                 <div class="workplace info">Arbeidsplass: ${user.workplace}</div>
             </div>`;
-   
     });
 })
 window.getPerson = (id)=> {
     let test;
     console.log(id);
     if(remove){
-        Users.removeUser(id);
-        printEmployees();
+        warning.style.display="block";
+        backgroundPicked.style.display = "block";
+
     }
-    if (edit) {
+    else if (edit) {
         editContainer.style.display = "block";
         backgroundPicked.style.display = "block";
     }
@@ -88,7 +92,7 @@ window.getPerson = (id)=> {
                 <div class="info-popup popup-item">${user.info}</div>
             `;
             pickedUser.style.display = "block";
-            backgroundPicked.style.display = "block"
+            backgroundPicked.style.display = "block";
         });
     }
     function editItem(){
@@ -136,7 +140,12 @@ window.getPerson = (id)=> {
         Users.editUser(id, test, document.getElementById("new-edit").value);
         printEmployees();
     }
-    
+    function removeWithId(){
+        Users.removeUser(id);
+        warning.style.display="none";
+        backgroundPicked.style.display = "none";
+        printEmployees();
+    }
     editName.onclick = editItem;
     editEmail.onclick = editItem;
     editPhone.onclick = editItem;
@@ -145,13 +154,16 @@ window.getPerson = (id)=> {
     editWorkplace.onclick = editItem;
     editInfo.onclick = editItem;
     submitEdit.onclick = runEdit;
+    yesRemove.onclick = removeWithId;
+    
+
 
 };
 printEmployees();
 
 window.closeWindow = ()=>{
     pickedUser.style.display = "none";
-    backgroundPicked.style.display = "none"
+    backgroundPicked.style.display = "none";
 }
 
 function interact() {
@@ -162,11 +174,19 @@ function interact() {
                 remove = false;
                 editDiv.innerHTML = `<img src="/GyldenPizza/resources/images-employee/edit.png" alt="">`;
                 removeDiv.innerHTML = `<img src="/GyldenPizza/resources/images-employee/disapprove-64.png" alt="">`;
+                mode.innerHTML = "Trykk på brukeren du vil redigere";
+                mode.style.display = "block";
+
 
             }
             else {
                 edit = false;
                 editDiv.innerHTML = `<img src="/GyldenPizza/resources/images-employee/edit-64.png" alt="">`;
+                mode.innerHTML = "";
+                mode.style.display = "none";
+
+
+
             }
             console.log(edit);
             break;
@@ -180,6 +200,8 @@ function interact() {
 
         case "remove-users":
             if(!remove){
+                mode.innerHTML = "Trykk på brukeren du vil slette";
+                mode.style.display = "block";
                 remove = true;
                 edit = false;
                 editDiv.innerHTML = `<img src="/GyldenPizza/resources/images-employee/edit-64.png" alt="">`;
@@ -188,6 +210,8 @@ function interact() {
             else 
             {
                 remove = false;
+                mode.innerHTML = "";
+                mode.style.display = "none";
                 removeDiv.innerHTML = `<img src="/GyldenPizza/resources/images-employee/disapprove-64.png" alt="">`;
             }
             console.log(remove);
@@ -241,6 +265,10 @@ let addUserToArray = () =>{
         printEmployees();
     }
 }
+let closeRemoveWindow = ()=> {
+    warning.style.display="none";
+    backgroundPicked.style.display = "none";
+}
 
 submit.onclick = addUserToArray;
 editDiv.onclick = interact;
@@ -248,3 +276,4 @@ addDiv.onclick = interact;
 removeDiv.onclick = interact;
 xAdd.onclick = closeAddWindow;
 xEdit.onclick = closeEditWindow;
+noRemove.onclick = closeRemoveWindow;
