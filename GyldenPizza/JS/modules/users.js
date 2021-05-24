@@ -8,10 +8,10 @@ const Users = (function(){
         {id:5, name: "Rolando", email: "rolando", phone: "98765432", location: "norge", picture: "https://scontent.fosl4-2.fna.fbcdn.net/v/t1.18169-9/23130973_10154823178672687_2523489635196198363_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=QRSsTxJxGrIAX8BjxAt&_nc_ht=scontent.fosl4-2.fna&oh=d46efb00fa388c55b2eeff7830e88844&oe=60CD33EF", workplace: "oslo", info: "loremLorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quo quae est, deserunt nam sit nemo dolor, eos totam incidunt in aut recusandae ex itaque cupiditate nisi, expedita similique placeat."},
         {id:6, name: "Eivind", email: "eivind", phone: "55556666", location: "norge", picture: "https://scontent.fosl4-2.fna.fbcdn.net/v/t1.18169-9/23130973_10154823178672687_2523489635196198363_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=QRSsTxJxGrIAX8BjxAt&_nc_ht=scontent.fosl4-2.fna&oh=d46efb00fa388c55b2eeff7830e88844&oe=60CD33EF", workplace: "oslo", info: "loremLorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quo quae est, deserunt nam sit nemo dolor, eos totam incidunt in aut recusandae ex itaque cupiditate nisi, expedita similique placeat."} 
     ];
-    let addUser = (input) =>{
+    const addUser = (input) =>{
         usersArray.push(input);
     }
-    let removeUser = (remove) =>{
+    const removeUser = (remove) =>{
         for (let i = 0; i < usersArray.length; i++) {
             if (usersArray[i].id == remove) {
                 usersArray.splice(i, 1);
@@ -19,7 +19,7 @@ const Users = (function(){
             }
         }
     }
-    let editUser = (edit, item, change) =>{
+    const editUser = (edit, item, change) =>{
         for (let i = 0; i < usersArray.length; i++) {
             if(usersArray[i].id == edit){
                 switch (item) {
