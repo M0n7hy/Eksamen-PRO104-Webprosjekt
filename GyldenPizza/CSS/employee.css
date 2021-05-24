@@ -23,7 +23,7 @@
     border: 2px solid rgba(24, 30, 69, 1);
     max-width: 17%;
     width: 15%;
-    height: auto;
+    height: 30%;
   }
 .name{
     font-size: 20px;
@@ -123,3 +123,59 @@ img{
     text-align: center;
 }
 
+.profile-pic{
+    height: 300px;
+    width: 100%;
+}
+#edit{
+    position: absolute;
+    width: 15%;
+    height: auto;
+    background-color: #90B045;
+    top: 25%;
+    left: 44%;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+}
+.edit-item{
+    margin-top: 2%;
+}
+.edit-start{
+    margin-top: 5%;
+}
+.edit-end{
+    margin-bottom: 5%;
+}
+.x-mark-edit{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    width: 8%;
+    height: auto;
+    transition: 0.3s;
+}
+.x-mark-edit:hover{
+    transform: scale(1.2);
+}
+.icon{
+    display: flex;
+    position: static;
+    justify-content:flex-end;
+    float: right;
+    margin-right: 2%;
+}
+.edit-icon{
+    right: 5%;
+    top: 5%;
+
+}
+.add-icon{
+    right: 10%;
+    top: 5%;
+
+}
+.remove-icon{
+    right: 15%;
+    top: 5%;
+}
