@@ -204,7 +204,8 @@ img{
 #no{
     cursor: pointer;
 }
-#mode{
+#mode{  
+    font-size: 150%;
     top: 0%;
     text-align: center;
     position:sticky;
