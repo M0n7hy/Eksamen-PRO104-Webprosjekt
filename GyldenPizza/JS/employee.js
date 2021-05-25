@@ -32,14 +32,14 @@ let remove = false;
 let printEmployees = () => {
     let count = 0;
 
-  usersOutput.innerHTML = "";
+    usersOutput.innerHTML = "";
     Users.getAll().forEach(user => {
         usersOutput.innerHTML +=
             `
             <div id="${user.id}" class="users-div span-1-of-4" onclick="getPerson(${user.id})">
                 <div class="name">${user.name}</div>
                 <img class="profile-pic" src="${user.picture}" alt="">
-                <div class="email info">Email: ${user.email}</div>
+                <div class="email info">${user.email}</div>
                 <div class="phone info">Tlf: ${user.phone}</div>
                 <div class="location info">Hjem: ${user.location}</div>
                 <div class="workplace info">Arbeidsplass: ${user.workplace}</div>
@@ -51,7 +51,7 @@ let printEmployees = () => {
 search.addEventListener('input', (event) =>{
     let value = event.target.value;
     usersOutput.innerHTML="";
-    let filtered = Users.getAll().filter(user => user.name.includes(value));
+    let filtered = Users.getAll().filter(user => user.name.toLowerCase().includes(value.toLowerCase()));
     
     filtered.forEach(user => {
         
@@ -59,7 +59,7 @@ search.addEventListener('input', (event) =>{
             <div id="${user.id}" class="users-div span-1-of-4" onclick="getPerson(${user.id})">
                 <div class="name">${user.name}</div>
                 <img class="profile-pic" src="${user.picture}" alt="">
-                <div class="email info">Email: ${user.email}</div>
+                <div class="email info">${user.email}</div>
                 <div class="phone info">Tlf: ${user.phone}</div>
                 <div class="location info">Hjem: ${user.location}</div>
                 <div class="workplace info">Arbeidsplass: ${user.workplace}</div>
@@ -67,7 +67,7 @@ search.addEventListener('input', (event) =>{
     });
 })
 window.getPerson = (id)=> {
-    let test;
+    let whatToEdit;
     console.log(id);
     if(remove){
         warning.style.display="block";
@@ -106,38 +106,44 @@ window.getPerson = (id)=> {
 
         switch(this.id){
             case "edit-name":
-                test = "name";
+                whatToEdit = "name";
                 editName.style.fontWeight = "bold";
                 break;
             case "edit-email":
                 editEmail.style.fontWeight = "bold";
-                test = "email"
+                whatToEdit = "email";
                 break;
             case "edit-phone":
-                test = "phone";
+                whatToEdit = "phone";
                 editPhone.style.fontWeight = "bold";
                 break;
             case "edit-picture":
-                test = "picture";
+                whatToEdit = "picture";
                 editPicture.style.fontWeight = "bold";
                 break;
             case "edit-location":
-                test = "location";
+                whatToEdit = "location";
                 editLocation.style.fontWeight = "bold";
                 break;
             case "edit-workplace":
-                test = "workplace";
+                whatToEdit = "workplace";
                 editWorkplace.style.fontWeight = "bold";
                 break;
             case "edit-info":
-                test = "info";
+                whatToEdit = "info";
                 editInfo.style.fontWeight = "bold";
                 break;
         }
         
     }
     function runEdit(){
-        Users.editUser(id, test, document.getElementById("new-edit").value);
+        let inputValue = document.getElementById("new-edit").value
+        if(inputValue !==""){
+            Users.editUser(id, whatToEdit, inputValue);
+        }
+        else{
+            alert("cant change to blank");
+        }
         printEmployees();
     }
     function removeWithId(){
@@ -246,7 +252,7 @@ let addUserToArray = () =>{
         picture = "/GyldenPizza/resources/images-users/profile-pic.jpg";
     }
     if(name == "" || email == "" || phone == "" || location =="" || workplace =="" || info ==""){
-        alert("All info required");
+        alert("All info required, Photo is optional");
     }
     else{
  

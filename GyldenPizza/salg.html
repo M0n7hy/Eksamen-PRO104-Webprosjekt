@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="CSS/nav.css">
     <link rel="stylesheet" href="CSS/salg.css">
     <script src="JS/loginVerify.js"></script>
+    <script src="/GyldenPizza/JS/salg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.0/dist/chart.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,10 +36,30 @@
 
         <div class="box">
             <div id="infobox">
-                <h2 id="tittel">Salg</h2>
-                <h1 id="tittel2">Salgsoversikt</h1>
+                <h1 id="tittel">Salg</h1>
             </div>
+            <div class="chart-container">
+                <div class="income charts">
+                    <canvas id="chart" style="height: 100%; width: 100%; ; background-color: rgba(24, 30, 69, 1);"></canvas>
+                </div>
+                <div class="daily">
+                    <canvas id="daily-sale" style="background-color: rgba(24, 30, 69, 1);"></canvas>
+                </div>
+                <div class="weekly charts">
+                    <canvas id="weekly-sale" style="height: 100%; width: 100%; background-color: rgba(24, 30, 69, 1);"></canvas>
+                </div>
+            </div>
+            <div class="numbers-container">
+                <div id="income" class="numbers-item"></div>
+                <div id="expenses" class="numbers-item"></div>
+            </div>
+
+            
+
         </div>
     </div>
+    <script src="/GyldenPizza/JS/salg.js"></script>
+
+    
 </body>
 </html>

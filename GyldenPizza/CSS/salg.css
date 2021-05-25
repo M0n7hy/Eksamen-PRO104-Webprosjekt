@@ -1,17 +1,58 @@
 #tittel {
-    position: relative;
-    top: 40px;
-    left: 60px;
+    position: absolute;
+    top: 5%;
+    left: 12%;
     font-family: verdana;
     width: fit-content;
     height: fit-content;
+    color: rgba(24, 30, 69, 1);
+}
+#my-chart.line {
+    height: 200px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.chart-container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 96%;
+    top: 15%;
+    justify-content: space-around;
+}
+.charts{
+    height: 80%; 
+    width: 20%; 
+    border: 1vw solid #90B045;
+    border-radius: 2%;
+}
+.daily{
+    height: 80%;
+    width: 21%;
+    border: 1vw solid #90B045;
+    border-radius: 2%;
+}
+.numbers-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 96%;
+    height: 15%;
+    position: absolute;
+    top: 70%;
+}
+.numbers-item{
+    background-color: rgba(24, 30, 69, .8);
+    height: 100%;
+    width: 20%;
+    border-radius: 5%;
+}
+#income{
+    margin-left: 8%;
+}
+#expenses{
+    margin-right: 8%;
+
 }
 
-#tittel2 {
-    position: relative;
-    top: 70px;
-    left: 60px;
-    font-family: verdana;
-    width: fit-content;
-    height: fit-content;
-}

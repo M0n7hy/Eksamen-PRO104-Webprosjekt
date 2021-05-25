@@ -26,7 +26,6 @@ const Users = (function(){
                     case "name":
                         usersArray[i].name = change;
                         break;
-
                     case "email":
                         usersArray[i].email = change;
                         break;
@@ -36,11 +35,9 @@ const Users = (function(){
                         break;
                     case "picture":
                         usersArray[i].picture = change;
-
                         break;
                     case "location":
                         usersArray[i].location = change;
-                    
                         break;
                     case "workplace":
                         usersArray[i].workplace = change;
