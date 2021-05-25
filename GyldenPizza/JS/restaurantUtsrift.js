@@ -5,6 +5,7 @@ let restaurantPrintDiv = document.getElementById("infobox");
 let addrestaurant = document.getElementById("leggTil");
 let editrestaurant = document.getElementById("rediger");
 let delrestaurant = document.getElementById("slett");
+let mode = document.getElementById("mode");
 
 let pickedbackground = document.getElementById("picked-background");
 let pickedrestaurant = document.getElementById("rastaurantpicked");
@@ -14,6 +15,7 @@ let restpopup = document.getElementById("add-popup");
 let submitadd = document.getElementById("submit");
 
 let editpopup = document.getElementById("edit-popup");
+let editX = document.getElementById("editX");
 let nameEdit = document.getElementById("editName");
 let descEdit = document.getElementById("editDesc");
 let openEdit = document.getElementById("editOpen");
@@ -22,11 +24,16 @@ let imgEdit = document.getElementById("editImg");
 let newEdit = document.getElementById("editNew");
 let submitEdit = document.getElementById("submitedit");
 
+let warning = document.getElementById("warning");
+let removeYes = document.getElementById("yes");
+let removeNo = document.getElementById("no");
+
 let add = false;
 let edit = false;
 let remove = false;
 
 let printRestaurant = () => {
+    restaurantPrintDiv.innerHTML = "";
     restauranter.getAll().forEach(restaurantObject => {
         restaurantPrintDiv.innerHTML +=`
             <div class="resbilde">${restaurantObject.img}</div>
@@ -44,6 +51,7 @@ window.getRestaurant = (id) => {
     let test;
     console.log(id);
     if(remove){
+        warning.style.display = "block";
         pickedbackground.style.display = "block";
     } else if (edit) {
         editpopup.style.display = "block";
@@ -104,6 +112,7 @@ window.getRestaurant = (id) => {
 
     function removeWithId() {
         restauranter.removeRestaurant(id);
+        warning.style.display = "none";
         pickedbackground.style.display = "none";
         printRestaurant();
     }
@@ -113,6 +122,8 @@ window.getRestaurant = (id) => {
     addressEdit.onclick = editItem;
     imgEdit.onclick = editItem;
     submitEdit.onclick = runEdit;
+    removeYes.onclick = removeWithId;
+
 }
 printRestaurant();
 
@@ -134,20 +145,28 @@ function interact() {
                 edit = true;
                 remove = false;
                 editrestaurant.innerHTML = "Stop redigering";
+                mode.innerHTML = "Trykk på restauranten du vil redigere";
+                mode.style.display = "block";
             } else {
                 edit = false;
                 editrestaurant.innerHTML = "Rediger";
+                mode.innerHTML = "";
+                mode.style.display = "none";
             }
             console.log(edit);
             break;
         
         case "slett":
             if (!remove) {
+                mode.innerHTML = "Trykk på brukeren du vil slette";
+                mode.style.display = "block";
                 remove = true;
                 edit = false;
                 delrestaurant.innerHTML = "Ikke slett";
             } else {
                 remove = false;
+                mode.innerHTML = "";
+                mode.style.display = "none";
                 delrestaurant.innerHTML = "Slett"
             }
             console.log(remove);
@@ -194,8 +213,16 @@ let addRestToArray = () => {
         printRestaurant();
     }
 }
+
+let closeRemoveWindow = () => {
+    warning.style.display = "none";
+    pickedbackground.style.display = "none";
+}
+
 submitadd.onclick = addRestToArray;
 addrestaurant.onclick = interact;
 editrestaurant.onclick = interact;
 delrestaurant.onclick = interact;
 xpopup.onclick = closeAddWindow;
+editX.onclick = closeEditWindow;
+removeNo.onclick = closeRemoveWindow;
