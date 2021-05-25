@@ -13,6 +13,59 @@
 justify-content: flex-start;
 }
 
+ul#redigerListe li {
+    display: inline;
+    position: relative;
+    top: 0px;
+    left: 30px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: verdana;
+    width: fit-content;
+    height: fit-content;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    cursor: pointer;
+}
+
+#add-popup {
+    position: absolute;
+    width: 30%;
+    height: auto;
+    background-color: #90B045;
+    top: 25%;
+    left: 35%;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+}
+
+#edit-popup {
+    position: absolute;
+    width: 30%;
+    height: auto;
+    background-color: #90B045;
+    top: 25%;
+    left: 35%;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+}
+
 #tittel {
     position: relative;
     top: -10px;
@@ -42,7 +95,14 @@ justify-content: flex-start;
     border-radius: 6px;
 }
 
-#resbilde0 {
+.name {
+    font-family: Verdana;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.resbilde {
     background-color: #C4C4C4;
     position: relative;
     top: -25px;
@@ -52,46 +112,9 @@ justify-content: flex-start;
     border-radius: 30px;
 }
 
-#frogner {
-    font-family: Verdana;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-}
-
-#txtBox0 {
-    position: absolute;
-    top: 90px;
-    left: 391px;
-    height: 58px;
-    width: auto;
-    font-family: Verdana;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
-    min-width: 710px;
-}
-
-#resbilde1 {
-    background-color: #C4C4C4;
+.txtbox {
     position: relative;
-    top: 0px;
-    left: 60px;
-    width: 180px;
-    height: 180px;
-    border-radius: 30px;
-}
-
-#grünerløkka {
-    font-family: Verdana;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-}
-
-#txtBox1 {
-    position: absolute;
-    top: 295px;
+    top: -225px;
     left: 391px;
     height: 58px;
     width: auto;
@@ -102,62 +125,15 @@ justify-content: flex-start;
     min-width: 710px;
 }
 
-#resbilde2 {
-    background-color: #C4C4C4;
-    position: relative;
-    top: 25px;
-    left: 60px;
-    width: 180px;
-    height: 180px;
-    border-radius: 30px;
+.txtbox p {
+    max-width: 1200px;
 }
 
-#bygdøy {
-    font-family: Verdana;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-}
-
-#txtBox2 {
+#picked-background{
+    height: 100%;
+    width: 96%;
+    background-color: rgba(24, 30, 69, 0.8);
     position: absolute;
-    top: 500px;
-    left: 391px;
-    height: 58px;
-    width: auto;
-    font-family: Verdana;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
-    min-width: 710px;
-}
-
-#resbilde3 {
-    background-color: #C4C4C4;
-    position: relative;
-    top: 50px;
-    left: 60px;
-    width: 180px;
-    height: 180px;
-    border-radius: 30px;
-}
-
-#akerBrygge {
-    font-family: Verdana;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-}
-
-#txtBox3 {
-    position: absolute;
-    top: 705px;
-    left: 391px;
-    height: 58px;
-    width: auto;
-    font-family: Verdana;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
-    min-width: 710px;
+    display: none;
+    top: 0%;
 }
