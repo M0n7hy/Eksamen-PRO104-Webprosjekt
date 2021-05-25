@@ -34,10 +34,56 @@
         </div>
 
         <div class="box">
+            <ul id="redigerListe">
+                <li><a id="leggTil">Legg til</a></li>
+                <li><a id="rediger">Rediger</a></li>
+                <li><a id="slett">Slett</a></li>
+                <li><a id="mode"></a></li>
+            </ul>
+
+            <h2 id="tittel">Restauranter</h2>
+            <h1 id="tittel2">Våre Restauranter</h1>
+
             <div id="infobox">
-                <h2 id="tittel">Restauranter</h2>
-                <h1 id="tittel2">Våre Restauranter</h1>
             </div>
+
+            <div id="picked-background">
+                <div id="restaurantpicked" style="display: none;"></div>
+            </div>
+
+            <div id="add-popup" style="display: none;">
+                <div id="addX">
+                    <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
+                </div>
+                Navn: <input type="text" id="name-popup"><br>
+                Beskrivelse: <input type="text" id="description-popup"><br>
+                Åpnings tider: <input type="text" id="opening-popup"><br>
+                Adresse: <input type="text" id="location-popup"><br>
+                Bilde: <input type="text" id="image-popup"><br>
+                <input type="submit" value="Legg til bruker" id="submit">
+            </div>
+
+            <div id="edit-popup" style="display: none;">
+                <div id="editX" class="x-mark-edit">
+                    <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
+                </div>
+                <div id="editName">Navn</div>
+                <div id="editDesc">Beskrivelse</div>
+                <div id="editOpen">Åpnings tider</div>
+                <div id="editAddress">Adresse</div>
+                <div id="editImg">Bilde</div>
+                <input type="text" id="editNew">
+                <input type="submit" value="Endre" id="submitEdit">
+            </div>
+
+            <div id="warning" style="display: none;">
+                <div id="message">Vil du slette denne restauranten?</div>
+                <div class="option">
+                    <div id="yes">Ja</div>
+                    <div id="no">Nei</div>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
