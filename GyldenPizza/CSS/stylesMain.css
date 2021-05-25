@@ -1,25 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+html,
+body {
+  font-family: 'Poppins';
+}
+
 h1 {
-  font-size: 7vh;
+  float: left;
+  font-size: 8vh;
   margin-bottom: auto;
+}
+
+#name {
+  float: left;
+  padding-left: 1.5vw;
+  padding-right: 10vw;
 }
 
 .form {
   position: relative;
   margin-left: 10vw;
-  margin-top: 20vh;
+  margin-top: 15vh;
+}
+
+.intro {
+  font-size: 3vh;
+}
+
+.sub1,
+.sub2,
+.sub3 {
+  font-size: 3vh;
 }
 
 .sub1 {
   float: left;
-  padding-right: 2vw;
+  padding-right: 5vw;
 }
 
 .sub2 {
   float: left;
-  padding-right: 2vw;
+  padding-right: 5vw;
 }
 
 .sub3 {
   float: left;
+}
+
+.pizza-sold {
+  font-weight: 700;
+  font-size: 7vh;
+  color: #000;
+}
+
+.dud {
+  color: #000;
 }
 /*# sourceMappingURL=stylesMain.css.map */
