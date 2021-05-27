@@ -11,7 +11,6 @@ let addUserPopup = document.getElementById("add-user-popup");
 let xAdd = document.getElementById("x-add");
 let submit = document.getElementById("submit");
 let editContainer = document.getElementById("edit");
-let headerEdit = document.getElementById("name-edit-top");
 let editName = document.getElementById("edit-name");
 let editEmail = document.getElementById("edit-email");
 let editPhone = document.getElementById("edit-phone");
