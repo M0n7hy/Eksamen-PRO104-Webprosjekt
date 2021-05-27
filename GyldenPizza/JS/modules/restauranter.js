@@ -38,6 +38,7 @@ const restauranter = (function() {
                         break;
                     case "image":
                         restaurantArray[i].img = change;
+                        break;
                 }
             }
         }

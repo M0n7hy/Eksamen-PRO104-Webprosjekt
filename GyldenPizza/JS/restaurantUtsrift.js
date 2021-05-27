@@ -3,7 +3,7 @@ import restauranter from './modules/restauranter.js';
 let restaurantPrintDiv = document.getElementById("infobox");
 
 let addrestaurant = document.getElementById("leggTil");
-let editrestaurant = document.getElementById("rediger");
+let editRestaurants = document.getElementById("rediger");
 let delrestaurant = document.getElementById("slett");
 let mode = document.getElementById("mode");
 
@@ -21,7 +21,7 @@ let descEdit = document.getElementById("editDesc");
 let openEdit = document.getElementById("editOpen");
 let addressEdit = document.getElementById("editAddress");
 let imgEdit = document.getElementById("editImg");
-let submitEdit = document.getElementById("submitedit");
+let submitEdit = document.getElementById("submitEdit");
 
 let warning = document.getElementById("warning");
 let removeYes = document.getElementById("yes");
@@ -61,9 +61,6 @@ window.getRestaurant = (id) => {
 
         restauranter.getById(id).forEach(restaurant => {
             pickedrestaurant.innerHTML = `
-                <div id="image" onclick="closeWindow()">
-                    <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
-                </div>
                 <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
                     <div class="resbilde">${restaurant.img}</div>
                         <div class="txtbox">
@@ -78,7 +75,8 @@ window.getRestaurant = (id) => {
             pickedbackground.style.display = "block";
         });
     }
-    function editRestaurant() {
+
+    function editRestaurants() {
         nameEdit.style.fontWeight = "normal";
         descEdit.style.fontWeight = "normal";
         openEdit.style.fontWeight = "normal";
@@ -89,27 +87,34 @@ window.getRestaurant = (id) => {
             case "editName":
                 editing = "name";
                 nameEdit.style.fontWeight = "bold";
+                alert("test");
                 break;
             case "editDesc":
                 editing = "desc";
                 descEdit.style.fontWeight = "bold";
+                alert("test");
                 break;
             case "editOpen":
                 editing = "open";
                 openEdit.style.fontWeight = "bold";
+                alert("test");
                 break;
             case "editAddress":
                 editing = "address";
                 addressEdit.style.fontWeight = "bold";
+                alert("test");
                 break;
             case "editImg":
                 editing = "img";
                 imgEdit.style.fontWeight = "bold";
+                alert("test");
+                break;
         }
     }
 
     function runEdit() {
-        let newEdit = document.getElementById("editNew").value
+        alert("test");
+        let newEdit = document.getElementById("editNew").value;
         restauranter.editRestaurant(id, editing, newEdit);
         printRestaurant();
     }
@@ -120,11 +125,12 @@ window.getRestaurant = (id) => {
         pickedbackground.style.display = "none";
         printRestaurant();
     }
-    nameEdit.onclick = editRestaurant;
-    descEdit.onclick = editRestaurant;
-    openEdit.onclick = editRestaurant;
-    addressEdit.onclick = editRestaurant;
-    imgEdit.onclick = editRestaurant;
+
+    nameEdit.onclick = editRestaurants;
+    descEdit.onclick = editRestaurants;
+    openEdit.onclick = editRestaurants;
+    addressEdit.onclick = editRestaurants;
+    imgEdit.onclick = editRestaurants;
     submitEdit.onclick = runEdit;
     removeYes.onclick = removeWithId;
 }
@@ -147,12 +153,12 @@ function interact() {
             if (!edit) {
                 edit = true;
                 remove = false;
-                editrestaurant.innerHTML = "Stop redigering";
+                editRestaurants.innerHTML = "Stop redigering";
                 mode.innerHTML = "Trykk på restauranten du vil redigere";
                 mode.style.display = "block";
             } else {
                 edit = false;
-                editrestaurant.innerHTML = "Rediger";
+                editRestaurants.innerHTML = "Rediger";
                 mode.innerHTML = "";
                 mode.style.display = "none";
             }
@@ -224,7 +230,7 @@ let closeRemoveWindow = () => {
 
 submitadd.onclick = addRestToArray;
 addrestaurant.onclick = interact;
-editrestaurant.onclick = interact;
+editRestaurants.onclick = interact;
 delrestaurant.onclick = interact;
 xpopup.onclick = closeAddWindow;
 editX.onclick = closeEditWindow;
