@@ -21,7 +21,6 @@ let descEdit = document.getElementById("editDesc");
 let openEdit = document.getElementById("editOpen");
 let addressEdit = document.getElementById("editAddress");
 let imgEdit = document.getElementById("editImg");
-let newEdit = document.getElementById("editNew");
 let submitEdit = document.getElementById("submitedit");
 
 let warning = document.getElementById("warning");
@@ -79,7 +78,7 @@ window.getRestaurant = (id) => {
             pickedbackground.style.display = "block";
         });
     }
-    function editItem() {
+    function editRestaurant() {
         nameEdit.style.fontWeight = "normal";
         descEdit.style.fontWeight = "normal";
         openEdit.style.fontWeight = "normal";
@@ -110,7 +109,8 @@ window.getRestaurant = (id) => {
     }
 
     function runEdit() {
-        restauranter.editRestaurant(id, editing, document.getElementById("editNew"))
+        let newEdit = document.getElementById("editNew").value
+        restauranter.editRestaurant(id, editing, newEdit);
         printRestaurant();
     }
 
@@ -120,14 +120,13 @@ window.getRestaurant = (id) => {
         pickedbackground.style.display = "none";
         printRestaurant();
     }
-    nameEdit.onclick = editItem;
-    descEdit.onclick = editItem;
-    openEdit.onclick = editItem;
-    addressEdit.onclick = editItem;
-    imgEdit.onclick = editItem;
+    nameEdit.onclick = editRestaurant;
+    descEdit.onclick = editRestaurant;
+    openEdit.onclick = editRestaurant;
+    addressEdit.onclick = editRestaurant;
+    imgEdit.onclick = editRestaurant;
     submitEdit.onclick = runEdit;
     removeYes.onclick = removeWithId;
-
 }
 printRestaurant();
 

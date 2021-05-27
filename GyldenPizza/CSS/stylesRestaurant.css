@@ -67,14 +67,17 @@ li a:hover {
     top: 20px;
     left: 85px;
     font-family: verdana;
+    font-size: 24px;
+    font-weight: bold;
     width: fit-content;
-    height: fit-content;
-    margin: 0;
+    height: auto;
+    margin-top: 50px;
+    padding: 0;
 }
 
 #tittel2 {
     position: relative;
-    top: -35px;
+    top: -15px;
     left: 410px;
     font-family: verdana;
     width: fit-content;
@@ -88,7 +91,7 @@ li a:hover {
     width: 97%;
     height: auto;
     top: -30px;
-    left: 20px;
+    left: 30px;
     right: 10px;
     bottom: 0px;
 }
@@ -151,4 +154,36 @@ li a:hover {
     border: 2px solid black;
     border-radius: 2%;
     text-align: center;
+}
+
+#warning{
+    position: absolute;
+    width: 30%;
+    height: auto;
+    background-color: #90B045;
+    top: 40%;
+    left: 35%;
+    border: 2px solid black;
+    border-radius: 2%;
+    text-align: center;
+    font-family: verdana;
+}
+
+.option{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-weight: bold;
+}
+
+#yes:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#no:hover {
+    font-weight: bold;
+    cursor: pointer;
 }
