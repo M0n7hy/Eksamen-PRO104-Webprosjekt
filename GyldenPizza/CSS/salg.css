@@ -5,7 +5,7 @@
     font-family: verdana;
     width: fit-content;
     height: fit-content;
-    color: black;
+    color: rgba(24, 30, 69, 1);
 }
 #my-chart.line {
     height: 200px;
@@ -22,13 +22,15 @@
     justify-content: space-around;
 }
 .charts{
-    height: 80%;
-    width: 20%;
+    height: 80%; 
+    width: 20%; 
+    border: 1vw solid #90B045;
     border-radius: 2%;
 }
 .daily{
     height: 80%;
     width: 21%;
+    border: 1vw solid #90B045;
     border-radius: 2%;
 }
 .numbers-container{
