@@ -36,19 +36,21 @@ let printRestaurant = () => {
     restaurantPrintDiv.innerHTML = "";
     restauranter.getAll().forEach(restaurantObject => {
         restaurantPrintDiv.innerHTML +=`
-            <div class="resbilde">${restaurantObject.img}</div>
-            <div class="txtbox">
-                <h2  class="name">${restaurantObject.name}</h2>
-                <p>${restaurantObject.description}</p>
-                <p>${restaurantObject.openings}</p>
-                <p><b>${restaurantObject.location}</b></p>
+        <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
+                <div class="resbilde">${restaurantObject.img}</div>
+                <div class="txtbox">
+                    <h2  class="name">${restaurantObject.name}</h2>
+                    <p>${restaurantObject.description}</p>
+                    <p>${restaurantObject.openings}</p>
+                    <p><b>${restaurantObject.location}</b></p>
+                </div>
             </div>
             `;
     });
 }
 
 window.getRestaurant = (id) => {
-    let test;
+    let editing;
     console.log(id);
     if(remove){
         warning.style.display = "block";
@@ -63,12 +65,14 @@ window.getRestaurant = (id) => {
                 <div id="image" onclick="closeWindow()">
                     <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
                 </div>
-                <div class="resbilde">${restaurant.img}</div>
-                <div class="txtbox">
-                    <h2 class="name">${restaurant.name}</h2>
-                    <p>${restaurant.description}</p>
-                    <p>${restaurant.openings}</p>
-                    <p><b>${restaurant.location}</b></p>
+                <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
+                    <div class="resbilde">${restaurant.img}</div>
+                        <div class="txtbox">
+                            <h2 class="name">${restaurant.name}</h2>
+                            <p>${restaurant.description}</p>
+                            <p>${restaurant.openings}</p>
+                            <p><b>${restaurant.location}</b></p>
+                        </div>
                 </div>
                 `;
             pickedrestaurant.style.display = "block";
@@ -84,29 +88,29 @@ window.getRestaurant = (id) => {
 
         switch(this.id) {
             case "editName":
-                test = "name";
+                editing = "name";
                 nameEdit.style.fontWeight = "bold";
                 break;
             case "editDesc":
-                test = "desc";
+                editing = "desc";
                 descEdit.style.fontWeight = "bold";
                 break;
             case "editOpen":
-                test = "open";
+                editing = "open";
                 openEdit.style.fontWeight = "bold";
                 break;
             case "editAddress":
-                test = "address";
+                editing = "address";
                 addressEdit.style.fontWeight = "bold";
                 break;
             case "editImg":
-                test = "img";
+                editing = "img";
                 imgEdit.style.fontWeight = "bold";
         }
     }
 
     function runEdit() {
-        restauranter.editRestaurant(id, test, document.getElementById("editNew"))
+        restauranter.editRestaurant(id, editing, document.getElementById("editNew"))
         printRestaurant();
     }
 
