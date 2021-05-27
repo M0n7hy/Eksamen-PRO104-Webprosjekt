@@ -9,10 +9,6 @@
     bottom: 0px;
 }
 
-.container {
-justify-content: flex-start;
-}
-
 ul#redigerListe li {
     display: inline;
     position: relative;
@@ -67,34 +63,43 @@ li a:hover {
 }
 
 #tittel {
-    position: absolute;
-    top: 70px;
-    left: 163px;
+    position: relative;
+    top: 20px;
+    left: 85px;
     font-family: verdana;
     width: fit-content;
     height: fit-content;
+    margin: 0;
 }
 
 #tittel2 {
-    position: absolute;
-    top: 60px;
-    left: 495px;
+    position: relative;
+    top: -35px;
+    left: 410px;
     font-family: verdana;
     width: fit-content;
     height: fit-content;
+    margin: 0;
 }
 
 
 #infobox {
-    position: absolute;
-    width: auto;
+    position: relative;
+    width: 97%;
     height: auto;
-    top: 150px;
-    left: 84px;
+    top: -30px;
+    left: 20px;
     right: 10px;
-    bottom: 10px;
-    border-radius: 6px;
-    padding: 20px;
+    bottom: 0px;
+}
+
+.infobox {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #90B045;
+    margin-top: 10px;
 }
 
 .name {
@@ -108,7 +113,7 @@ li a:hover {
 .resbilde {
     background-color: #C4C4C4;
     position: relative;
-    top: -25px;
+    top: 9px;
     left: 60px;
     width: 180px;
     height: 180px;
@@ -117,24 +122,19 @@ li a:hover {
 
 .txtbox {
     position: relative;
-    top: -225px;
+    top: -190px;
     left: 391px;
-    height: 0;
-    width: fit-content;
+    height: 0px;
+    width: 78%;
     font-family: Verdana;
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
 }
 
-.txtbox p {
-    max-width: 1200px;
-    min-width: 300px;
-}
-
 #picked-background{
     height: 100%;
-    width: 96%;
+    width: 100%;
     background-color: rgba(24, 30, 69, 0.8);
     position: absolute;
     display: none;
