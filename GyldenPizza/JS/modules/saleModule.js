@@ -36,6 +36,31 @@ const SaleMod = (function(){
     const getIncomeFromYearlyIncome = (index) => {
         return yearlyIncomeArray[index].income;
     }
+    const addNewDay = (pizzaIn, drinkIn) => {
+        dailyIncomeArray[0].income = pizzaIn;
+        dailyIncomeArray[1].income = drinkIn;
+        let newDay = {
+            day: weeklyIncomeArray[0],
+            income: pizzaIn+drinkIn
+        }
+        weeklyIncomeArray.splice(0, 1);
+        weeklyIncomeArray.push(newDay);
+    }
+    const addNewYear = (incomeYear)=>{
+        yearlyIncomeArray.splice(0, 1);
+        let newYear = {
+            year: yearlyIncomeArray[5]+1,
+            income: incomeYear
+        }
+    }
+    const editNewYear = (incomeYear)=>{
+        yearlyIncomeArray[yearlyIncomeArray.length].income = incomeYear;
+    }
+    const editNewDay = (pizzaIn, drinkIn) =>{
+        dailyIncomeArray[0].income = pizzaIn;
+        dailyIncomeArray[1].income = drinkIn;
+        weeklyIncomeArray[weeklyIncomeArray.length].income = pizzaIn + drinkIn;
+    }
 
     const getYearlyIncome = () => yearlyIncomeArray;
     const getWeeklyIncome = () => weeklyIncomeArray;

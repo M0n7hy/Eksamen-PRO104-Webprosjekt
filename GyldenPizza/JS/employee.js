@@ -72,7 +72,6 @@ window.getPerson = (id)=> {
     if(remove){
         warning.style.display="block";
         backgroundPicked.style.display = "block";
-
     }
     else if (edit) {
         editContainer.style.display = "block";
