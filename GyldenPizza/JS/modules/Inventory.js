@@ -15,7 +15,7 @@ const pizzaMenu = (function() {
 
     const drinkArray = [
         { id: 0, name:"Coca-Cola", price:40, profit:20, img:"ColaLogo.png"},
-        { id: 1, name:"Fanta Mango", price:40, profit:20, img:"FantaMango.jpg"},
+        { id: 1, name:"Fanta Mango", price:40, profit:20, img:"FantaMango.png"},
         { id: 2, name:"Cola Cinnamon", price:40, profit:20, img:"ColaCinnamon.png"},
         { id: 3, name:"Oskar Sylte PearSoda", price:30, profit:10, img:"Pærebrus.png"},
     ]
