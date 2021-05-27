@@ -135,7 +135,7 @@ window.getPerson = (id)=> {
         
     }
     function runEdit(){
-        let inputValue = document.getElementById("new-edit").value
+        let inputValue = document.getElementById("new-edit").value;
         if(inputValue !==""){
             Users.editUser(id, whatToEdit, inputValue);
         }

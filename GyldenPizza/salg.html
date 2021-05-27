@@ -12,54 +12,54 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="menu-container">
-            <a href="Main.html" class="img-wrap top-img">
-                <img alt="home"  src="/GyldenPizza/resources/images-nav/home-4-32.png" width="30%" height="3%" class="home item">
-            </a>
-            <a href="salg.html" class="img-wrap">
-                <img alt="sale" src="/GyldenPizza/resources/images-nav/document-2-32.png" width="30%" height="3%" class="sale item">
-            </a>
-            <a href="Restaurant.html" class="img-wrap">
-                <img alt="resturants"  src="/GyldenPizza/resources/images-nav/bookmark-6-32.png" width="30%" height="3%" class="resturants item">
-            </a>
-            <a href="Meny.html" class="img-wrap">
-                <img alt="menu"  src="/GyldenPizza/resources/images-nav/pizza-24.png" width="30%" height="3%" class="menu item">
-            </a>
-            <a href="employee.html" class="img-wrap">
-                <img alt="employees"  src="/GyldenPizza/resources/images-nav/user-24.png" width="30%" height="3%" class="menu item">
-            </a>
-            <a class="logout" href="logout.html">
-                <img alt="logout" id="logout-div" src="/GyldenPizza/resources/images-nav/power-24.png" width="30%" height="3%" class="item">
-            </a>
-        </div>
-
-        <div class="box">
-            <div id="infobox">
-                <h1 id="tittel">Salg</h1>
-            </div>
-            <div class="chart-container">
-                <div class="income charts">
-                    <canvas id="chart" style="height: 100%; width: 100%; ; background-color: rgba(24, 30, 69, 1);"></canvas>
-                </div>
-                <div class="daily">
-                    <canvas id="daily-sale" style="background-color: rgba(24, 30, 69, 1);"></canvas>
-                </div>
-                <div class="weekly charts">
-                    <canvas id="weekly-sale" style="height: 100%; width: 100%; background-color: rgba(24, 30, 69, 1);"></canvas>
-                </div>
-            </div>
-            <div class="numbers-container">
-                <div id="income" class="numbers-item"></div>
-                <div id="expenses" class="numbers-item"></div>
-            </div>
-
-            
-
-        </div>
+<div class="container">
+    <div class="menu-container">
+        <a href="Main.html" class="img-wrap top-img">
+            <img alt="home"  src="/GyldenPizza/resources/images-nav/home-4-32.png" width="30%" height="3%" class="home item">
+        </a>
+        <a href="salg.html" class="img-wrap">
+            <img alt="sale" src="/GyldenPizza/resources/images-nav/document-2-32.png" width="30%" height="3%" class="sale item">
+        </a>
+        <a href="Restaurant.html" class="img-wrap">
+            <img alt="resturants"  src="/GyldenPizza/resources/images-nav/bookmark-6-32.png" width="30%" height="3%" class="resturants item">
+        </a>
+        <a href="Meny.html" class="img-wrap">
+            <img alt="menu"  src="/GyldenPizza/resources/images-nav/pizza-24.png" width="30%" height="3%" class="menu item">
+        </a>
+        <a href="employee.html" class="img-wrap">
+            <img alt="employees"  src="/GyldenPizza/resources/images-nav/user-24.png" width="30%" height="3%" class="menu item">
+        </a>
+        <a class="logout" href="logout.html">
+            <img alt="logout" id="logout-div" src="/GyldenPizza/resources/images-nav/power-24.png" width="30%" height="3%" class="item">
+        </a>
     </div>
-    <script type="module" src="/GyldenPizza/JS/salg.js"></script>
 
-    
+    <div class="box">
+        <div id="infobox">
+            <h1 id="tittel">Salg</h1>
+        </div>
+        <div class="chart-container">
+            <div class="income charts">
+                <canvas id="chart" style="height: 100%; width: 100%; ; background-color: rgba(255, 255, 255, 1); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);" ></canvas>
+            </div>
+            <div class="daily">
+                <canvas id="daily-sale" style="background-color: rgba(255, 255, 255, 1); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);"></canvas>
+            </div>
+            <div class="weekly charts">
+                <canvas id="weekly-sale" style="height: 100%; width: 100%; background-color: rgba(255, 255, 255, 1); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);"></canvas>
+            </div>
+        </div>
+        <div class="numbers-container">
+            <div id="income" class="numbers-item"></div>
+            <div id="expenses" class="numbers-item"></div>
+        </div>
+
+
+
+    </div>
+</div>
+<script src="/GyldenPizza/JS/salg.js"></script>
+
+
 </body>
 </html>
