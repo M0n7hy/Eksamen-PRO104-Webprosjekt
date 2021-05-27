@@ -1,13 +1,13 @@
-
+import SaleMod from './modules/saleModule.js';
 var c = document.getElementById('chart');
 var ctx = c.getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['2015', '2016', '2017', '2018', '2019', '2020'],
+        labels: [ SaleMod.getYearFromYearlyIncome(0), SaleMod.getYearFromYearlyIncome(1), SaleMod.getYearFromYearlyIncome(2), SaleMod.getYearFromYearlyIncome(3), SaleMod.getYearFromYearlyIncome(4), SaleMod.getYearFromYearlyIncome(5)],
         datasets: [{
             label: 'Inntekter',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [SaleMod.getIncomeFromYearlyIncome(0), SaleMod.getIncomeFromYearlyIncome(1), SaleMod.getIncomeFromYearlyIncome(2), SaleMod.getIncomeFromYearlyIncome(3), SaleMod.getIncomeFromYearlyIncome(4), SaleMod.getIncomeFromYearlyIncome(5)],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -49,7 +49,7 @@ var dailyChart = new Chart(ctxDaily, {
         labels: ['Pizza', 'Drikke'],
         datasets: [{
             label: 'Daglige inntekter',
-            data: [12, 19],
+            data: [SaleMod.getIncomeFromDailyIncome(0), SaleMod.getIncomeFromDailyIncome(1)],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)'
@@ -80,10 +80,10 @@ var ctxweekly = weekly.getContext('2d');
 var weeklyChart = new Chart(ctxweekly, {
     type: 'bar',
     data: {
-        labels: ['Mandag', 'Tirsdag','Onsdag', 'Torsdag', 'Fredag', 'Lørdag', 'Søndag'],
+        labels: [SaleMod.getDayFromWeeklyIncome(0),SaleMod.getDayFromWeeklyIncome(1), SaleMod.getDayFromWeeklyIncome(2), SaleMod.getDayFromWeeklyIncome(3), SaleMod.getDayFromWeeklyIncome(4), SaleMod.getDayFromWeeklyIncome(5), SaleMod.getDayFromWeeklyIncome(6)],
         datasets: [{
             label: 'Inntekter',
-            data: [12, 19, 21, 4, 43, 23, 54],
+            data: [SaleMod.getIncomeFromWeeklyIncome(0), SaleMod.getIncomeFromWeeklyIncome(1), SaleMod.getIncomeFromWeeklyIncome(2), SaleMod.getIncomeFromWeeklyIncome(3), SaleMod.getIncomeFromWeeklyIncome(4), SaleMod.getIncomeFromWeeklyIncome(5), SaleMod.getIncomeFromWeeklyIncome(6)],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -114,7 +114,7 @@ var weeklyChart = new Chart(ctxweekly, {
             },
         
             x: {
-                display: false,
+                display: false
             }
         }
     }
