@@ -42,10 +42,10 @@ li a:hover {
     position: absolute;
     width: 30%;
     height: auto;
-    background-color: #90B045;
+    background-color: white;
     top: 25%;
     left: 35%;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 2%;
     text-align: center;
 }
@@ -67,8 +67,8 @@ li a:hover {
     top: 20px;
     left: 85px;
     font-family: verdana;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 500;
     width: fit-content;
     height: auto;
     margin-top: 50px;
@@ -77,12 +77,13 @@ li a:hover {
 
 #tittel2 {
     position: relative;
-    top: -15px;
-    left: 410px;
+    top: 35vw;
+    left: 5vh;
     font-family: verdana;
     width: fit-content;
     height: fit-content;
     margin: 0;
+    padding-bottom: 8vh;
 }
 
 
@@ -90,19 +91,18 @@ li a:hover {
     position: relative;
     width: 97%;
     height: auto;
-    top: -30px;
-    left: 30px;
-    right: 10px;
-    bottom: 0px;
+    top: -10vh;
+    left: 1vw;
+    
 }
 
 .infobox {
     position: relative;
     top: 20px;
     width: 100%;
-    border-radius: 20px;
-    background-color: #90B045;
-    margin-top: 10px;
+    border-radius: 2%;
+    background-color: white;
+    margin-top: 1vh;
 }
 
 .name {
@@ -114,19 +114,20 @@ li a:hover {
 }
 
 .resbilde {
-    background-color: #C4C4C4;
+    background-color: white;
     position: relative;
     top: 9px;
     left: 60px;
     width: 180px;
     height: 180px;
     border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.10);
 }
 
 .txtbox {
     position: relative;
     top: -190px;
-    left: 391px;
+    left: 18vw;
     height: 0px;
     width: 78%;
     font-family: Verdana;
