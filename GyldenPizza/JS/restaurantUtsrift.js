@@ -18,7 +18,10 @@ let editpopup = document.getElementById("edit-popup");
 let editX = document.getElementById("editX");
 let nameEdit = document.getElementById("editName");
 let descEdit = document.getElementById("editDesc");
-let openEdit = document.getElementById("editOpen");
+let openEdit1 = document.getElementById("editOpen1");
+let openEdit2 = document.getElementById("editOpen2");
+let openEdit3 = document.getElementById("editOpen3");
+let openEdit4 = document.getElementById("editOpen4");
 let addressEdit = document.getElementById("editAddress");
 let imgEdit = document.getElementById("editImg");
 let submitEdit = document.getElementById("submitEdit");
@@ -27,20 +30,17 @@ let warning = document.getElementById("warning");
 let removeYes = document.getElementById("yes");
 let removeNo = document.getElementById("no");
 
-let add = false;
-let edit = false;
-let remove = false;
-
 let printRestaurant = () => {
     restaurantPrintDiv.innerHTML = "";
     restauranter.getAll().forEach(restaurantObject => {
         restaurantPrintDiv.innerHTML +=`
         <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
-                <div class="resbilde">${restaurantObject.img}</div>
+                <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
                 <div class="txtbox">
                     <h2  class="name">${restaurantObject.name}</h2>
                     <p>${restaurantObject.description}</p>
-                    <p>${restaurantObject.openings}</p>
+                    <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
+                    <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                     <p><b>${restaurantObject.location}</b></p>
                 </div>
             </div>
@@ -62,11 +62,12 @@ window.getRestaurant = (id) => {
         restauranter.getById(id).forEach(restaurant => {
             pickedrestaurant.innerHTML = `
                 <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
-                    <div class="resbilde">${restaurant.img}</div>
+                <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
                         <div class="txtbox">
                             <h2 class="name">${restaurant.name}</h2>
                             <p>${restaurant.description}</p>
-                            <p>${restaurant.openings}</p>
+                            <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
+                            <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                             <p><b>${restaurant.location}</b></p>
                         </div>
                 </div>
@@ -79,7 +80,10 @@ window.getRestaurant = (id) => {
     function editRestaurants() {
         nameEdit.style.fontWeight = "normal";
         descEdit.style.fontWeight = "normal";
-        openEdit.style.fontWeight = "normal";
+        openEdit1.style.fontWeight = "normal";
+        openEdit2.style.fontWeight = "normal";
+        openEdit3.style.fontWeight = "normal";
+        openEdit4.style.fontWeight = "normal";
         addressEdit.style.fontWeight = "normal";
         imgEdit.style.fontWeight = "normal";
 
@@ -87,33 +91,39 @@ window.getRestaurant = (id) => {
             case "editName":
                 editing = "name";
                 nameEdit.style.fontWeight = "bold";
-                alert("test");
                 break;
             case "editDesc":
                 editing = "desc";
                 descEdit.style.fontWeight = "bold";
-                alert("test");
                 break;
-            case "editOpen":
-                editing = "open";
-                openEdit.style.fontWeight = "bold";
-                alert("test");
+            case "editOpen1":
+                editing = "open1";
+                openEdit1.style.fontWeight = "bold";
+                break;
+            case "editOpen2":
+                editing = "open2";
+                openEdit2.style.fontWeight = "bold";
+                break;
+            case "editOpen3":
+                editing = "open3";
+                openEdit3.style.fontWeight = "bold";
+                break;
+            case "editOpen4":
+                editing = "open4";
+                openEdit4.style.fontWeight = "bold";
                 break;
             case "editAddress":
                 editing = "address";
                 addressEdit.style.fontWeight = "bold";
-                alert("test");
                 break;
             case "editImg":
                 editing = "img";
                 imgEdit.style.fontWeight = "bold";
-                alert("test");
                 break;
         }
     }
 
     function runEdit() {
-        alert("test");
         let newEdit = document.getElementById("editNew").value;
         restauranter.editRestaurant(id, editing, newEdit);
         printRestaurant();
@@ -128,7 +138,10 @@ window.getRestaurant = (id) => {
 
     nameEdit.onclick = editRestaurants;
     descEdit.onclick = editRestaurants;
-    openEdit.onclick = editRestaurants;
+    openEdit1.onclick = editRestaurants;
+    openEdit2.onclick = editRestaurants;
+    openEdit3.onclick = editRestaurants;
+    openEdit4.onclick = editRestaurants;
     addressEdit.onclick = editRestaurants;
     imgEdit.onclick = editRestaurants;
     submitEdit.onclick = runEdit;
@@ -140,6 +153,10 @@ window.closeWindow = () => {
     pickedrestaurant.style.display = "none";
     pickedbackground.style.display = "none";
 }
+
+let add = false;
+let edit = false;
+let remove = false;
 
 function interact() {
     switch(this.id) {
