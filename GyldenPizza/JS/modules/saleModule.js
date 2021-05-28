@@ -46,10 +46,6 @@ const SaleMod = (function(){
         }
         weeklyIncomeArray.splice(0, 1);
         weeklyIncomeArray.push(newDay);
-        console.log(newDay.income);
-        dailyIncomeArray.forEach(test => {
-            console.log(test.income);
-        });
     }
     const addNewYear = (incomeYear)=>{
         let year = yearlyIncomeArray[5].year+1;
@@ -58,10 +54,7 @@ const SaleMod = (function(){
             income: incomeYear
         }
         yearlyIncomeArray.splice(0, 1);
-
-        console.log(year);
         yearlyIncomeArray.push(newYear);
-        console.log(yearlyIncomeArray.length);
     }
     const editNewYear = (incomeYear)=>{
         yearlyIncomeArray[yearlyIncomeArray.length-1].income = incomeYear;
@@ -71,7 +64,6 @@ const SaleMod = (function(){
         dailyIncomeArray[0].income = pizzaIn;
         dailyIncomeArray[1].income = drinkIn;
         let arrayLength = weeklyIncomeArray.length;
-        console.log(arrayLength);
         weeklyIncomeArray[arrayLength-1].income = sum;
     }
 

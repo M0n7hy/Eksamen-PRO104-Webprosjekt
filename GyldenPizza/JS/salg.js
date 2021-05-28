@@ -157,19 +157,17 @@ function printPopupMenu(id, placeholder){
         inValue = document.getElementById("input").value;
     }
     else{
-        console.log("Inne i function");
+        
         popupWindow.style.display = "block";
         popupWindow.innerHTML = `            
         <input type="text" placeholder="${placeholder}" id="input">
         <input type="submit" id="${id}">`;
     }
     function runChange() {
-        console.log("Why are you running?");
         switch (id) {
             case "changeDailyIncome":
                 inValue2 = document.getElementById("input2").value;
                 inValue = document.getElementById("input").value;
-                console.log(inValue2);
                 SaleMod.editNewDay(Number(inValue2),Number(inValue));
                 printStats();
                 break;
@@ -222,7 +220,6 @@ function printStats(){
     myChart.data.labels = dataSet;
     myChart.data.datasets[0].data = [SaleMod.yearlyIncomeArray[0].income, SaleMod.yearlyIncomeArray[1].income, SaleMod.yearlyIncomeArray[2].income, SaleMod.yearlyIncomeArray[3].income, SaleMod.yearlyIncomeArray[4].income, SaleMod.yearlyIncomeArray[5].income] ;
     myChart.update();
-    console.log(myChart.data.datasets[0]);
     let dataSetWeek = [SaleMod.weeklyIncomeArray[0].day, SaleMod.weeklyIncomeArray[1].day, SaleMod.weeklyIncomeArray[2].day, SaleMod.weeklyIncomeArray[3].day, SaleMod.weeklyIncomeArray[4].day, SaleMod.weeklyIncomeArray[5].day, SaleMod.weeklyIncomeArray[6].day];
     weeklyChart.data.labels = dataSetWeek;
     weeklyChart.data.datasets[0].data = [SaleMod.weeklyIncomeArray[0].income, SaleMod.weeklyIncomeArray[1].income, SaleMod.weeklyIncomeArray[2].income, SaleMod.weeklyIncomeArray[3].income, SaleMod.weeklyIncomeArray[4].income, SaleMod.weeklyIncomeArray[5].income, SaleMod.weeklyIncomeArray[6].income];
