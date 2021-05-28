@@ -35,16 +35,16 @@ let printRestaurant = () => {
     restauranter.getAll().forEach(restaurantObject => {
         restaurantPrintDiv.innerHTML +=`
         <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
-                <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
-                <div class="txtbox">
-                    <h2  class="name">${restaurantObject.name}</h2>
-                    <p>${restaurantObject.description}</p>
-                    <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
-                    <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
-                    <p><b>${restaurantObject.location}</b></p>
-                </div>
+            <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
+            <div class="txtbox">
+                <h2  class="name">${restaurantObject.name}</h2>
+                <p>${restaurantObject.description}</p>
+                <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
+                <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
+                <p><b>${restaurantObject.location}</b></p>
             </div>
-            `;
+        </div>
+        `;
     });
 }
 
@@ -219,18 +219,24 @@ let addRestToArray = () => {
     let userId = restauranter.length + 1;
     let namepopup = document.getElementById("name-popup").value;
     let descpopup = document.getElementById("description-popup").value;
-    let openpopup = document.getElementById("opening-popup").value;
+    let openpopup1 = document.getElementById("opening1-popup").value;
+    let openpopup2 = document.getElementById("opening2-popup").value;
+    let openpopup3 = document.getElementById("opening3-popup").value;
+    let openpopup4 = document.getElementById("opening4-popup").value;
     let localpopup = document.getElementById("location-popup").value;
     let imgpopup = document.getElementById("image-popup").value;
 
-    if (namepopup == "" || descpopup == "" || openpopup == "" || localpopup =="") {
+    if (namepopup == "" || descpopup == "" || openpopup1 == "" ||openpopup2 == "" ||openpopup3 == "" ||openpopup4 == "" || localpopup =="") {
         alert("Fyll inn alle feltene");
     } else {
         let restaurant = {
             id: userId,
             name: namepopup,
             description: descpopup,
-            openings: openpopup,
+            openings11: openpopup1,
+            openings12: openpopup2,
+            openings21: openpopup3,
+            openings22: openpopup4,
             location: localpopup,
             img: imgpopup
         }
