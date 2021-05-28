@@ -1,4 +1,8 @@
 import SaleMod from './modules/saleModule.js';
+
+let incomeAvr = document.getElementById("income-avr");
+let expensesDiv = document.getElementById("expenses-out");
+
 var c = document.getElementById('chart');
 var ctx = c.getContext('2d');
 var myChart = new Chart(ctx, {
@@ -119,3 +123,10 @@ var weeklyChart = new Chart(ctxweekly, {
         }
     }
 });
+
+let incomeAvrSum = 0;
+SaleMod.getYearlyIncome().forEach(year => {
+    incomeAvrSum += year.income;
+});
+incomeAvrFinal = incomeAvrSum/ 6;
+incomeAvr.innerHTML = `Gjennomsnittlig inntekt siste 6 årene = ${incomeAvrFinal}`;

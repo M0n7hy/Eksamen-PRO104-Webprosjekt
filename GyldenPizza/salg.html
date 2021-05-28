@@ -46,19 +46,23 @@
                 <canvas id="daily-sale" style="background-color: rgba(255, 255, 255, 1); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);"></canvas>
             </div>
             <div class="weekly charts">
-                <canvas id="weekly-sale" style="height: 100%; width: 100%; background-color: rgba(255, 255, 255, 1); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);"></canvas>
+                <canvas id="weekly-sale" style="height: 100%; width: 100%; background-color: rgba(255, 255, 255, 1); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25); "></canvas>
             </div>
         </div>
         <div class="numbers-container">
-            <div id="income" class="numbers-item"></div>
-            <div id="expenses" class="numbers-item"></div>
+            <div id="income" class="numbers-item">
+                <div id="income-avr"></div>
+            </div>
+            <div id="expenses" class="numbers-item">
+                <div id="expenses-out"></div>
+            </div>
         </div>
 
 
 
     </div>
 </div>
-<script src="/GyldenPizza/JS/salg.js"></script>
+<script type="module" src="/GyldenPizza/JS/salg.js"></script>
 
 
 </body>
