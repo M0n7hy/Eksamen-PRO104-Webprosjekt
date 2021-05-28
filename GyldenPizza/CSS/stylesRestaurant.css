@@ -13,7 +13,7 @@ ul#redigerListe li {
     display: inline;
     position: relative;
     top: 0px;
-    left: 30px;
+    left: 25px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -65,7 +65,7 @@ li a:hover {
 #tittel {
     position: relative;
     top: 20px;
-    left: 85px;
+    left: 80px;
     font-family: verdana;
     font-size: 20px;
     font-weight: 500;
@@ -77,8 +77,8 @@ li a:hover {
 
 #tittel2 {
     position: relative;
-    top: 35vw;
-    left: 5vh;
+    top: -1.5%;
+    left: 19.8%;
     font-family: verdana;
     width: fit-content;
     height: fit-content;
@@ -111,6 +111,7 @@ li a:hover {
     font-size: 20px;
     line-height: 23px;
     width: fit-content;
+    
 }
 
 .resbilde {
@@ -118,10 +119,16 @@ li a:hover {
     position: relative;
     top: 9px;
     left: 60px;
-    width: 180px;
-    height: 180px;
+    width: 9.3vw;
+    height: 9.3vw;
     border-radius: 30px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.10);
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
 }
 
 .txtbox {
