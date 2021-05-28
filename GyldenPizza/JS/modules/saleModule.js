@@ -37,35 +37,48 @@ const SaleMod = (function(){
         return yearlyIncomeArray[index].income;
     }
     const addNewDay = (pizzaIn, drinkIn) => {
-        dailyIncomeArray[0].income = pizzaIn;
         dailyIncomeArray[1].income = drinkIn;
+        dailyIncomeArray[0].income = pizzaIn;
+        let sum = pizzaIn+drinkIn;
         let newDay = {
-            day: weeklyIncomeArray[0],
-            income: pizzaIn+drinkIn
+            day: weeklyIncomeArray[0].day,
+            income: sum
         }
         weeklyIncomeArray.splice(0, 1);
         weeklyIncomeArray.push(newDay);
+        console.log(newDay.income);
+        dailyIncomeArray.forEach(test => {
+            console.log(test.income);
+        });
     }
     const addNewYear = (incomeYear)=>{
-        yearlyIncomeArray.splice(0, 1);
+        let year = yearlyIncomeArray[5].year+1;
         let newYear = {
-            year: yearlyIncomeArray[5]+1,
+            year: year,
             income: incomeYear
         }
+        yearlyIncomeArray.splice(0, 1);
+
+        console.log(year);
+        yearlyIncomeArray.push(newYear);
+        console.log(yearlyIncomeArray.length);
     }
     const editNewYear = (incomeYear)=>{
-        yearlyIncomeArray[yearlyIncomeArray.length].income = incomeYear;
+        yearlyIncomeArray[yearlyIncomeArray.length-1].income = incomeYear;
     }
     const editNewDay = (pizzaIn, drinkIn) =>{
+        let sum = pizzaIn+drinkIn;
         dailyIncomeArray[0].income = pizzaIn;
         dailyIncomeArray[1].income = drinkIn;
-        weeklyIncomeArray[weeklyIncomeArray.length].income = pizzaIn + drinkIn;
+        let arrayLength = weeklyIncomeArray.length;
+        console.log(arrayLength);
+        weeklyIncomeArray[arrayLength-1].income = sum;
     }
 
     const getYearlyIncome = () => yearlyIncomeArray;
     const getWeeklyIncome = () => weeklyIncomeArray;
     const getDailyIncome = () => dailyIncomeArray;
 
-    return {getYearlyIncome, getWeeklyIncome, getDailyIncome, getYearFromYearlyIncome, getIncomeFromYearlyIncome, getIncomeFromDailyIncome, getIncomeFromWeeklyIncome, getDayFromWeeklyIncome};
+    return {yearlyIncomeArray, weeklyIncomeArray, dailyIncomeArray, getYearlyIncome, getWeeklyIncome, getDailyIncome, getYearFromYearlyIncome, getIncomeFromYearlyIncome, getIncomeFromDailyIncome, getIncomeFromWeeklyIncome, getDayFromWeeklyIncome, addNewDay, addNewYear, editNewYear, editNewDay};
  }());
  export default SaleMod;

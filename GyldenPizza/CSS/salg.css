@@ -44,12 +44,59 @@
     background-color: rgba(24, 30, 69, .8);
     height: 100%;
     width: 20%;
-    border-radius: 5%;
+    border-radius: 10%;
+    text-align: center;
 }
 #income{
     margin-left: 8%;
+
 }
 #expenses{
     margin-right: 8%;
 }
+#income-avr{
+    margin-top: 15%;
+    color: aliceblue;
+}
+#expenses-out{
+    margin-top: 15%;
+    color: aliceblue;
+}
 
+.change-photo{
+    width: 70%;
+    height: auto;
+    transition: .5s;
+}
+.change-photo:hover{
+    transform: scale(1.2);
+}
+.change-div{
+    width: 25%;
+}
+.change-container-year{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 7%;
+    top: 1%;
+}
+.change-container-day{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 40%;
+    top: 1%;
+}
+
+.popup-container{
+    top: 5%;
+    left: 42%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #90B045;
+    width: 20%;
+    text-align: center;
+}
