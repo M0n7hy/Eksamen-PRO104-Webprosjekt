@@ -2,9 +2,9 @@ import restauranter from './modules/restauranter.js';
 
 let restaurantPrintDiv = document.getElementById("infobox");
 
-let addrestaurant = document.getElementById("leggTil");
-let editRestaurants = document.getElementById("rediger");
-let delrestaurant = document.getElementById("slett");
+let addrestaurant = document.getElementById("add");
+let editRestaurants = document.getElementById("edits");
+let delrestaurant = document.getElementById("delete");
 let mode = document.getElementById("mode");
 
 let pickedbackground = document.getElementById("picked-background");
@@ -42,8 +42,8 @@ let printRestaurant = () => {
                 <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
                 <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                 <p><b>${restaurantObject.location}</b></p>
-                <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
-                <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
+                <img id="rediger" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png">
+                <img id="slett" class="delete" src="/GyldenPizza/resources/images-restaurant/delete.png">
                 <hr>
             </div>
         </div>
@@ -72,8 +72,8 @@ window.getRestaurant = (id) => {
                         <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
                         <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                         <p><b>${restaurant.location}</b></p>
-                        <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
-                        <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
+                        <img id="rediger" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png">
+                        <img id="slett" class="delete" src="/GyldenPizza/resources/images-restaurant/delete.png">
                         <hr>
                     </div>
                 </div>
@@ -166,13 +166,13 @@ let remove = false;
 
 function interact() {
     switch(this.id) {
-        case "leggTil":
+        case "add":
             add = true;
             console.log(add);
             addRestaurant();
             break;
         
-        case "rediger":
+        case "edits":
             if (!edit) {
                 edit = true;
                 remove = false;
@@ -189,7 +189,7 @@ function interact() {
             console.log(edit);
             break;
         
-        case "slett":
+        case "delete":
             if (!remove) {
                 mode.innerHTML = "Trykk på brukeren du vil slette";
                 mode.style.display = "block";

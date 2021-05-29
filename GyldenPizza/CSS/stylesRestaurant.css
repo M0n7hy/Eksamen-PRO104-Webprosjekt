@@ -193,7 +193,7 @@ li img:hover {
     display: none;
 }
 
-.rediger {
+.edit {
     position: relative;
     display: block;
     float: right;
@@ -203,11 +203,11 @@ li img:hover {
     padding: 1%;
 }
 
-.rediger:hover {
+.edit:hover {
     cursor: pointer;
 }
 
-.slett {
+.delete {
     position: relative;
     display: block;
     float: right;
@@ -217,7 +217,7 @@ li img:hover {
     padding: 1%;
 }
 
-.slett:hover {
+.delete:hover {
     cursor: pointer;
 }
 
