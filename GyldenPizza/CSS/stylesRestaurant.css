@@ -1,19 +1,7 @@
-#bakgrunn {
-    background-color: #e5e5e5;
-    position: absolute;
-    width: auto;
-    height: auto;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-}
-
 ul#redigerListe li {
     display: inline;
     position: relative;
-    top: 0px;
-    left: 25px;
+    top: -15px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -24,17 +12,19 @@ ul#redigerListe li {
 }
 
 li {
-    float: left;
+    float: right;
 }
 
-li a {
+li img {
     display: block;
     text-align: center;
     padding: 16px;
     text-decoration: none;
+    width: auto;
+    height: 30px;
 }
 
-li a:hover {
+li img:hover {
     cursor: pointer;
 }
 
@@ -126,6 +116,7 @@ li a:hover {
 }
 
 .image {
+    object-fit: cover;
     height: 100%;
     width: 100%;
     border-radius: 30px;
