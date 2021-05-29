@@ -42,6 +42,8 @@ let printRestaurant = () => {
                 <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
                 <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                 <p><b>${restaurantObject.location}</b></p>
+                <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
+                <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
             </div>
         </div>
         `;
@@ -62,14 +64,16 @@ window.getRestaurant = (id) => {
         restauranter.getById(id).forEach(restaurant => {
             pickedrestaurant.innerHTML = `
                 <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
-                <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
-                        <div class="txtbox">
-                            <h2 class="name">${restaurant.name}</h2>
-                            <p>${restaurant.description}</p>
-                            <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
-                            <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
-                            <p><b>${restaurant.location}</b></p>
-                        </div>
+                    <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
+                    <div class="txtbox">
+                        <h2 class="name">${restaurant.name}</h2>
+                        <p>${restaurant.description}</p>
+                        <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
+                        <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
+                        <p><b>${restaurant.location}</b></p>
+                        <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
+                        <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
+                    </div>
                 </div>
                 `;
             pickedrestaurant.style.display = "block";
@@ -170,12 +174,13 @@ function interact() {
             if (!edit) {
                 edit = true;
                 remove = false;
-                editRestaurants.innerHTML = "Stop redigering";
+                editRestaurants.innerHTML = `<img src="/GyldenPizza/resources/images-restaurant/editActive.png">`;
+                delrestaurant.innerHTML = `<img src="/GyldenPizza/resources/images-restaurant/delete.png">`;
                 mode.innerHTML = "Trykk på restauranten du vil redigere";
                 mode.style.display = "block";
             } else {
                 edit = false;
-                editRestaurants.innerHTML = "Rediger";
+                editRestaurants.innerHTML = `<img src="/GyldenPizza/resources/images-restaurant/edit.png">`;
                 mode.innerHTML = "";
                 mode.style.display = "none";
             }
@@ -188,12 +193,13 @@ function interact() {
                 mode.style.display = "block";
                 remove = true;
                 edit = false;
-                delrestaurant.innerHTML = "Ikke slett";
+                delrestaurant.innerHTML = `<img src="/GyldenPizza/resources/images-restaurant/deleteActive.png">`;
+                editRestaurants.innerHTML = `<img src="/GyldenPizza/resources/images-restaurant/edit.png">`;
             } else {
                 remove = false;
                 mode.innerHTML = "";
                 mode.style.display = "none";
-                delrestaurant.innerHTML = "Slett"
+                delrestaurant.innerHTML = `<img src="/GyldenPizza/resources/images-restaurant/delete.png">`;
             }
             console.log(remove);
             break;

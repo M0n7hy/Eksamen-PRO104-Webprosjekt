@@ -17,9 +17,7 @@ li {
 
 li img {
     display: block;
-    text-align: center;
     padding: 16px;
-    text-decoration: none;
     width: auto;
     height: 30px;
 }
@@ -54,7 +52,7 @@ li img:hover {
 
 #tittel {
     position: relative;
-    top: 20px;
+    top: 0%;
     left: 80px;
     font-family: verdana;
     font-size: 20px;
@@ -67,7 +65,7 @@ li img:hover {
 
 #tittel2 {
     position: relative;
-    top: -1.5%;
+    top: -3.6%;
     left: 19.8%;
     font-family: verdana;
     width: fit-content;
@@ -88,7 +86,7 @@ li img:hover {
 
 .infobox {
     position: relative;
-    top: 20px;
+    top: 0%;
     width: 100%;
     border-radius: 2%;
     background-color: transparent;
@@ -184,5 +182,45 @@ li img:hover {
 
 #no:hover {
     font-weight: bold;
+    cursor: pointer;
+}
+
+#mode {
+    background-color: #90B045;
+    border-radius: 5px;
+    padding: 1px;
+    margin-top: 23px;
+    display: none;
+}
+
+.rediger {
+    position: relative;
+    display: block;
+    float: right;
+    width: auto;
+    height: 30px;
+    top: -3.5vh;
+    padding: 1%;
+}
+
+.rediger:hover {
+    cursor: pointer;
+}
+
+.slett {
+    position: relative;
+    display: block;
+    float: right;
+    width: auto;
+    height: 30px;
+    top: -3.5vh;
+    padding: 1%;
+}
+
+.slett:hover {
+    cursor: pointer;
+}
+
+#X:hover {
     cursor: pointer;
 }
