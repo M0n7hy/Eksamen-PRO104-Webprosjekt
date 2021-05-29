@@ -44,6 +44,7 @@ let printRestaurant = () => {
                 <p><b>${restaurantObject.location}</b></p>
                 <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
                 <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
+                <hr>
             </div>
         </div>
         `;
@@ -73,6 +74,7 @@ window.getRestaurant = (id) => {
                         <p><b>${restaurant.location}</b></p>
                         <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
                         <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
+                        <hr>
                     </div>
                 </div>
                 `;
