@@ -35,10 +35,10 @@
         <div class="box">
             <div class="user-site-container">
                 <div id="mode" style="display: none;"></div>
-                <div id="edit-users" class="icon edit-icon">
+                <div id="edit-users" onclick="" class="icon edit-icon">
                     <img src="/GyldenPizza/resources/images-employee/edit-64.png" alt="">
                 </div>
-                <div id="add-users" class="icon add-icon">
+                <div id="add-users" class="icon add-icon" onclick="interactClick(document.getElementById('add-users'), )">
                     <img src="/GyldenPizza/resources/images-employee/add-user-3-64.png" alt="">
                 </div>
                 <div id="remove-users" class="icon remove-icon">
@@ -53,7 +53,7 @@
             
                 </div>
                 <div id="add-user-popup" style="display: none;">
-                    <div id="x-add">
+                    <div id="x-add" onclick="closeWindow2(document.getElementById('add-user-popup'))">
                         <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
                     </div>
                     Name: <input type="text" id="add-name"><br>
@@ -66,25 +66,25 @@
                     <input type="submit" value="Add user" id="submit">
                 </div>
                 <div id="edit" style="display:none">
-                    <div id="edit-x" class="x-mark-edit">
+                    <div id="edit-x" class="x-mark-edit" onclick="closeWindow2(document.getElementById('edit'))">
                         <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="">
                     </div>
                     <div id="name-edit-top" class="edit-item edit-start"></div>
-                    <div id="edit-name" class="edit-item" >Name</div>
-                    <div id="edit-email" class="edit-item" >Email</div>
-                    <div id="edit-phone" class="edit-item" >Phone</div>
-                    <div id="edit-picture" class="edit-item">Picture</div>
-                    <div id="edit-location" class="edit-item">Location</div>
-                    <div id="edit-workplace" class="edit-item">Workplace</div>
-                    <div id="edit-info" class="edit-item edit-end">info</div>
+                    <div id="edit-name" onclick="editUserClick('name', document.getElementById('edit-name'))" class="edit-item" >Name</div>
+                    <div id="edit-email" onclick="editUserClick('email', document.getElementById('edit-email'))" class="edit-item" >Email</div>
+                    <div id="edit-phone" onclick="editUserClick('phone', document.getElementById('edit-phone'))" class="edit-item" >Phone</div>
+                    <div id="edit-picture" onclick="editUserClick('picture', document.getElementById('edit-picture'))" class="edit-item">Picture</div>
+                    <div id="edit-location" onclick="editUserClick('location', document.getElementById('edit-location'))" class="edit-item">Location</div>
+                    <div id="edit-workplace" onclick="editUserClick('workplace', document.getElementById('edit-workplace'))" class="edit-item">Workplace</div>
+                    <div id="edit-info" onclick="editUserClick('info', document.getElementById('edit-info'))" class="edit-item edit-end">info</div>
                     <input type="text" id="new-edit">
                     <input type="submit" value="Edit" id="submit-edit">
                 </div>
                 <div id="warning" style="display: none;">
                     <div id="message">Vil du slette denne personen?</div>
                     <div class="option-container">
-                        <div id="yes">Ja</div>
-                        <div id="no">Nei</div>
+                        <div id="yes" onclick="">Ja</div>
+                        <div id="no" onclick="closeWindow2(document.getElementById('warning'))">Nei</div>
                     </div>
                 </div>
                 
