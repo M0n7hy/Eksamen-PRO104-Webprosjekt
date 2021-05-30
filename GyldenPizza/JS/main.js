@@ -1,9 +1,13 @@
+// ——————————————————————————————————————————————————
+// Print ut navn på innlogget person fra local storage
+// ——————————————————————————————————————————————————
+
 let personName = document.getElementById("name")
 
 personName.innerHTML = localStorage.getItem("name");
 
 // ——————————————————————————————————————————————————
-// TextScramble
+// TextScramble - Code funnet på github, og gjort noen endringer på
 // ——————————————————————————————————————————————————
 
 class TextScramble {
@@ -40,7 +44,7 @@ class TextScramble {
           complete++;
           output += to;
         } else if (this.frame >= start) {
-          if (!char || Math.random() < 0.05) {
+          if (!char || Math.random() < 0.1) {
             char = this.randomChar();
             this.queue[i].char = char;
           }
@@ -60,30 +64,97 @@ class TextScramble {
     randomChar() {
       return this.chars[Math.floor(Math.random() * this.chars.length)];
     }}
-  
-  
+
   // ——————————————————————————————————————————————————
-  // Example
+  // Ekempel nummer for de rullerende tallene, kun tilfeldige tall, og ikke sikkert at de passer 100% sammen
   // ——————————————————————————————————————————————————
   
   const phrases = [
-  '59',
-  '82',
-  '124',
-  '176',
-  '223',
-  '278',
-  '351'];
+    '59',
+    '82',
+    '124',
+    '176',
+    '223',
+    '278',
+    '351',
+    '378',
+    '401',
+    '444'
+];
   
+  const phrasesTwo = [
+    '32',
+    '58',
+    '78',
+    '110',
+    '121',
+    '153',
+    '199',
+    '234',
+    '255',
+    '298',
+    '322'
+];
+
+  const phrasesThree = [
+    '8',
+    '12',
+    '19',
+    '21',
+    '28',
+    '31',
+    '35',
+    '40',
+    '43',
+    '49'
+  ]
+
+  // ——————————————————————————————————————————————————
+  // Scrambler eksempel nummerne
+  // ——————————————————————————————————————————————————
+
   const el = document.querySelector('.pizza-sold');
+  const et = document.querySelector('.customers');
+  const eb = document.querySelector('.soda-sold')
   const fx = new TextScramble(el);
+  const fl = new TextScramble(et);
+  const ft = new TextScramble(eb)
   
+  // ——————————————————————————————————————————————————
+  // Timer og hvilken rekke som skal bli scramblet
+  // ——————————————————————————————————————————————————
+
+  // For pizzaer solgt
   let counter = 0;
   const next = () => {
     fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 800);
+      setTimeout(next, 2000);
     });
     counter = (counter + 1) % phrases.length;
   };
-  
+
+  // For kunder
+  let counterTwo = 0;
+  const nextTwo = () => {
+    fl.setText(phrasesTwo[counterTwo]).then(() => {
+      setTimeout(nextTwo, 2000);
+    });
+    counterTwo = (counterTwo + 1) % phrasesTwo.length;
+  };
+
+  // For brus solgt
+  let counterThree = 0;
+  const nextThree = () => {
+    ft.setText(phrasesThree[counterThree]).then(() => {
+      setTimeout(nextThree, 2000);
+    });
+    counterThree = (counterThree + 1) % phrasesThree.length;
+  };
+
+// ——————————————————————————————————————————————————
+// kjører koden over
+// ——————————————————————————————————————————————————  
+
 next();
+nextTwo();
+nextThree();
