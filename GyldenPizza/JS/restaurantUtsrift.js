@@ -2,9 +2,9 @@ import restauranter from './modules/restauranter.js';
 
 let restaurantPrintDiv = document.getElementById("infobox");
 
-let addrestaurant = document.getElementById("leggTil");
-let editRestaurants = document.getElementById("rediger");
-let delrestaurant = document.getElementById("slett");
+let addrestaurant = document.getElementById("add");
+let editRestaurants = document.getElementById("edits");
+let delrestaurant = document.getElementById("delete");
 let mode = document.getElementById("mode");
 
 let pickedbackground = document.getElementById("picked-background");
@@ -30,6 +30,11 @@ let warning = document.getElementById("warning");
 let removeYes = document.getElementById("yes");
 let removeNo = document.getElementById("no");
 
+
+let add = false;
+let edit = false;
+let remove = false;
+
 let printRestaurant = () => {
     restaurantPrintDiv.innerHTML = "";
     restauranter.getAll().forEach(restaurantObject => {
@@ -42,8 +47,8 @@ let printRestaurant = () => {
                 <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
                 <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                 <p><b>${restaurantObject.location}</b></p>
-                <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
-                <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
+                <img id="rediger" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png">
+                <img id="slett" class="delete" src="/GyldenPizza/resources/images-restaurant/delete.png">
                 <hr>
             </div>
         </div>
@@ -62,22 +67,22 @@ window.getRestaurant = (id) => {
         pickedbackground.style.display = "block";
     } else if (add) {
 
-        restauranter.getById(id).forEach(restaurant => {
+        restauranter.getById(id).forEach(restaurantObject => {
             pickedrestaurant.innerHTML = `
-                <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
-                    <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
-                    <div class="txtbox">
-                        <h2 class="name">${restaurant.name}</h2>
-                        <p>${restaurant.description}</p>
-                        <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
-                        <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
-                        <p><b>${restaurant.location}</b></p>
-                        <img id="rediger" class="rediger" src="/GyldenPizza/resources/images-restaurant/edit.png">
-                        <img id="slett" class="slett" src="/GyldenPizza/resources/images-restaurant/delete.png">
-                        <hr>
-                    </div>
+            <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
+                <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
+                <div class="txtbox">
+                    <h2  class="name">${restaurantObject.name}</h2>
+                    <p>${restaurantObject.description}</p>
+                    <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
+                    <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
+                    <p><b>${restaurantObject.location}</b></p>
+                    <img id="rediger" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png">
+                    <img id="slett" class="delete" src="/GyldenPizza/resources/images-restaurant/delete.png">
+                    <hr>
                 </div>
-                `;
+            </div>
+            `;
             pickedrestaurant.style.display = "block";
             pickedbackground.style.display = "block";
         });
@@ -160,19 +165,16 @@ window.closeWindow = () => {
     pickedbackground.style.display = "none";
 }
 
-let add = false;
-let edit = false;
-let remove = false;
 
 function interact() {
     switch(this.id) {
-        case "leggTil":
+        case "add":
             add = true;
             console.log(add);
             addRestaurant();
             break;
         
-        case "rediger":
+        case "edits":
             if (!edit) {
                 edit = true;
                 remove = false;
@@ -189,7 +191,7 @@ function interact() {
             console.log(edit);
             break;
         
-        case "slett":
+        case "delete":
             if (!remove) {
                 mode.innerHTML = "Trykk på brukeren du vil slette";
                 mode.style.display = "block";
@@ -224,7 +226,7 @@ let closeEditWindow = () => {
 }
 
 let addRestToArray = () => {
-    let userId = restauranter.length + 1;
+    let userId = restauranter.setID + 1;
     let namepopup = document.getElementById("name-popup").value;
     let descpopup = document.getElementById("description-popup").value;
     let openpopup1 = document.getElementById("opening1-popup").value;

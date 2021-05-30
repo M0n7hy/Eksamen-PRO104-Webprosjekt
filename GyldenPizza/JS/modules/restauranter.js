@@ -9,6 +9,7 @@ const restauranter = (function() {
 
     const addRestaurant = (input) => {
         restaurantArray.push(input);
+        console.log(restaurantArray[restaurantArray.length-1].id);
     }
 
     const removeRestaurant = (remove) => {
@@ -55,6 +56,8 @@ const restauranter = (function() {
     
     const getAll = () => restaurantArray;
 
+    const setID = ( restaurantArray.length );
+
     const getById = (id) => {
         return restaurantArray.filter(restObject => restObject.id === id);
     }
@@ -67,6 +70,6 @@ const restauranter = (function() {
         return restaurantArray.filter(restObject => restObject.location === location);
     }
 
-    return {getAll, getById, getByName, getByLocation, addRestaurant, removeRestaurant, editRestaurant};
+    return {getAll, getById, setID, getByName, getByLocation, addRestaurant, removeRestaurant, editRestaurant};
 }());
 export default restauranter;
