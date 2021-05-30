@@ -10,7 +10,6 @@ let editDiv = document.getElementById("edit-users");
 let addDiv = document.getElementById("add-users");
 let removeDiv = document.getElementById("remove-users");
 let addUserPopup = document.getElementById("add-user-popup");
-let xAdd = document.getElementById("x-add");
 let submit = document.getElementById("submit");
 let editContainer = document.getElementById("edit");
 let editName = document.getElementById("edit-name");
@@ -21,8 +20,6 @@ let editLocation = document.getElementById("edit-location");
 let editWorkplace = document.getElementById("edit-workplace");
 let editInfo = document.getElementById("edit-info");
 let submitEdit = document.getElementById("submit-edit");
-let xEdit = document.getElementById("edit-x");
-let noRemove = document.getElementById("no");
 let yesRemove = document.getElementById("yes");
 let warning = document.getElementById("warning");
 let mode = document.getElementById("mode");
@@ -88,7 +85,6 @@ window.getPerson = (id)=> {
         warning.style.display="block";
         backgroundPicked.style.display = "block";
     }
-
     /* 
         Viser popup for å redigere bruker
     */
@@ -103,7 +99,7 @@ window.getPerson = (id)=> {
     else{
         Users.getById(id).forEach(user => {
             pickedUser.innerHTML =`
-                <div id="image" onclick="closeWindow()">
+                <div id="image" onclick="closeWindow2(document.getElementById('picked-user'))">
                     <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
                 </div>
                 <div class="name-popup popup-item">${user.name}</div>
@@ -117,52 +113,18 @@ window.getPerson = (id)=> {
             backgroundPicked.style.display = "block";
         });
     }
-
+    setNormalTextEdit();
     /* Funksjon for å velge ansatt som skal redigeres */
-    function editItem(){
-        editName.style.fontWeight = "normal";
-        editEmail.style.fontWeight = "normal";
-        editPhone.style.fontWeight = "normal";
-        editPicture.style.fontWeight = "normal";
-        editLocation.style.fontWeight = "normal";
-        editWorkplace.style.fontWeight = "normal";
-        editInfo.style.fontWeight = "normal";
-
-        switch(this.id){
-            case "edit-name":
-                whatToEdit = "name";
-                editName.style.fontWeight = "bold";
-                break;
-            case "edit-email":
-                editEmail.style.fontWeight = "bold";
-                whatToEdit = "email";
-                break;
-            case "edit-phone":
-                whatToEdit = "phone";
-                editPhone.style.fontWeight = "bold";
-                break;
-            case "edit-picture":
-                whatToEdit = "picture";
-                editPicture.style.fontWeight = "bold";
-                break;
-            case "edit-location":
-                whatToEdit = "location";
-                editLocation.style.fontWeight = "bold";
-                break;
-            case "edit-workplace":
-                whatToEdit = "workplace";
-                editWorkplace.style.fontWeight = "bold";
-                break;
-            case "edit-info":
-                whatToEdit = "info";
-                editInfo.style.fontWeight = "bold";
-                break;
-        }
-        
+    window.editUserClick = (thisEdit, div)=>{
+        setNormalTextEdit();
+        whatToEdit = thisEdit;
+        div.style.fontWeight = 'bold';
+        console.log(whatToEdit);
     }
-
+    
     /* Endrer på valgte element som skal endres */
     function runEdit(){
+        setNormalTextEdit();
         let inputValue = document.getElementById("new-edit").value;
         if(inputValue !==""){
             Users.editUser(id, whatToEdit, inputValue);
@@ -171,6 +133,7 @@ window.getPerson = (id)=> {
             alert("cant change to blank");
         }
         printEmployees();
+        document.getElementById("new-edit").value = "";
     }
 
     /* Sletter bruker dersom man godtar sletting  */
@@ -182,32 +145,18 @@ window.getPerson = (id)=> {
     }
 
     /* Legger til onclick events */
-    editName.onclick = editItem;
-    editEmail.onclick = editItem;
-    editPhone.onclick = editItem;
-    editPicture.onclick = editItem;
-    editLocation.onclick = editItem;
-    editWorkplace.onclick = editItem;
-    editInfo.onclick = editItem;
+
     submitEdit.onclick = runEdit;
     yesRemove.onclick = removeWithId;
-    
-
-
 };
 printEmployees();
-
-/* Funksjon som kalles på når man krysser ut popup */
-window.closeWindow = ()=>{
-    pickedUser.style.display = "none";
-    backgroundPicked.style.display = "none";
-}
 
 /* 
     Gir beskjed til bruker om han sletter/endrer noe på siden når han velger slett eller rediger.
     som å markere valget og skrive en text om at han endrer eller sletter.
     Om man skale legge til bruker så opner denne funksjonen en popup for å legge til bruker
 */
+
 function interact() {
     switch(this.id){
         case "edit-users":
@@ -218,17 +167,12 @@ function interact() {
                 removeDiv.innerHTML = `<img src="/GyldenPizza/resources/images-employee/disapprove-64.png" alt="">`;
                 mode.innerHTML = "Trykk på brukeren du vil redigere";
                 mode.style.display = "block";
-
-
             }
             else {
                 edit = false;
                 editDiv.innerHTML = `<img src="/GyldenPizza/resources/images-employee/edit-64.png" alt="">`;
                 mode.innerHTML = "";
                 mode.style.display = "none";
-
-
-
             }
             console.log(edit);
             break;
@@ -266,15 +210,8 @@ let addUser = ()=>{
     addUserPopup.style.display = "block";
     backgroundPicked.style.display = "block";
 }
-
-/* Lukker add vindu når man trykker på X'en i popup */
-let closeAddWindow = ()=>{
-    addUserPopup.style.display = "none";
-    backgroundPicked.style.display = "none";
-}
-/* Lukker edit vindu når man trykker på X'en i popup */
-let closeEditWindow = ()=>{
-    editContainer.style.display = "none";
+window.closeWindow2 = (div) =>{
+    div.style.display = "none";
     backgroundPicked.style.display = "none";
 }
 
@@ -311,17 +248,18 @@ let addUserToArray = () =>{
         printEmployees();
     }
 }
-/* Funksjon for å fjerne varselvindu dersom man ikke endrer eller sletter lenger */
-let closeRemoveWindow = ()=> {
-    warning.style.display="none";
-    backgroundPicked.style.display = "none";
+/* Setter valg i edit til normal text */
+let setNormalTextEdit = ()=>{
+    editName.style.fontWeight = "normal";
+    editEmail.style.fontWeight = "normal";
+    editPhone.style.fontWeight = "normal";
+    editPicture.style.fontWeight = "normal";
+    editLocation.style.fontWeight = "normal";
+    editWorkplace.style.fontWeight = "normal";
+    editInfo.style.fontWeight = "normal";
 }
-
-/* Lager onclick events */
+/* Lager onclick */
 submit.onclick = addUserToArray;
 editDiv.onclick = interact;
 addDiv.onclick = interact;
 removeDiv.onclick = interact;
-xAdd.onclick = closeAddWindow;
-xEdit.onclick = closeEditWindow;
-noRemove.onclick = closeRemoveWindow;
