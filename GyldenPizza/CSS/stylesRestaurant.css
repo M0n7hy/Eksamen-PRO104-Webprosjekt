@@ -7,6 +7,7 @@ ul#redigerListe li {
     padding: 0;
     overflow: hidden;
     font-family: verdana;
+    font-size: small;
     width: fit-content;
     height: fit-content;
 }
@@ -26,18 +27,6 @@ li img:hover {
     cursor: pointer;
 }
 
-#edit-popup {
-    position: absolute;
-    width: 15%;
-    height: auto;
-    background-color: #90B045;
-    top: 25%;
-    left: 44%;
-    border: 2px solid black;
-    border-radius: 2%;
-    text-align: center;
-}
-
 #editModal, #deleteModal, #addModal {
     position: fixed;
     top: 0;
@@ -49,7 +38,6 @@ li img:hover {
     display: none;
     align-items: center;
 }
-
 
 .content {
     background-color: #90B045;
@@ -102,23 +90,21 @@ li img:hover {
     padding-bottom: 8vh;
 }
 
-
 #infobox {
     position: relative;
     width: 97%;
     height: auto;
     top: -10vh;
     left: 1vw;
-    
 }
 
 .infobox {
     position: relative;
     top: 0%;
     width: 100%;
-    border-radius: 2%;
     background-color: transparent;
-    margin-top: 1vh;
+    margin-top: 2vh;
+    background-color: #FFFFFF;
 }
 
 .name {
@@ -135,9 +121,8 @@ li img:hover {
     position: relative;
     top: 9px;
     left: 60px;
-    width: 9.3vw;
-    height: 9.3vw;
-    border-radius: 30px;
+    width: 9.4vw;
+    height: 9.4vw;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.10);
 }
 
@@ -145,7 +130,6 @@ li img:hover {
     object-fit: cover;
     height: 100%;
     width: 100%;
-    border-radius: 30px;
 }
 
 .txtbox {
@@ -160,68 +144,7 @@ li img:hover {
     line-height: 16px;
 }
 
-#picked-background{
-    height: 100%;
-    width: 100%;
-    background-color: rgba(24, 30, 69, 0.8);
-    position: absolute;
-    display: none;
-    top: 0%;
-}
-
-#restaurantpicked{
-    position: absolute;
-    width: 30%;
-    height: auto;
-    background-color: #90B045;
-    top: 25%;
-    left: 35%;
-    border: 2px solid black;
-    border-radius: 2%;
-    text-align: center;
-}
-
-#warning{
-    position: absolute;
-    width: 30%;
-    height: auto;
-    background-color: #90B045;
-    top: 40%;
-    left: 35%;
-    border: 2px solid black;
-    border-radius: 2%;
-    text-align: center;
-    font-family: verdana;
-}
-
-.option{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    font-weight: bold;
-}
-
-#yes:hover {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#no:hover {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#mode {
-    background-color: #90B045;
-    border-radius: 5px;
-    padding: 1px;
-    margin-top: 23px;
-    display: none;
-}
-
-.edit {
+.edit, .delete {
     position: relative;
     display: block;
     float: right;
@@ -231,21 +154,7 @@ li img:hover {
     padding: 1%;
 }
 
-.edit:hover {
-    cursor: pointer;
-}
-
-.delete {
-    position: relative;
-    display: block;
-    float: right;
-    width: auto;
-    height: 30px;
-    top: -3.5vh;
-    padding: 1%;
-}
-
-.delete:hover {
+.edit:hover, .delete:hover {
     cursor: pointer;
 }
 
