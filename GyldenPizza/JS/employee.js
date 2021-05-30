@@ -1,4 +1,6 @@
 import Users from './modules/Users.js';
+
+/* Legger inn html elementer */
 let userCount = document.getElementById("number-of-users");
 let search = document.getElementById("search");
 let usersOutput = document.getElementById("users-output");
@@ -28,6 +30,7 @@ let edit = false;
 let add = false;
 let remove = false;
 
+/* Funksjon for å printe alle ansatte */
 let printEmployees = () => {
     let count = 0;
 
@@ -47,6 +50,12 @@ let printEmployees = () => {
     });
     userCount.innerHTML = `${count} ansatte`;
 }
+
+/* 
+    Funksjon for aktiv søking 
+    (Ser etter rekke av tegn som er i input felt, 
+    selv om det ikke er fulle navn og midt i navnet så skriver den det ut)
+*/
 search.addEventListener('input', (event) =>{
     let value = event.target.value;
     usersOutput.innerHTML="";
@@ -65,17 +74,32 @@ search.addEventListener('input', (event) =>{
             </div>`;
     });
 })
+/*
+    Funksjon som henter id på ansatte som er tykket på
+    viser 
+*/
 window.getPerson = (id)=> {
     let whatToEdit;
     console.log(id);
+    /* 
+        Viser Popup med bekreftelse på å slette bruker
+    */
     if(remove){
         warning.style.display="block";
         backgroundPicked.style.display = "block";
     }
+
+    /* 
+        Viser popup for å redigere bruker
+    */
     else if (edit) {
         editContainer.style.display = "block";
         backgroundPicked.style.display = "block";
     }
+
+    /* 
+        viser informasjon om bruker
+    */
     else{
         Users.getById(id).forEach(user => {
             pickedUser.innerHTML =`
@@ -93,6 +117,8 @@ window.getPerson = (id)=> {
             backgroundPicked.style.display = "block";
         });
     }
+
+    /* Funksjon for å velge ansatt som skal redigeres */
     function editItem(){
         editName.style.fontWeight = "normal";
         editEmail.style.fontWeight = "normal";
@@ -134,6 +160,8 @@ window.getPerson = (id)=> {
         }
         
     }
+
+    /* Endrer på valgte element som skal endres */
     function runEdit(){
         let inputValue = document.getElementById("new-edit").value;
         if(inputValue !==""){
@@ -144,12 +172,16 @@ window.getPerson = (id)=> {
         }
         printEmployees();
     }
+
+    /* Sletter bruker dersom man godtar sletting  */
     function removeWithId(){
         Users.removeUser(id);
         warning.style.display="none";
         backgroundPicked.style.display = "none";
         printEmployees();
     }
+
+    /* Legger til onclick events */
     editName.onclick = editItem;
     editEmail.onclick = editItem;
     editPhone.onclick = editItem;
@@ -165,11 +197,17 @@ window.getPerson = (id)=> {
 };
 printEmployees();
 
+/* Funksjon som kalles på når man krysser ut popup */
 window.closeWindow = ()=>{
     pickedUser.style.display = "none";
     backgroundPicked.style.display = "none";
 }
 
+/* 
+    Gir beskjed til bruker om han sletter/endrer noe på siden når han velger slett eller rediger.
+    som å markere valget og skrive en text om at han endrer eller sletter.
+    Om man skale legge til bruker så opner denne funksjonen en popup for å legge til bruker
+*/
 function interact() {
     switch(this.id){
         case "edit-users":
@@ -223,20 +261,24 @@ function interact() {
     }
 }
 
+/* Funksjon for å legge til brukere */
 let addUser = ()=>{
     addUserPopup.style.display = "block";
     backgroundPicked.style.display = "block";
 }
 
+/* Lukker add vindu når man trykker på X'en i popup */
 let closeAddWindow = ()=>{
     addUserPopup.style.display = "none";
     backgroundPicked.style.display = "none";
 }
+/* Lukker edit vindu når man trykker på X'en i popup */
 let closeEditWindow = ()=>{
     editContainer.style.display = "none";
     backgroundPicked.style.display = "none";
 }
 
+/* Funksjon for å legge til bruker i array */
 let addUserToArray = () =>{
     let userId = Users.length+1;
     let name = document.getElementById("add-name").value;
@@ -253,7 +295,7 @@ let addUserToArray = () =>{
         alert("All info required, Photo is optional");
     }
     else{
- 
+        
         let user = {
             id: userId,
             name: name,
@@ -269,11 +311,13 @@ let addUserToArray = () =>{
         printEmployees();
     }
 }
+/* Funksjon for å fjerne varselvindu dersom man ikke endrer eller sletter lenger */
 let closeRemoveWindow = ()=> {
     warning.style.display="none";
     backgroundPicked.style.display = "none";
 }
 
+/* Lager onclick events */
 submit.onclick = addUserToArray;
 editDiv.onclick = interact;
 addDiv.onclick = interact;

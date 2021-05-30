@@ -1,4 +1,5 @@
 const SaleMod = (function(){
+    /* Lager arrays for data i grafer osv. */
     const yearlyIncomeArray = [
         {year:2015, income: 20000},
         {year:2016, income: 40000},
@@ -20,7 +21,7 @@ const SaleMod = (function(){
         {item:"pizza", income: 200000},
         {item:"drink", income: 200000}
     ];
-    
+    /* Returnerer fra spesifike arrays */
     const getIncomeFromDailyIncome = (index) => {
         return dailyIncomeArray[index].income;
     }
@@ -36,6 +37,7 @@ const SaleMod = (function(){
     const getIncomeFromYearlyIncome = (index) => {
         return yearlyIncomeArray[index].income;
     }
+    /* legger til ny dag i dag diagram og uklige, sletter også det den første dagen*/
     const addNewDay = (pizzaIn, drinkIn) => {
         dailyIncomeArray[1].income = drinkIn;
         dailyIncomeArray[0].income = pizzaIn;
@@ -47,6 +49,7 @@ const SaleMod = (function(){
         weeklyIncomeArray.splice(0, 1);
         weeklyIncomeArray.push(newDay);
     }
+    /* Legger til nytt år og fjerner siste */
     const addNewYear = (incomeYear)=>{
         let year = yearlyIncomeArray[5].year+1;
         let newYear = {
@@ -56,9 +59,11 @@ const SaleMod = (function(){
         yearlyIncomeArray.splice(0, 1);
         yearlyIncomeArray.push(newYear);
     }
+    /* Redigerer siste år */
     const editNewYear = (incomeYear)=>{
         yearlyIncomeArray[yearlyIncomeArray.length-1].income = incomeYear;
     }
+    /* Redigerer siste dag */
     const editNewDay = (pizzaIn, drinkIn) =>{
         let sum = pizzaIn+drinkIn;
         dailyIncomeArray[0].income = pizzaIn;
@@ -66,7 +71,7 @@ const SaleMod = (function(){
         let arrayLength = weeklyIncomeArray.length;
         weeklyIncomeArray[arrayLength-1].income = sum;
     }
-
+    /* Henter ut arrays */
     const getYearlyIncome = () => yearlyIncomeArray;
     const getWeeklyIncome = () => weeklyIncomeArray;
     const getDailyIncome = () => dailyIncomeArray;

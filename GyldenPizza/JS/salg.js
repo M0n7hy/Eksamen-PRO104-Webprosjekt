@@ -1,5 +1,7 @@
+/* Importerer Modul */
 import SaleMod from './modules/saleModule.js';
 
+/* henter html elementer */
 let incomeAvr = document.getElementById("income-avr");
 let expensesDiv = document.getElementById("expenses-out");
 let popupWindow = document.getElementById("popup-container");
@@ -10,6 +12,8 @@ let addDay = document.getElementById("add-daily");
 let incomeYearDiv = document.querySelectorAll(".income");
 let incomeDayDiv = document.querySelectorAll(".daily");
 let incomeWeekliyDiv = document.querySelectorAll(".weekly");
+
+/* Lager Charts */
 var c = document.getElementById('chart');
 var ctx = c.getContext('2d');
 let yearLables = [ SaleMod.getYearFromYearlyIncome(0), SaleMod.getYearFromYearlyIncome(1), SaleMod.getYearFromYearlyIncome(2), SaleMod.getYearFromYearlyIncome(3), SaleMod.getYearFromYearlyIncome(4), SaleMod.getYearFromYearlyIncome(5)]
@@ -19,7 +23,10 @@ var myChart = new Chart(ctx, {
         labels: yearLables,
         datasets: [{
             label: 'Inntekter',
+
+            /* Henter data fra Salg Modulen */
             data: [SaleMod.getIncomeFromYearlyIncome(0), SaleMod.getIncomeFromYearlyIncome(1), SaleMod.getIncomeFromYearlyIncome(2), SaleMod.getIncomeFromYearlyIncome(3), SaleMod.getIncomeFromYearlyIncome(4), SaleMod.getIncomeFromYearlyIncome(5)],
+            /* Setter farger på bakgrunn */
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -28,6 +35,8 @@ var myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)'
             ],
+
+            /* Setter farger på Data */
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -41,6 +50,7 @@ var myChart = new Chart(ctx, {
     },
     options: {
         scales: {
+            /* Starter på 0 og alle fjerner alle linjer i chart */
             y: {
                 beginAtZero: true,
                 display: false
@@ -52,7 +62,7 @@ var myChart = new Chart(ctx, {
     }
 });
 
-
+/* Lager chart 2 */
 var daily = document.getElementById('daily-sale');
 var ctxDaily = daily.getContext('2d');
 var dailyChart = new Chart(ctxDaily, {
@@ -87,6 +97,8 @@ var dailyChart = new Chart(ctxDaily, {
     }
     
 });
+
+/* Lager chart 3 */
 var weekly = document.getElementById('weekly-sale');
 var ctxweekly = weekly.getContext('2d');
 var weeklyChart = new Chart(ctxweekly, {
@@ -131,6 +143,8 @@ var weeklyChart = new Chart(ctxweekly, {
         }
     }
 });
+
+/* Funksjon for å regne ut gjennomsnitt */
 let avarageCalc = ()=>{
     let incomeAvrSum = 0;
 
@@ -144,6 +158,7 @@ let avarageCalc = ()=>{
 }
 avarageCalc();
 
+/* Funksjon for å printe popup og legge til data i input i Array  */
 function printPopupMenu(id, placeholder){
     let inValue;
     let inValue2;
@@ -196,6 +211,7 @@ function printPopupMenu(id, placeholder){
 
 }
 
+/* Reagerer på hva du trykker på og sender med verdier til printPopupMenu funksjonen */
 function checkOnclick() {
     switch(this.id){
         case "edit-daily":
@@ -215,6 +231,8 @@ function checkOnclick() {
     dailyChart.update();
 
 }
+
+/* Oppdaterer charts */
 function printStats(){
     let dataSet = [SaleMod.yearlyIncomeArray[0].year, SaleMod.yearlyIncomeArray[1].year, SaleMod.yearlyIncomeArray[2].year, SaleMod.yearlyIncomeArray[3].year, SaleMod.yearlyIncomeArray[4].year, SaleMod.yearlyIncomeArray[5].year];
     myChart.data.labels = dataSet;
@@ -230,7 +248,8 @@ function printStats(){
     dailyChart.update();
     avarageCalc();
 }   
+/* Legger til onclick events */
 editDay.onclick = checkOnclick;
-editYear.onclick = checkOnclick;
+editYear.onclick = checkOnclick;    
 addDay.onclick = checkOnclick;
 addYear.onclick = checkOnclick;
