@@ -23,7 +23,7 @@ const pizzaMenu = (function() {
     const getAllPizza = () => pizzaArray;
 
     const getByNamePizza = (name) => {
-        return pizzaArray.filter(pizzaObject => pizzaObject.name === name);
+        return pizzaArray.filter(pizzaObject => pizzaObject.name.toUpperCase() === name.toUpperCase());
     }
 
     const getByPricePizza = (price) => {
@@ -48,6 +48,6 @@ const pizzaMenu = (function() {
         return drinkArray.filter(drinkObject => drinkObject.profit === profit);
     }
     
-    return {getAllPizza, getByNamePizza, getByPricePizza, getByProfitPizza, getAllDrinks, getByNameDrinks, getByPriceDrinks, getByProfitDrinks};
+    return {pizzaArray, getAllPizza, getByNamePizza, getByPricePizza, getByProfitPizza, getAllDrinks, getByNameDrinks, getByPriceDrinks, getByProfitDrinks};
 }());
 export default pizzaMenu;

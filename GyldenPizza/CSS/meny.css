@@ -50,7 +50,6 @@ h1{
     font-size: 150%;
     font-weight: bold;
     margin: 0;
-
     font-family: 'Lato', sans-serif;
 
 }
@@ -64,4 +63,58 @@ p{
     color: #1A1A1A;
     margin-left: 27%;
     margin-right: 27%;
+}
+.menu-edit-btn {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.menu-edit-btn div{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-edit-btn div:hover {
+    background-color: #ddd;
+}
+
+.menu-edit {
+    position: relative;
+    display: inline-block;
+}
+.menu-edit:hover .menu-edit-btn{
+    display: block;
+}
+
+.menu-edit-dropdown{
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.menu-edit:hover .menu-edit-dropdown {
+    background-color: #3e8e41;
+}
+
+.menu-edit > * {
+    margin: 12px 0 0 25%;
+}
+.menu-edit{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    margin: -12px 0 0 0px;
+    width: calc(100% - 12px);
+}
+.edit-form{
+    display: flex;
+    flex-direction: column;
 }
