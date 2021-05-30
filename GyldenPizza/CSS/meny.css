@@ -8,24 +8,30 @@ h1{
     font-family: 'Lato', sans-serif;
     color: #1A1A1A;
 }
+
+p{
+    line-height: 1.0;
+    color: #1A1A1A;
+    margin-left: 27%;
+    margin-right: 27%;
+}
 #pic-pizza {
     width: 38%;
     height: auto;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+
 }
 #element {
     margin: auto;
     width: 32%;
     text-align: center;
-    background-color: lightblue;
-    border: 2px solid black;
 }
 .flexContainer {
     justify-content: center;
     display: flex;
     flex-flow: row wrap;
     font-family: 'Lato', sans-serif;
-    line-height: 0.3;    
+    line-height: 0.3;
 }
 #print-menu-drinks {
     display: flex;
@@ -42,13 +48,9 @@ h1{
     justify-content:center;
     width: 100%;
 }
-.sizeContainer{
-    display: flex;
-    justify-content: center;
-}
 .sizeEl{
     font-size: 150%;
-    font-weight: bold;
+    font-weight: 100%;
     margin: 0;
     font-family: 'Lato', sans-serif;
 

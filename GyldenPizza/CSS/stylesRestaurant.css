@@ -1,19 +1,7 @@
-#bakgrunn {
-    background-color: #e5e5e5;
-    position: absolute;
-    width: auto;
-    height: auto;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-}
-
 ul#redigerListe li {
     display: inline;
     position: relative;
-    top: 0px;
-    left: 30px;
+    top: -15px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -24,17 +12,17 @@ ul#redigerListe li {
 }
 
 li {
-    float: left;
+    float: right;
 }
 
-li a {
+li img {
     display: block;
-    text-align: center;
     padding: 16px;
-    text-decoration: none;
+    width: auto;
+    height: 30px;
 }
 
-li a:hover {
+li img:hover {
     cursor: pointer;
 }
 
@@ -42,10 +30,10 @@ li a:hover {
     position: absolute;
     width: 30%;
     height: auto;
-    background-color: #90B045;
+    background-color: white;
     top: 25%;
     left: 35%;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 2%;
     text-align: center;
 }
@@ -64,11 +52,11 @@ li a:hover {
 
 #tittel {
     position: relative;
-    top: 20px;
-    left: 85px;
+    top: 0%;
+    left: 80px;
     font-family: verdana;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 500;
     width: fit-content;
     height: auto;
     margin-top: 50px;
@@ -77,12 +65,13 @@ li a:hover {
 
 #tittel2 {
     position: relative;
-    top: -15px;
-    left: 410px;
+    top: -3.6%;
+    left: 19.8%;
     font-family: verdana;
     width: fit-content;
     height: fit-content;
     margin: 0;
+    padding-bottom: 8vh;
 }
 
 
@@ -90,19 +79,18 @@ li a:hover {
     position: relative;
     width: 97%;
     height: auto;
-    top: -30px;
-    left: 30px;
-    right: 10px;
-    bottom: 0px;
+    top: -10vh;
+    left: 1vw;
+    
 }
 
 .infobox {
     position: relative;
-    top: 20px;
+    top: 0%;
     width: 100%;
-    border-radius: 20px;
-    background-color: #90B045;
-    margin-top: 10px;
+    border-radius: 2%;
+    background-color: transparent;
+    margin-top: 1vh;
 }
 
 .name {
@@ -111,22 +99,31 @@ li a:hover {
     font-size: 20px;
     line-height: 23px;
     width: fit-content;
+    
 }
 
 .resbilde {
-    background-color: #C4C4C4;
+    background-color: white;
     position: relative;
     top: 9px;
     left: 60px;
-    width: 180px;
-    height: 180px;
+    width: 9.3vw;
+    height: 9.3vw;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.10);
+}
+
+.image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
     border-radius: 30px;
 }
 
 .txtbox {
     position: relative;
     top: -190px;
-    left: 391px;
+    left: 18vw;
     height: 0px;
     width: 78%;
     font-family: Verdana;
@@ -185,5 +182,45 @@ li a:hover {
 
 #no:hover {
     font-weight: bold;
+    cursor: pointer;
+}
+
+#mode {
+    background-color: #90B045;
+    border-radius: 5px;
+    padding: 1px;
+    margin-top: 23px;
+    display: none;
+}
+
+.edit {
+    position: relative;
+    display: block;
+    float: right;
+    width: auto;
+    height: 30px;
+    top: -3.5vh;
+    padding: 1%;
+}
+
+.edit:hover {
+    cursor: pointer;
+}
+
+.delete {
+    position: relative;
+    display: block;
+    float: right;
+    width: auto;
+    height: 30px;
+    top: -3.5vh;
+    padding: 1%;
+}
+
+.delete:hover {
+    cursor: pointer;
+}
+
+#X:hover {
     cursor: pointer;
 }
