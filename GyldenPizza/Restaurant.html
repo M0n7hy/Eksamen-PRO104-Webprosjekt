@@ -35,7 +35,7 @@
 
         <div class="box">
             <ul id="redigerListe">
-                <li id="add"><img src="/GyldenPizza/resources/images-restaurant/add-file.png"></li>
+                <li id="add" onclick="addModal()"><img src="/GyldenPizza/resources/images-restaurant/add-file.png"></li>
                 <li id="edits"><img src="/GyldenPizza/resources/images-restaurant/edit.png"></li>
                 <li id="delete"><img src="/GyldenPizza/resources/images-restaurant/delete.png"></li>
                 <li><a id="mode"></a></li>
@@ -50,24 +50,9 @@
                 <div id="restaurantpicked" style="display: none;"></div>
             </div>
 
-            <div id="add-popup" style="display: none;">
-                <div id="addX">
-                    <img id="X" src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
-                </div>
-                Navn:                   <input type="text" id="name-popup"><br>
-                Beskrivelse:            <input type="text" id="description-popup"><br>
-                Åpnings tider dager:    <input type="text" id="opening1-popup"><br>
-                Åpnings tider klokke:   <input type="text" id="opening2-popup"><br>
-                Åpnings tider dager2:   <input type="text" id="opening3-popup"><br>
-                Åpnings tider klokke2:  <input type="text" id="opening4-popup"><br>
-                Adresse:                <input type="text" id="location-popup"><br>
-                Bilde:                  <input type="text" id="image-popup"><br>
-                <input type="submit" value="Legg til bruker" id="submit">
-            </div>
-
             <div id="edit-popup" style="display: none;">
                 <div id="editX" class="x-mark-edit">
-                    <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x">
+                    <img src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x"/>
                 </div>
                 <div id="editName">Navn</div>
                 <div id="editDesc">Beskrivelse</div>
@@ -79,6 +64,68 @@
                 <div id="editImg">Bilde</div>
                 <input type="text" id="editNew">
                 <input type="submit" value="Endre" id="submitEdit">
+            </div>
+
+            <div id="addModal">
+                <div class="content">
+                    <span>Navn</span>
+                    <input type="text" id="restaurantNameAdd">
+                    <span>Beskrivelse</span>
+                    <input type="text" id="restaurantDescriptionAdd">
+                    <span>Åpnings tider dager</span>
+                    <input type="text" id="restaurantOpen1Add">
+                    <span>Åpnings tider klokke</span>
+                    <input type="text" id="restaurantOpen2Add">
+                    <span>Åpnings tider dager2</span>
+                    <input type="text" id="restaurantOpen3Add">
+                    <span>Åpnings tider klokke2</span>
+                    <input type="text" id="restaurantOpen4Add">
+                    <span>Adresse</span>
+                    <input type="text" id="restaurantAddressAdd">
+                    <span>Bilde</span>
+                    <input type="text" id="restaurantImageAdd">
+                    <div class="modalFooter">
+                        <img class="imgButton" onclick="closeModal()" src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x"/>
+                        <img class="imgButton" onclick="registerRestaurant()" src="/GyldenPizza/resources/images-restaurant/accept.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div id="editModal">
+                <div class="content">
+                    <span>Navn</span>
+                    <input type="text" id="restaurantNameEdit"/>
+                    <span>Beskrivelse</span>
+                    <input type="text" id="restaurantDescriptionEdit"/>
+                    <span>Dager åpen</span>
+                    <input type="text" id="restaurantOpen1Edit"/>
+                    <span>Klokke åpen</span>
+                    <input type="text" id="restaurantOpen2Edit"/>
+                    <span>Dager åpen2</span>
+                    <input type="text" id="restaurantOpen3Edit"/>
+                    <span>Klokke åpen2</span>
+                    <input type="text" id="restaurantOpen4Edit"/>
+                    <span>Adresse</span>
+                    <input type="text" id="restaurantAddressEdit"/>
+                    <span>Bilde</span>
+                    <input type="text" id="restaurantImageEdit"/>
+                    <div class="modalFooter">
+                        <img class="imgButton" onclick="closeModal()" src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x"/>
+                        <img class="imgButton" onclick="updateRestaurant()" src="/GyldenPizza/resources/images-restaurant/accept.png" alt="">
+                    </div>
+                    <input type="hidden" id="restaurantIdEdit"/>
+                </div>
+            </div>
+
+            <div id="deleteModal">
+                <div class="content">
+                    <span>Hvil du slette?</span>
+                    <div class="modalFooter">
+                        <img class="imgButton" onclick="closeModal()" src="/GyldenPizza/resources/images-employee/x-mark-4-24.png" alt="x"/>
+                        <img class="imgButton" onclick="removeRestaurant()" src="/GyldenPizza/resources/images-restaurant/accept.png" alt="">
+                    </div>
+                    <input type="hidden" id="restaurantIdDelete"/>
+                </div>
             </div>
 
             <div id="warning" style="display: none;">

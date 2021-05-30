@@ -14,6 +14,29 @@ let xpopup = document.getElementById("addX");
 let restpopup = document.getElementById("add-popup");
 let submitadd = document.getElementById("submit");
 
+let addModal = document.getElementById("addModal");
+let editModal = document.getElementById("editModal");
+let deleteModal = document.getElementById("deleteModal");
+let restaurantIdEdit = document.getElementById("restaurantIdEdit");
+let restaurantIdDelete = document.getElementById("restaurantIdDelete");
+let restaurantNameEdit = document.getElementById("restaurantNameEdit");
+let restaurantDescriptionEdit = document.getElementById("restaurantDescriptionEdit");
+let restaurantOpen1Edit = document.getElementById("restaurantOpen1Edit");
+let restaurantOpen2Edit = document.getElementById("restaurantOpen2Edit");
+let restaurantOpen3Edit = document.getElementById("restaurantOpen3Edit");
+let restaurantOpen4Edit = document.getElementById("restaurantOpen4Edit");
+let restaurantAddressEdit = document.getElementById("restaurantAddressEdit");
+let restaurantImageEdit = document.getElementById("restaurantImageEdit");
+
+let restaurantNameAdd= document.getElementById("restaurantNameAdd");
+let restaurantDescriptionAdd= document.getElementById("restaurantDescriptionAdd");
+let restaurantOpen1Add= document.getElementById("restaurantOpen1Add");
+let restaurantOpen2Add= document.getElementById("restaurantOpen2Add");
+let restaurantOpen3Add= document.getElementById("restaurantOpen3Add");
+let restaurantOpen4Add= document.getElementById("restaurantOpen4Add");
+let restaurantAddressAdd= document.getElementById("restaurantAddressAdd");
+let restaurantImageAdd = document.getElementById("restaurantImageAdd");
+
 let editpopup = document.getElementById("edit-popup");
 let editX = document.getElementById("editX");
 let nameEdit = document.getElementById("editName");
@@ -30,16 +53,16 @@ let warning = document.getElementById("warning");
 let removeYes = document.getElementById("yes");
 let removeNo = document.getElementById("no");
 
-
 let add = false;
 let edit = false;
 let remove = false;
 
+/* Funsjon som skriver ut de orginale objectene fra array */
 let printRestaurant = () => {
     restaurantPrintDiv.innerHTML = "";
     restauranter.getAll().forEach(restaurantObject => {
         restaurantPrintDiv.innerHTML +=`
-        <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
+        <div id="${restaurantObject.id}" class="infobox">
             <div class="resbilde"><img class="image" src="${restaurantObject.img}" alt="${restaurantObject.img}"></div>
             <div class="txtbox">
                 <h2  class="name">${restaurantObject.name}</h2>
@@ -47,26 +70,97 @@ let printRestaurant = () => {
                 <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
                 <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                 <p><b>${restaurantObject.location}</b></p>
-                <img id="rediger" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png">
-                <img id="slett" class="delete" src="/GyldenPizza/resources/images-restaurant/delete.png">
-                <hr>
+                <img id="rediger" onclick="editRestaurant(${restaurantObject.id}, '${restaurantObject.name}', '${restaurantObject.description}', '${restaurantObject.openings11}', '${restaurantObject.openings12}', '${restaurantObject.openings21}', '${restaurantObject.openings22}', '${restaurantObject.location}', '${restaurantObject.img}')" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png"/>
+                <img id="slett" onclick="deleteRestaurant(${restaurantObject.id})" class="delete" src="/GyldenPizza/resources/images-restaurant/delete.png"/>
+                <hr/>
             </div>
         </div>
         `;
     });
 }
 
+window.editRestaurant = (id, name, description, openings11, openings12, openings21, openings22, location, image) => {
+    restaurantIdEdit.value = id;
+    restaurantNameEdit.value = name;
+    restaurantDescriptionEdit.value = description;
+    restaurantOpen1Edit.value = openings11;
+    restaurantOpen2Edit.value = openings12;
+    restaurantOpen3Edit.value = openings21;
+    restaurantOpen4Edit.value = openings22;
+    restaurantAddressEdit.value = location;
+    restaurantImageEdit.value = image;
+    editModal.style.display="grid";
+}
+
+window.updateRestaurant = () => {
+    restauranter.editRestaurant(restaurantIdEdit.value, "name", restaurantNameEdit.value);
+    restauranter.editRestaurant(restaurantIdEdit.value, "desc", restaurantDescriptionEdit.value);
+    restauranter.editRestaurant(restaurantIdEdit.value, "open1", restaurantOpen1Edit.value);
+    restauranter.editRestaurant(restaurantIdEdit.value, "open2", restaurantOpen2Edit.value);
+    restauranter.editRestaurant(restaurantIdEdit.value, "open3", restaurantOpen3Edit.value);
+    restauranter.editRestaurant(restaurantIdEdit.value, "open4", restaurantOpen4Edit.value);
+    restauranter.editRestaurant(restaurantIdEdit.value, "address", restaurantAddressEdit.value);
+    restauranter.editRestaurant(restaurantIdEdit.value, "img", restaurantImageEdit.value);
+    printRestaurant();
+    closeModal();
+}
+
+/* restauranter.addRestaurant(restaurant); */
+
+window.deleteRestaurant = (id) => {
+    restaurantIdDelete.value = id;
+    deleteModal.style.display="grid";
+}
+
+window.removeRestaurant = () => {
+    restauranter.removeRestaurant(restaurantIdDelete.value);
+    printRestaurant();
+    closeModal();
+}
+
+window.addModal = () => {
+    addModal.style.display="grid";
+    
+}
+
+window.registerRestaurant = () => {
+    let restaurant = {
+        id: Math.floor(Math.random() * 10),
+        name: restaurantNameAdd.value,
+        description: restaurantDescriptionAdd.value,
+        openings11: restaurantOpen1Add.value,
+        openings12: restaurantOpen2Add.value,
+        openings21: restaurantOpen3Add.value,
+        openings22: restaurantOpen4Add.value,
+        location: restaurantAddressAdd.value,
+        img: restaurantImageAdd.value
+    }
+    restauranter.addRestaurant(restaurant);
+    printRestaurant();
+    closeModal();
+}
+
+window.closeModal = () => {
+    editModal.style.display="none";
+    deleteModal.style.display="none";
+    addModal.style.display="none";
+}
+
+/* Denne funksjonen henter id fra objectene som blir trykt på. */
 window.getRestaurant = (id) => {
     let editing;
     console.log(id);
     if(remove){
+        /* Viser en popup for varsling om sletting */
         warning.style.display = "block";
         pickedbackground.style.display = "block";
     } else if (edit) {
+        /* Viser popup for redigering */
         editpopup.style.display = "block";
         pickedbackground.style.display = "block";
     } else if (add) {
 
+        /* Funsjone som skriver ut de nye objectene fra array */
         restauranter.getById(id).forEach(restaurantObject => {
             pickedrestaurant.innerHTML = `
             <div id="${restaurantObject.id}" class="infobox" onclick="getRestaurant(${restaurantObject.id})">
@@ -77,18 +171,20 @@ window.getRestaurant = (id) => {
                     <p><b>${restaurantObject.openings11}</b> ${restaurantObject.openings12}</p>
                     <p><b>${restaurantObject.openings21}</b> ${restaurantObject.openings22}</p>
                     <p><b>${restaurantObject.location}</b></p>
-                    <img id="rediger" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png">
+                    <img id="rediger" onclick="editRestaurant(${restaurantObject.id})" class="edit" src="/GyldenPizza/resources/images-restaurant/edit.png">
                     <img id="slett" class="delete" src="/GyldenPizza/resources/images-restaurant/delete.png">
                     <hr>
                 </div>
             </div>
             `;
-            pickedrestaurant.style.display = "block";
-            pickedbackground.style.display = "block";
         });
     }
 
+
+    /* Funksjon for å velge hvilke detalj som blir redigert */
     function editRestaurants() {
+        editpopup.style.display = "block";
+        pickedbackground.style.display = "block";
         nameEdit.style.fontWeight = "normal";
         descEdit.style.fontWeight = "normal";
         openEdit1.style.fontWeight = "normal";
@@ -98,6 +194,7 @@ window.getRestaurant = (id) => {
         addressEdit.style.fontWeight = "normal";
         imgEdit.style.fontWeight = "normal";
 
+        /* Teksten i redigerpopup blir blod når den blir trykt */
         switch(this.id) {
             case "editName":
                 editing = "name";
@@ -134,12 +231,14 @@ window.getRestaurant = (id) => {
         }
     }
 
+    /* Henter og setter inn ny redigert detalj */
     function runEdit() {
         let newEdit = document.getElementById("editNew").value;
         restauranter.editRestaurant(id, editing, newEdit);
         printRestaurant();
     }
 
+    /* Funksjon som sletter basert på ID av objectene */
     function removeWithId() {
         restauranter.removeRestaurant(id);
         warning.style.display = "none";
@@ -147,6 +246,7 @@ window.getRestaurant = (id) => {
         printRestaurant();
     }
 
+    /* Aktiverer funksjon med klikk */
     nameEdit.onclick = editRestaurants;
     descEdit.onclick = editRestaurants;
     openEdit1.onclick = editRestaurants;
@@ -160,20 +260,18 @@ window.getRestaurant = (id) => {
 }
 printRestaurant();
 
+/* Funksjon for å krysse ut popups */
 window.closeWindow = () => {
     pickedrestaurant.style.display = "none";
     pickedbackground.style.display = "none";
 }
 
-
+/* Funksjon for icon-knappene */
 function interact() {
     switch(this.id) {
-        case "add":
-            add = true;
-            console.log(add);
-            addRestaurant();
-            break;
-        
+        /* kjører om legg til kappen blir trykt */
+      
+        /* Kjører om rediger knappen blir trykt */
         case "edits":
             if (!edit) {
                 edit = true;
@@ -191,6 +289,7 @@ function interact() {
             console.log(edit);
             break;
         
+        /* Kjører om slett knappen blir trykt. Gir en melding om å velge hvilken du vil slette.  */
         case "delete":
             if (!remove) {
                 mode.innerHTML = "Trykk på brukeren du vil slette";
@@ -210,21 +309,23 @@ function interact() {
     }
 }
 
+/* Legg til popup kommer fram */
 let addRestaurant = () => {
-    restpopup.style.display = "block";
-    pickedbackground.style.display = "block";
+    restpopup.style.display = "grid";
 }
 
+/* Lukker legg til popup ved å trykke på X-knappen */
 let closeAddWindow = () => {
     restpopup.style.display = "none";
-    pickedbackground.style.display = "none";
 }
 
+/* Lukker rediger popup ved p trykke på X-knappen */
 let closeEditWindow = () => {
     editpopup.style.display = "none";
     pickedbackground.style.display = "none";
 }
 
+/* Sender vediene fra legg til popup til arrayet */
 let addRestToArray = () => {
     let userId = restauranter.setID + 1;
     let namepopup = document.getElementById("name-popup").value;
@@ -236,6 +337,7 @@ let addRestToArray = () => {
     let localpopup = document.getElementById("location-popup").value;
     let imgpopup = document.getElementById("image-popup").value;
 
+    /* Gir varlsen om en eller fler av felten er tomme i legg til popup */
     if (namepopup == "" || descpopup == "" || openpopup1 == "" ||openpopup2 == "" ||openpopup3 == "" ||openpopup4 == "" || localpopup =="") {
         alert("Fyll inn alle feltene");
     } else {
@@ -253,14 +355,17 @@ let addRestToArray = () => {
         restauranter.addRestaurant(restaurant);
         restaurantPrintDiv.innerHTML = "";
         printRestaurant();
+        closeModal();
     }
 }
 
+/* Lukker slett popup etter trykk*/
 let closeRemoveWindow = () => {
     warning.style.display = "none";
     pickedbackground.style.display = "none";
 }
 
+/* Aktiverer funksjoner på klikk */
 submitadd.onclick = addRestToArray;
 addrestaurant.onclick = interact;
 editRestaurants.onclick = interact;
