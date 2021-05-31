@@ -26,7 +26,7 @@ let restaurantImageAdd = document.getElementById("restaurantImageAdd");
 
 let deleteModal = document.getElementById("deleteModal");
 
-/* Funsjon som skriver ut de orginale objectene fra array */
+/* Funsjon som skriver ut objectene fra array */
 let printRestaurant = () => {
     restaurantPrintDiv.innerHTML = "";
     restauranter.getAll().forEach(restaurantObject => {
