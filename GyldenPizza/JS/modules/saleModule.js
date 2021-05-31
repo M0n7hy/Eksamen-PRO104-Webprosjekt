@@ -21,6 +21,7 @@ const SaleMod = (function(){
         {item:"pizza", income: 200000},
         {item:"drink", income: 200000}
     ];
+    /* regner ut vekst fra forrige år */
     const changeForNewYear = () =>{
         let a = yearlyIncomeArray[yearlyIncomeArray.length-1].income;
         let b = yearlyIncomeArray[yearlyIncomeArray.length-2].income;
