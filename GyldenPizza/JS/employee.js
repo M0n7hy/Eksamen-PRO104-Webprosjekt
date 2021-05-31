@@ -26,11 +26,13 @@ let mode = document.getElementById("mode");
 let edit = false;
 let add = false;
 let remove = false;
+let idSave;
+let whatToEdit;
+
 
 /* Funksjon for å printe alle ansatte */
 let printEmployees = () => {
     let count = 0;
-
     usersOutput.innerHTML = "";
     Users.getAll().forEach(user => {
         usersOutput.innerHTML +=
@@ -47,7 +49,6 @@ let printEmployees = () => {
     });
     userCount.innerHTML = `${count} ansatte`;
 }
-
 /* 
     Funksjon for aktiv søking 
     (Ser etter rekke av tegn som er i input felt, 
@@ -76,8 +77,8 @@ search.addEventListener('input', (event) =>{
     viser 
 */
 window.getPerson = (id)=> {
-    let whatToEdit;
-    console.log(id);
+    idSave = id;
+    console.log(idSave);
     /* 
         Viser Popup med bekreftelse på å slette bruker
     */
@@ -92,7 +93,6 @@ window.getPerson = (id)=> {
         editContainer.style.display = "block";
         backgroundPicked.style.display = "block";
     }
-
     /* 
         viser informasjon om bruker
     */
@@ -114,40 +114,7 @@ window.getPerson = (id)=> {
         });
     }
     setNormalTextEdit();
-    /* Funksjon for å velge ansatt som skal redigeres */
-    window.editUserClick = (thisEdit, div)=>{
-        setNormalTextEdit();
-        whatToEdit = thisEdit;
-        div.style.fontWeight = 'bold';
-        console.log(whatToEdit);
-    }
-    
-    /* Endrer på valgte element som skal endres */
-    function runEdit(){
-        setNormalTextEdit();
-        let inputValue = document.getElementById("new-edit").value;
-        if(inputValue !==""){
-            Users.editUser(id, whatToEdit, inputValue);
-        }
-        else{
-            alert("cant change to blank");
-        }
-        printEmployees();
-        document.getElementById("new-edit").value = "";
-    }
 
-    /* Sletter bruker dersom man godtar sletting  */
-    function removeWithId(){
-        Users.removeUser(id);
-        warning.style.display="none";
-        backgroundPicked.style.display = "none";
-        printEmployees();
-    }
-
-    /* Legger til onclick events */
-
-    submitEdit.onclick = runEdit;
-    yesRemove.onclick = removeWithId;
 };
 printEmployees();
 
@@ -156,7 +123,6 @@ printEmployees();
     som å markere valget og skrive en text om at han endrer eller sletter.
     Om man skale legge til bruker så opner denne funksjonen en popup for å legge til bruker
 */
-
 function interact() {
     switch(this.id){
         case "edit-users":
@@ -232,7 +198,7 @@ let addUserToArray = () =>{
         alert("All info required, Photo is optional");
     }
     else{
-        
+    
         let user = {
             id: userId,
             name: name,
@@ -258,7 +224,37 @@ let setNormalTextEdit = ()=>{
     editWorkplace.style.fontWeight = "normal";
     editInfo.style.fontWeight = "normal";
 }
-/* Lager onclick */
+window.editUserClick = (thisEdit, div)=>{
+    setNormalTextEdit();
+    whatToEdit = thisEdit;
+    div.style.fontWeight = 'bold';
+    console.log(whatToEdit);
+}
+
+/* Endrer på valgte element som skal endres */
+function runEdit(){
+    setNormalTextEdit();
+    let inputValue = document.getElementById("new-edit").value;
+    if(inputValue !==""){
+        Users.editUser(idSave, whatToEdit, inputValue);
+    }
+    else{
+        alert("cant change to blank");
+    }
+    printEmployees();
+    document.getElementById("new-edit").value = "";
+}
+
+/* Sletter bruker dersom man godtar sletting  */
+function removeWithId(){
+    Users.removeUser(idSave);
+    warning.style.display="none";
+    backgroundPicked.style.display = "none";
+    printEmployees();
+}
+/* Legger til onclick events */
+submitEdit.onclick = runEdit;
+yesRemove.onclick = removeWithId;
 submit.onclick = addUserToArray;
 editDiv.onclick = interact;
 addDiv.onclick = interact;

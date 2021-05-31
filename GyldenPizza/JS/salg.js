@@ -3,15 +3,13 @@ import SaleMod from './modules/saleModule.js';
 
 /* henter html elementer */
 let incomeAvr = document.getElementById("income-avr");
-let expensesDiv = document.getElementById("expenses-out");
+let changeDiv = document.getElementById("change-out");
 let popupWindow = document.getElementById("popup-container");
 let editYear = document.getElementById("edit-year");
 let addYear = document.getElementById("add-year");
 let editDay = document.getElementById("edit-daily");
 let addDay = document.getElementById("add-daily");
-let incomeYearDiv = document.querySelectorAll(".income");
-let incomeDayDiv = document.querySelectorAll(".daily");
-let incomeWeekliyDiv = document.querySelectorAll(".weekly");
+
 
 /* Lager Charts */
 var c = document.getElementById('chart');
@@ -156,6 +154,7 @@ let avarageCalc = ()=>{
     
     incomeAvr.innerHTML = incomeAvrFinal;
 }
+
 avarageCalc();
 
 /* Funksjon for å printe popup og legge til data i input i Array  */
@@ -232,6 +231,8 @@ function checkOnclick() {
 
 }
 
+SaleMod.changeForNewYear();
+
 /* Oppdaterer charts */
 function printStats(){
     let dataSet = [SaleMod.yearlyIncomeArray[0].year, SaleMod.yearlyIncomeArray[1].year, SaleMod.yearlyIncomeArray[2].year, SaleMod.yearlyIncomeArray[3].year, SaleMod.yearlyIncomeArray[4].year, SaleMod.yearlyIncomeArray[5].year];
@@ -247,6 +248,8 @@ function printStats(){
     dailyChart.data.datasets[0].data = [SaleMod.dailyIncomeArray[0].income, SaleMod.dailyIncomeArray[1].income];
     dailyChart.update();
     avarageCalc();
+    SaleMod.changeForNewYear();
+
 }   
 /* Legger til onclick events */
 editDay.onclick = checkOnclick;

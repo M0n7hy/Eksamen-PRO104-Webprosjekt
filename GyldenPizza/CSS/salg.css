@@ -49,17 +49,12 @@
 }
 #income{
     margin-left: 8%;
-
 }
 #expenses{
     margin-right: 8%;
 }
 #income-avr{
-    margin-top: 15%;
-    color: aliceblue;
-}
-#expenses-out{
-    margin-top: 15%;
+    margin-top: 10%;
     color: aliceblue;
 }
 
@@ -99,4 +94,13 @@
     background-color: #90B045;
     width: 20%;
     text-align: center;
+}
+#change-out{
+    margin-top: 10%;
+    color: aliceblue;
+
+}
+#change-text{
+    color: aliceblue;
+    margin-top: 10%;
 }

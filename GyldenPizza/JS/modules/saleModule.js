@@ -21,6 +21,18 @@ const SaleMod = (function(){
         {item:"pizza", income: 200000},
         {item:"drink", income: 200000}
     ];
+    const changeForNewYear = () =>{
+        let a = yearlyIncomeArray[yearlyIncomeArray.length-1].income;
+        let b = yearlyIncomeArray[yearlyIncomeArray.length-2].income;
+        let result = a/b;
+        if(result <= 1){
+            result = ((1 - result)*100)*-1;
+        }
+        else{
+            result = ((result-1)*100);
+        }
+        document.getElementById("change-out").innerHTML = `${result}%`;
+    }
     /* Returnerer fra spesifike arrays */
     const getIncomeFromDailyIncome = (index) => {
         return dailyIncomeArray[index].income;
@@ -76,6 +88,6 @@ const SaleMod = (function(){
     const getWeeklyIncome = () => weeklyIncomeArray;
     const getDailyIncome = () => dailyIncomeArray;
 
-    return {yearlyIncomeArray, weeklyIncomeArray, dailyIncomeArray, getYearlyIncome, getWeeklyIncome, getDailyIncome, getYearFromYearlyIncome, getIncomeFromYearlyIncome, getIncomeFromDailyIncome, getIncomeFromWeeklyIncome, getDayFromWeeklyIncome, addNewDay, addNewYear, editNewYear, editNewDay};
+    return { yearlyIncomeArray, changeForNewYear,weeklyIncomeArray, dailyIncomeArray, getYearlyIncome, getWeeklyIncome, getDailyIncome, getYearFromYearlyIncome, getIncomeFromYearlyIncome, getIncomeFromDailyIncome, getIncomeFromWeeklyIncome, getDayFromWeeklyIncome, addNewDay, addNewYear, editNewYear, editNewDay};
  }());
  export default SaleMod;
