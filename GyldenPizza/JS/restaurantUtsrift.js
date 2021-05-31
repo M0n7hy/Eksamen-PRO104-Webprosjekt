@@ -26,7 +26,7 @@ let restaurantImageAdd = document.getElementById("restaurantImageAdd");
 
 let deleteModal = document.getElementById("deleteModal");
 
-/* Funsjon som skriver ut de orginale objectene fra array */
+/* Funsjon som skriver ut objectene fra array */
 let printRestaurant = () => {
     restaurantPrintDiv.innerHTML = "";
     restauranter.getAll().forEach(restaurantObject => {
@@ -48,6 +48,7 @@ let printRestaurant = () => {
     });
 }
 
+/* Henter verdiene fra siden for å redigere */
 window.editRestaurant = (id, name, description, openings11, openings12, openings21, openings22, location, image) => {
     restaurantIdEdit.value = id;
     restaurantNameEdit.value = name;
@@ -61,6 +62,7 @@ window.editRestaurant = (id, name, description, openings11, openings12, openings
     editModal.style.display="grid";
 }
 
+/* Henter verdiene fra funksjonen over for å sette inn i arrayet */
 window.updateRestaurant = () => {
     restauranter.editRestaurant(restaurantIdEdit.value, "name", restaurantNameEdit.value);
     restauranter.editRestaurant(restaurantIdEdit.value, "desc", restaurantDescriptionEdit.value);
@@ -74,22 +76,25 @@ window.updateRestaurant = () => {
     closeModal();
 }
 
+/* Funksjon for å hente restauranter fra siden */
 window.deleteRestaurant = (id) => {
     restaurantIdDelete.value = id;
     deleteModal.style.display="grid";
 }
 
+/* Funksjon for å slette restauranter fra arrayet */
 window.removeRestaurant = () => {
     restauranter.removeRestaurant(restaurantIdDelete.value);
     printRestaurant();
     closeModal();
 }
 
+/* Funksjon for legg til popup */
 window.addModal = () => {
     addModal.style.display="grid";
-    
 }
 
+/* Funksjon for å legge resturant verdiene på riktig plass i arrayet */
 window.registerRestaurant = () => {
     let restaurant = {
         id: Math.floor(Math.random() * 10),
@@ -107,6 +112,7 @@ window.registerRestaurant = () => {
     closeModal();
 }
 
+/* Funksjon for å lukke popup vinduene */
 window.closeModal = () => {
     editModal.style.display="none";
     deleteModal.style.display="none";

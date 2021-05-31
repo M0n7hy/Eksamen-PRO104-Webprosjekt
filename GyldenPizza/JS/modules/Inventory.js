@@ -13,6 +13,7 @@ const pizzaMenu = (function() {
         { id: 8, name:"Pizza Parma", price:135, profit:80, img:"Parma.png", allergies:"Gluten, Milk"}
     ];
 
+    //Object for the drinks, with info about name, price, profitt and images
     const drinkArray = [
         { id: 0, name:"Coca-Cola", price:40, profit:20, img:"ColaLogo.png"},
         { id: 1, name:"Fanta Mango", price:40, profit:20, img:"FantaMango.png"},
@@ -20,34 +21,43 @@ const pizzaMenu = (function() {
         { id: 3, name:"Oskar Sylte PearSoda", price:30, profit:10, img:"Pærebrus.png"},
     ]
 
+    //Getter for all the pizzas
     const getAllPizza = () => pizzaArray;
 
+    //Getter for the name of the pizza
     const getByNamePizza = (name) => {
         return pizzaArray.filter(pizzaObject => pizzaObject.name.toUpperCase() === name.toUpperCase());
     }
 
+    //Getter for price
     const getByPricePizza = (price) => {
         return pizzaArray.filter(pizzaObject => pizzaObject.price === price);
     }
 
+    //Getter for profit
     const getByProfitPizza = (profit) => {
         return pizzaArray.filter(pizzaObject => pizzaObject.profit === profit);
     }
 
+    //Getter for alle drinkene
     const getAllDrinks = () => drinkArray;
 
+    //Getter for name of the drinks
     const getByNameDrinks = (name) => {
-        return drinkArray.filter(drinkObject => drinkObject.name === name);
+        return drinkArray.filter(drinkObject => drinkObject.name.toUpperCase() === name.toUpperCase());
     }
 
+    //Getter for price
     const getByPriceDrinks = (price) => {
         return drinkArray.filter(drinkObject => drinkObject.price === price);
     }
 
+    //Getter for profit
     const getByProfitDrinks = (profit) => {
         return drinkArray.filter(drinkObject => drinkObject.profit === profit);
     }
     
+    //Returns all the getters
     return {pizzaArray, getAllPizza, getByNamePizza, getByPricePizza, getByProfitPizza, getAllDrinks, getByNameDrinks, getByPriceDrinks, getByProfitDrinks};
 }());
 export default pizzaMenu;
