@@ -20,7 +20,6 @@ let printMenuPizza = () => {
                 <div class="sizeContainer">
                     <div class="size-dropdown">
                         <p class="sizeEl">Size</p>
-                        <div class="arrow"></div>
                         <div class="alternatives">
                             <a></a>
                         </div>
