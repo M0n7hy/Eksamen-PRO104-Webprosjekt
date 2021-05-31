@@ -1,14 +1,15 @@
 import pizzaMenu from './modules/Inventory.js';
 
+/*Gets the three important*/
 let menuPrintPizzaDiv = document.getElementById("print-menu-pizza");
-let menuPrintDrinkDiv = document.getElementById("print-menu-drinks")
+let menuPrintDrinkDiv = document.getElementById("print-menu-drinks");
 let editFormDiv = document.querySelector(".edit-form");
 
 function printMenu(){
     printMenuPizza();
     printMenuDrinks();
 }
-
+/*Prints out all the pizzas*/
 let printMenuPizza = () => {
     pizzaMenu.getAllPizza().forEach(pizzaObject => {
         menuPrintPizzaDiv.innerHTML +=
@@ -91,8 +92,9 @@ function checkNameToObj() {
             match = true;
         });
 
+        /*The scenarios if the user chooses to add a new pizza*/
         if(typeEdit == 0){
-            /*Add a new pizza in menu*/
+            /*Adds a form to the page so the user can add a new pizza to the menu*/
             if(!match) {
                 editFormDiv.innerHTML =`
                 <p>${checkNameEl} er ikke i menyen, ønsker du fortsatt å legge til retten?</p>
@@ -105,14 +107,17 @@ function checkNameToObj() {
                 <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
                 document.getElementById("btnTestName").onclick=addToObj;
             }
+            /*Tells the user that the pizza exists, and asks the user to try again*/
             else {
                 editFormDiv.innerHTML =`<p>${checkNameEl} finnes allerede. Prøv et annet navn.</p>
                 <input type="text" id="nameInp" placeholder="Navn:">
                 <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
                 document.getElementById("btnTestName").onclick=checkNameToObj;
             }
-        }/*Edit a pizza*/
+        }        
+        /*The scenarios if the user chooses to edit a pizza*/
         else if(typeEdit == 1){
+            /*Gives error and asks user to type another pizza because the inputed pizza is found*/
             if(!match) {
                 editFormDiv.innerHTML =`
                 <p>${checkNameEl} is NOT found. TRY AGAIN</p>
