@@ -15,10 +15,10 @@ const pizzaMenu = (function() {
 
     //Object for the drinks, with info about name, price, profitt and images
     const drinkArray = [
-        { id: 0, name:"Coca-Cola", price:40, profit:20, img:"ColaLogo.png"},
-        { id: 1, name:"Fanta Mango", price:40, profit:20, img:"FantaMango.png"},
-        { id: 2, name:"Cola Cinnamon", price:40, profit:20, img:"ColaCinnamon.png"},
-        { id: 3, name:"Oskar Sylte PearSoda", price:30, profit:10, img:"Pærebrus.png"},
+        { id: 0, name:"Coca-Cola", price:40, profit:20, img:"Cola-Logo.png"},
+        { id: 1, name:"Fanta", price:40, profit:20, img:"Fanta-logo.png"},
+        { id: 2, name:"Solo", price:40, profit:20, img:"Solo-logo.png"},
+        { id: 3, name:"Bebsi", price:40, profit:10, img:"Bebsi-logo.png"},
     ]
 
     //Getter for all the pizzas
@@ -27,6 +27,11 @@ const pizzaMenu = (function() {
     //Getter for the name of the pizza
     const getByNamePizza = (name) => {
         return pizzaArray.filter(pizzaObject => pizzaObject.name.toUpperCase() === name.toUpperCase());
+    }
+
+    //Getter for length
+    const arrayLength = () => {
+        return pizzaArray.length+1;
     }
 
     //Getter for price
@@ -58,6 +63,6 @@ const pizzaMenu = (function() {
     }
     
     //Returns all the getters
-    return {pizzaArray, getAllPizza, getByNamePizza, getByPricePizza, getByProfitPizza, getAllDrinks, getByNameDrinks, getByPriceDrinks, getByProfitDrinks};
+    return {pizzaArray, arrayLength, getAllPizza, getByNamePizza, getByPricePizza, getByProfitPizza, getAllDrinks, getByNameDrinks, getByPriceDrinks, getByProfitDrinks};
 }());
 export default pizzaMenu;

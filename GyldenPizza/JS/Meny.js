@@ -11,6 +11,7 @@ function printMenu(){
 }
 /*Prints out all the pizzas*/
 let printMenuPizza = () => {
+    menuPrintPizzaDiv.innerHTML =``;
     pizzaMenu.getAllPizza().forEach(pizzaObject => {
         menuPrintPizzaDiv.innerHTML +=
             `<div id="element">
@@ -21,7 +22,9 @@ let printMenuPizza = () => {
                     <div class="size-dropdown">
                         <p class="sizeEl">Size</p>
                         <div class="alternatives">
-                            <a></a>
+                            <a id="sizeStor">Stor</a>
+                            <a id="sizeMedium">Medium</a>
+                            <a id="sizeLiten">Liten</a>
                         </div>
                     </div>
                 </div>
@@ -34,14 +37,13 @@ let printMenuPizza = () => {
 let printMenuDrinks = () => {
     pizzaMenu.getAllDrinks().forEach(drinkObject => {
         menuPrintDrinkDiv.innerHTML +=
-            `<div id="element">
+            `<div id="element-soda">
                 <h2>${drinkObject.name}</h2>
                 <h3>${drinkObject.price}kr</h3>
                 <img id="pic-soda" src="resources/images-soda/${drinkObject.img}">
             </div>`;
     })
 }
-
 printMenu();
 
 
@@ -51,11 +53,13 @@ document.getElementById("menu-edit-btn-add").onclick=add;
 function add() {
     type = 0;
     editFormDiv.innerHTML =`
-    <input type="text" id="nameInp" placeholder="Navn:">
-    <button id="btnTestName" type="button">Sjekk om pizzaen finnes fra før</button>
+        <br><p class="inp-firstStg">Legg inn navn på pizzaen du ønsker å legge til:</p><br>
+        <div class="flex-box">
+            <input type="text" id="nameInp" class="inp-flex" placeholder="Navn:">
+            <button id="btnTestName" class="btn-flex" type="button">Sjekk om pizzaen finnes</button>
+        </div>
     `;
     document.getElementById("btnTestName").onclick=checkNameToObj;
-
 }
 
 
@@ -63,21 +67,25 @@ document.getElementById("menu-edit-btn-edit").onclick=edit;
 function edit() {
     type = 1;
     editFormDiv.innerHTML =`
-        <br><p>Legg inn navn på pizzaen du ønsker å gjøre endringer på:</p><br>
-            <input type="text" id="nameInp" placeholder="Navn:">
-            <button id="btnTestName" type="button">Se om endringer er mulig</button>
-        `;
-        document.getElementById("btnTestName").onclick=checkNameToObj;
+        <br><p class="inp-firstStg">Legg inn navn på pizzaen du ønsker å gjøre endringer på:</p><br>
+        <div class="flex-box">
+            <input type="text" id="nameInp" class="inp-flex" placeholder="Navn:">
+            <button id="btnTestName" class="btn-flex" type="button">Sjekk om pizzaen finnes</button>
+        </div>
+    `;
+    document.getElementById("btnTestName").onclick=checkNameToObj;
 }
 
-document.querySelector(".menu-edit-btn-remove").addEventListener("click", remove);
+document.getElementById("menu-edit-btn-remove").addEventListener("click", remove);
 function remove() {
     type = 2;
     console.log("remove");
     editFormDiv.innerHTML =`
-    <br><p>Legg inn navn på pizzaen du ønsker å potensielt fjerne</p><br>
-        <input type="text" id="nameInp" placeholder="Navn:">
-        <button id="btnTestName" type="button">Se om endringer er mulig</button>
+        <br><p class="inp-firstStg">Legg inn navn på pizzaen du ønsker å fjerne:</p><br>
+        <div class="flex-box">
+            <input type="text" id="nameInp" class="inp-flex" placeholder="Navn:">
+            <button id="btnTestName" class="btn-flex" type="button">Sjekk om pizzaen finnes</button>
+        </div>
     `;
     document.getElementById("btnTestName").onclick=checkNameToObj;
 }
@@ -96,21 +104,24 @@ function checkNameToObj() {
             /*Adds a form to the page so the user can add a new pizza to the menu*/
             if(!match) {
                 editFormDiv.innerHTML =`
-                <p>${checkNameEl} er ikke i menyen, ønsker du fortsatt å legge til retten?</p>
-                <br><input type="number" id="idInp" placeholder="ID for pizza">
-                <input type="text" id="nameInp" placeholder="Navn:">
-                <br><input type="number" id="priceInp" placeholder="Pris:">
-                <br><input type="number" id="profitInp" placeholder="Fortjeneste per pizza:">
-                <br><input type="text" id="imgInp" placeholder="Bilde navn">
-                <br><input type="text" id="allergiesInp" placeholder="Allergier">
-                <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
+                    <p class="inp-firstStg">${checkNameEl} er ikke i menyen, ønsker du fortsatt å legge til retten?</p>
+                    <input type="text" id="nameInp" placeholder="Navn:">
+                    <br><input type="number" id="priceInp" placeholder="Pris:">
+                    <br><input type="number" id="profitInp" placeholder="Fortjeneste per pizza:">
+                    <br><input type="text" id="imgInp" placeholder="Bilde navn">
+                    <br><input type="text" id="allergiesInp" placeholder="Allergier">
+                    <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
                 document.getElementById("btnTestName").onclick=addToObj;
             }
             /*Tells the user that the pizza exists, and asks the user to try again*/
             else {
-                editFormDiv.innerHTML =`<p>${checkNameEl} finnes allerede. Prøv et annet navn.</p>
-                <input type="text" id="nameInp" placeholder="Navn:">
-                <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
+                editFormDiv.innerHTML =`
+                    <p class="inp-firstStg">${checkNameEl} finnes allerede! Prøv et annet navn:</p>
+                    <div class="flex-box">
+                        <input type="text" id="nameInp" class="inp-flex" placeholder="Navn:" style="flex-grow: 8">
+                        button id="btnTestName" class="btn-flex" type="button" style="flex-grow: 1">Sjekk om pizzaen finnes</button>
+                    </div>
+                    `;
                 document.getElementById("btnTestName").onclick=checkNameToObj;
             }
         }        
@@ -119,26 +130,42 @@ function checkNameToObj() {
             /*Gives error and asks user to type another pizza because the inputed pizza is found*/
             if(!match) {
                 editFormDiv.innerHTML =`
-                <p>${checkNameEl} is NOT found. TRY AGAIN</p>
-                <input type="text" id="nameInp" placeholder="Navn:">
-                <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
+                    <p class="inp-firstStg">${checkNameEl} is NOT found. TRY AGAIN</p>
+                    <div class="flex-box">
+                        <input type="text" id="nameInp" class="inp-flex" placeholder="Navn:" style="flex-grow: 8">
+                        <button id="btnTestName" class="btn-flex" type="button" style="flex-grow: 1">Sjekk om pizzaen finnes</button>
+                    </div>
+                    `;
                 document.getElementById("btnTestName").onclick=checkNameToObj;
             }
             else {
-                editFormDiv.innerHTML =`<p>${checkNameEl} is  the same as ${pizzaObject.name}</p>
-                <button id="cont" type="button"> ${checkNameEl}</button>`;
+                editFormDiv.innerHTML =`
+                    <p class="inp-firstStg">${checkNameEl} finnes i menyen, legg inn endringer her:</p>
+                    <br><input type="number" id="idInp" placeholder="ID for pizza">
+                    <input type="text" id="nameInp" placeholder="Navn:">
+                    <br><input type="number" id="priceInp" placeholder="Pris:">
+                    <br><input type="number" id="profitInp" placeholder="Fortjeneste per pizza:">
+                    <br><input type="text" id="imgInp" placeholder="Bilde navn">
+                    <br><input type="text" id="allergiesInp" placeholder="Allergier">
+                    <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
+                document.getElementById("btnTestName").onclick=addToObj;
             }
         }
         else if(typeEdit == 2){
             if(!match) {
                 editFormDiv.innerHTML =`
-                <p>${checkNameEl} is NOT found. TRY AGAIN</p>
-                <input type="text" id="nameInp" placeholder="Navn:">
-                <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
+                    <p class="inp-firstStg">${checkNameEl} is NOT found. TRY AGAIN</p>
+                    <div class="flex-box">
+                        <input type="text" id="nameInp" class="inp-flex" placeholder="Navn:" style="flex-grow: 8">
+                        <button id="btnTestName" class="btn-flex" type="button">Sjekk om pizzaen finnes</button>
+                    </div>    
+                    `;
                 document.getElementById("btnTestName").onclick=checkNameToObj;
             }
             else {
-                editFormDiv.innerHTML =`<button id="cont" type="button"> ${checkNameEl}</button>`;
+                let nameOfObj = checkNameEl.value;
+                editFormDiv.innerHTML =`
+                <button id="cont" type="button" onclick="removeFromObj(${nameOfObj})">${checkNameEl} er funnet! Ønsker du å fjerne den?</button>`;
             }
         }
     }
@@ -146,17 +173,56 @@ checkIfNameFit();
 }
 
 function addToObj(){
-    let addIdToArrEl = document.getElementById("idInp").value;
+    let addIdToArrEl = pizzaMenu.arrayLength.value;
     let addNameToArrEl = document.getElementById("nameInp").value;
     let addPriceToArrEl = document.getElementById("priceInp").value;
     let addProfitToArrEl = document.getElementById("profitInp").value;
-    let addImgToArrEl = document.getElementById("imgInp").value;
+    let addImgToArrEl = "none.png";
     let addAllergieToArrEl = document.getElementById("allergiesInp").value;
 
+    console.log(pizzaMenu.arrayLength.value);
     let item = {
         id:addIdToArrEl, name:addNameToArrEl, price:addPriceToArrEl, profit:addProfitToArrEl, img:addImgToArrEl, allergies:addAllergieToArrEl
     }
     pizzaMenu.pizzaArray.push(item);
+
+    printMenuPizza();
+}
+
+window.removeFromObj = (b) =>{
+    pizzaMenu.getByNamePizza(b).forEach(pizzaObject => {
+        pizzaMenu.splice(pizzaObject, 1);
+    });
+
+    printMenuPizza();
+}
+
+document.getElementById(sizeStor).onclick=sizeS;
+document.getElementById(sizeMedium).onclick=sizeM;
+document.getElementById(sizeLiten).onclick=sizeL;
+let sizeTypeNr;
+function sizeS(){
+    let sizeTypeNr = 0;
+    editPrice();
+}
+function sizeM(){
+    let sizeTypeNr = 1;
+    editPrice();
+}
+function sizeL(){
+    let sizeTypeNr = 2;
+    editPrice();
+}
+function editPrice() {
+    if(sizeTypeNr == 0){
+
+    }
+    else if(sizeTypeNr == 1){
+
+    }
+    else if(sizeTypeNr == 2){
+        
+    }
 }
 /*<br><input type="number" id="idInp" placeholder="ID for pizza">
 
