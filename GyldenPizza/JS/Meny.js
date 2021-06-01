@@ -1,6 +1,6 @@
 import pizzaMenu from './modules/Inventory.js';
 
-/*Gets the three important*/
+//Gets the three important
 let menuPrintPizzaDiv = document.getElementById("print-menu-pizza");
 let menuPrintDrinkDiv = document.getElementById("print-menu-drinks");
 let editFormDiv = document.querySelector(".edit-form");
@@ -9,7 +9,8 @@ function printMenu(){
     printMenuPizza();
     printMenuDrinks();
 }
-/*Prints out all the pizzas*/
+
+//Prints out all the pizzas
 let printMenuPizza = () => {
     menuPrintPizzaDiv.innerHTML =``;
     pizzaMenu.getAllPizza().forEach(pizzaObject => {
@@ -34,6 +35,7 @@ let printMenuPizza = () => {
     });
 }
 
+//Prints out all the drinks
 let printMenuDrinks = () => {
     pizzaMenu.getAllDrinks().forEach(drinkObject => {
         menuPrintDrinkDiv.innerHTML +=
@@ -46,9 +48,10 @@ let printMenuDrinks = () => {
 }
 printMenu();
 
-
+//Type of edit
 let type;
 
+//Function for printing out the first part of adding a new item to the pizza menu
 document.getElementById("menu-edit-btn-add").onclick=add;
 function add() {
     type = 0;
@@ -62,7 +65,7 @@ function add() {
     document.getElementById("btnTestName").onclick=checkNameToObj;
 }
 
-
+//Function for printing out the first part of editing an item from the pizza menu
 document.getElementById("menu-edit-btn-edit").onclick=edit;
 function edit() {
     type = 1;
@@ -76,10 +79,10 @@ function edit() {
     document.getElementById("btnTestName").onclick=checkNameToObj;
 }
 
+//Function for printing out the first part of removing an item from the pizza menu
 document.getElementById("menu-edit-btn-remove").addEventListener("click", remove);
 function remove() {
     type = 2;
-    console.log("remove");
     editFormDiv.innerHTML =`
         <br><p class="inp-firstStg">Legg inn navn på pizzaen du ønsker å fjerne:</p><br>
         <div class="flex-box">
@@ -90,6 +93,9 @@ function remove() {
     document.getElementById("btnTestName").onclick=checkNameToObj;
 }
 
+/*Function that checks if the inputed name is in the pizza menu or not.
+With this information and the information on which type of edit the user wants to do,
+the fuction/system determins and prints out the appropriate stage*/
 function checkNameToObj() {
     let typeEdit = type;    
     let checkIfNameFit = () => {
@@ -99,9 +105,9 @@ function checkNameToObj() {
             match = true;
         });
 
-        /*The scenarios if the user chooses to add a new pizza*/
+        //The scenarios if the user chooses to add a new pizza
         if(typeEdit == 0){
-            /*Adds a form to the page so the user can add a new pizza to the menu*/
+            //Adds a form to the page so the user can add a new pizza to the menu
             if(!match) {
                 editFormDiv.innerHTML =`
                     <p class="inp-firstStg">${checkNameEl} er ikke i menyen, ønsker du fortsatt å legge til retten?</p>
@@ -113,7 +119,7 @@ function checkNameToObj() {
                     <button id="btnTestName" type="button">Se om endringer er mulig</button>`;
                 document.getElementById("btnTestName").onclick=addToObj;
             }
-            /*Tells the user that the pizza exists, and asks the user to try again*/
+            //Tells the user that the pizza exists, and asks the user to try again
             else {
                 editFormDiv.innerHTML =`
                     <p class="inp-firstStg">${checkNameEl} finnes allerede! Prøv et annet navn:</p>
@@ -125,9 +131,9 @@ function checkNameToObj() {
                 document.getElementById("btnTestName").onclick=checkNameToObj;
             }
         }        
-        /*The scenarios if the user chooses to edit a pizza*/
+        //The scenarios if the user chooses to edit a pizza
         else if(typeEdit == 1){
-            /*Gives error and asks user to type another pizza because the inputed pizza is found*/
+            //Gives error and asks user to type another pizza because the inputed pizza is found
             if(!match) {
                 editFormDiv.innerHTML =`
                     <p class="inp-firstStg">${checkNameEl} is NOT found. TRY AGAIN</p>
@@ -138,6 +144,7 @@ function checkNameToObj() {
                     `;
                 document.getElementById("btnTestName").onclick=checkNameToObj;
             }
+            //Prints a set of input fields so the user can edit the a pizza on the menu
             else {
                 editFormDiv.innerHTML =`
                     <p class="inp-firstStg">${checkNameEl} finnes i menyen, legg inn endringer her:</p>
@@ -151,7 +158,9 @@ function checkNameToObj() {
                 document.getElementById("btnTestName").onclick=addToObj;
             }
         }
+        //The scenarios if the user chooses to remove a pizza
         else if(typeEdit == 2){
+            //Gives error and asks user to type another pizza because the inputed pizza is found
             if(!match) {
                 editFormDiv.innerHTML =`
                     <p class="inp-firstStg">${checkNameEl} is NOT found. TRY AGAIN</p>
@@ -162,6 +171,7 @@ function checkNameToObj() {
                     `;
                 document.getElementById("btnTestName").onclick=checkNameToObj;
             }
+            //Confirmation button, sends the information to function "removeFromObj()"
             else {
                 let nameOfObj = checkNameEl.value;
                 editFormDiv.innerHTML =`
@@ -172,6 +182,7 @@ function checkNameToObj() {
 checkIfNameFit();
 }
 
+//Function for adding the inputted values from the users in to the menu
 function addToObj(){
     let addIdToArrEl = pizzaMenu.arrayLength.value;
     let addNameToArrEl = document.getElementById("nameInp").value;
@@ -180,7 +191,6 @@ function addToObj(){
     let addImgToArrEl = "none.png";
     let addAllergieToArrEl = document.getElementById("allergiesInp").value;
 
-    console.log(pizzaMenu.arrayLength.value);
     let item = {
         id:addIdToArrEl, name:addNameToArrEl, price:addPriceToArrEl, profit:addProfitToArrEl, img:addImgToArrEl, allergies:addAllergieToArrEl
     }
@@ -189,6 +199,7 @@ function addToObj(){
     printMenuPizza();
 }
 
+//Removes inputted pizza from the menu
 window.removeFromObj = (b) =>{
     pizzaMenu.getByNamePizza(b).forEach(pizzaObject => {
         pizzaMenu.splice(pizzaObject, 1);
@@ -200,7 +211,9 @@ window.removeFromObj = (b) =>{
 document.getElementById(sizeStor).onclick=sizeS;
 document.getElementById(sizeMedium).onclick=sizeM;
 document.getElementById(sizeLiten).onclick=sizeL;
+
 let sizeTypeNr;
+
 function sizeS(){
     let sizeTypeNr = 0;
     editPrice();
@@ -221,7 +234,7 @@ function editPrice() {
 
     }
     else if(sizeTypeNr == 2){
-        
+
     }
 }
 /*<br><input type="number" id="idInp" placeholder="ID for pizza">

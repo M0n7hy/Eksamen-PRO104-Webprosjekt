@@ -18,7 +18,7 @@ const pizzaMenu = (function() {
         { id: 0, name:"Coca-Cola", price:40, profit:20, img:"Cola-Logo.png"},
         { id: 1, name:"Fanta", price:40, profit:20, img:"Fanta-logo.png"},
         { id: 2, name:"Solo", price:40, profit:20, img:"Solo-logo.png"},
-        { id: 3, name:"Bebsi", price:40, profit:10, img:"Bebsi-logo.png"},
+        { id: 3, name:"Bebsi", price:40, profit:10, img:"Bebsi-logo.png"}
     ]
 
     //Getter for all the pizzas
