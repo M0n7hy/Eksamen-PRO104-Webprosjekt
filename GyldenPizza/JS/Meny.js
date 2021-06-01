@@ -215,15 +215,15 @@ document.getElementById(sizeLiten).onclick=sizeL;
 let sizeTypeNr;
 
 function sizeS(){
-    let sizeTypeNr = 0;
+    sizeTypeNr = 0;
     editPrice();
 }
 function sizeM(){
-    let sizeTypeNr = 1;
+    sizeTypeNr = 1;
     editPrice();
 }
 function sizeL(){
-    let sizeTypeNr = 2;
+    sizeTypeNr = 2;
     editPrice();
 }
 function editPrice() {
