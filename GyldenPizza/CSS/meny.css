@@ -146,3 +146,17 @@ p{
     flex-grow: 99;
     margin: 15px;
 }
+
+
+#priceSizeEdit{
+    position: absolute;
+    left: 4vw;
+    top: 5vh;
+}
+#price-edit-dropdown{
+    background-color: #181E45;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}

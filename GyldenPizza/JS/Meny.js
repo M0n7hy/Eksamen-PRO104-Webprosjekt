@@ -17,16 +17,11 @@ let printMenuPizza = () => {
         menuPrintPizzaDiv.innerHTML +=
             `<div id="element">
                 <h2>${pizzaObject.name}</h2>
-                <h3>${pizzaObject.price}kr</h3>
+                <h3 id="pizzaPrice">${pizzaObject.price}kr</h3>
                 <img id="pic-pizza" src="resources/images-pizza/${pizzaObject.img}">
                 <div class="sizeContainer">
                     <div class="size-dropdown">
                         <p class="sizeEl">Size</p>
-                        <div class="alternatives">
-                            <a id="sizeStor">Stor</a>
-                            <a id="sizeMedium">Medium</a>
-                            <a id="sizeLiten">Liten</a>
-                        </div>
                     </div>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -208,9 +203,11 @@ window.removeFromObj = (b) =>{
     printMenuPizza();
 }
 
-document.getElementById(sizeStor).onclick=sizeS;
-document.getElementById(sizeMedium).onclick=sizeM;
-document.getElementById(sizeLiten).onclick=sizeL;
+document.getElementById("price-edit-btn-large").onclick=sizeS;
+document.getElementById("price-edit-btn-medium").onclick=sizeM;
+document.getElementById("price-edit-btn-small").onclick=sizeL;
+let priceEl = document.getElementById("pizzaPrice");
+
 
 let sizeTypeNr;
 
@@ -228,13 +225,22 @@ function sizeL(){
 }
 function editPrice() {
     if(sizeTypeNr == 0){
-
+        pizzaMenu.getByPricePizza().forEach(pizzaObject => {
+            let priceL = (pizzaObject.price)*1.2;
+            priceEl.innerHTML = `${priceL}kr`;
+        });
     }
     else if(sizeTypeNr == 1){
-
+        pizzaMenu.getByPricePizza().forEach(pizzaObject => {
+            let priceM = pizzaObject.price;
+            priceEl.innerHTML = `${priceM}kr`;
+        });
     }
     else if(sizeTypeNr == 2){
-
+        pizzaMenu.getByPricePizza().forEach(pizzaObject => {
+            let priceS = (pizzaObject.price)*0.8;
+            priceEl.innerHTML = `${priceS}kr`;
+        });
     }
 }
 /*<br><input type="number" id="idInp" placeholder="ID for pizza">
