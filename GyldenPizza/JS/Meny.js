@@ -17,13 +17,9 @@ let printMenuPizza = () => {
         menuPrintPizzaDiv.innerHTML +=
             `<div id="element">
                 <h2>${pizzaObject.name}</h2>
-                <h3 id="pizzaPrice">${pizzaObject.price}kr</h3>
+                <h3 class="pizzaPrice" id="pizzaPrice">${pizzaObject.price}kr</h3>
                 <img id="pic-pizza" src="resources/images-pizza/${pizzaObject.img}">
-                <div class="sizeContainer">
-                    <div class="size-dropdown">
-                        <p class="sizeEl">Size</p>
-                    </div>
-                </div>
+                <p class="sizeEl" id="sizeEl">Size</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p class="test">Allergies: ${pizzaObject.allergies}</p>
             </div>`;
@@ -206,7 +202,7 @@ window.removeFromObj = (b) =>{
 document.getElementById("price-edit-btn-large").onclick=sizeS;
 document.getElementById("price-edit-btn-medium").onclick=sizeM;
 document.getElementById("price-edit-btn-small").onclick=sizeL;
-let priceEl = document.getElementById("pizzaPrice");
+
 
 
 let sizeTypeNr;
@@ -223,23 +219,39 @@ function sizeL(){
     sizeTypeNr = 2;
     editPrice();
 }
+let newPrice;
+//Function to edit price and size
 function editPrice() {
     if(sizeTypeNr == 0){
-        pizzaMenu.getByPricePizza().forEach(pizzaObject => {
-            let priceL = (pizzaObject.price)*1.2;
-            priceEl.innerHTML = `${priceL}kr`;
+        pizzaMenu.getAllPizza().forEach(pizzaObject => {
+            let priceEl = document.querySelectorAll("#pizzaPrice");
+            let sizeEdit = document.querySelectorAll("#sizeEl");
+
+            for (let i = 0; i <priceEl.length; i++){
+                newPrice = (priceEl[i].value);
+                priceEl[i].innerHTML = `${newPrice}kr`;
+                sizeEdit[i].innerHTML = `Stor`;
+            }
         });
     }
     else if(sizeTypeNr == 1){
-        pizzaMenu.getByPricePizza().forEach(pizzaObject => {
-            let priceM = pizzaObject.price;
-            priceEl.innerHTML = `${priceM}kr`;
+        pizzaMenu.getAllPizza().forEach(pizzaObject => {
+            let priceEl = document.querySelectorAll("#pizzaPrice");
+            let sizeEdit = document.querySelectorAll("#sizeEl");
+
+            for (let i = 0; i <priceEl.length; i++){
+                let priceM = pizzaObject.price;
+                priceEl[i].innerHTML = `${priceM}kr`;
+                sizeEdit[i].innerHTML = `Medium`;
+            }
         });
     }
     else if(sizeTypeNr == 2){
-        pizzaMenu.getByPricePizza().forEach(pizzaObject => {
+        pizzaMenu.getAllPizza().forEach(pizzaObject => {
+            console.log("123");
             let priceS = (pizzaObject.price)*0.8;
             priceEl.innerHTML = `${priceS}kr`;
+            sizeEdit.innerHTML = `Liten`;
         });
     }
 }

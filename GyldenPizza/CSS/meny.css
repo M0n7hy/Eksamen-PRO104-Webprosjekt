@@ -52,7 +52,7 @@ p{
     justify-content:center;
     width: 100%;
 }
-.sizeEl{
+#sizeEl{
     font-size: 150%;
     font-weight: 100%;
     margin: 0;
@@ -100,7 +100,7 @@ p{
 }
 
 .menu-edit{
-    position: absolute;
+    position: fixed;
     right: 4vw;
     top: 5vh;
 }
@@ -121,6 +121,8 @@ p{
     display: flex;
     flex-direction: column;
 }
+
+
 .inp-firstStg{
     font-size: 120%;
     font-weight: 100%;
@@ -134,6 +136,8 @@ p{
     font-size: 16px;
     border: none;
 }
+
+
 .flex-box{
     display: flex;
     align-items: stretch;
@@ -148,15 +152,41 @@ p{
 }
 
 
-#priceSizeEdit{
-    position: absolute;
-    left: 4vw;
+.priceSizeEdit{
+    position: fixed;
+    left: 5vw;
     top: 5vh;
 }
-#price-edit-dropdown{
+.price-edit-dropdown{
     background-color: #181E45;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
+}
+.price-edit-btn{
+    display: none;
+    position: absolute;
+    background-color: #f0f8ff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.menu-edit-btn div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.priceSizeEdit:hover .price-edit-dropdown {
+    background-color: #00020c;
+}
+
+.priceSizeEdit:hover .price-edit-btn{
+    display: block;
+}
+
+.price-edit-btn div:hover {
+    background-color: #bdd1e2;
 }
